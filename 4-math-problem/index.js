@@ -10,7 +10,7 @@ let firstPersonSpent = totalSpent / 31;
 let secondPersonSpent = firstPersonSpent * 5;
 let thirdPersonSpent = secondPersonSpent * 5;
 console.log(`${totalSpent}: ${firstPersonSpent}, ${secondPersonSpent}, ${thirdPersonSpent}`);
-totalSpent = 186; //
+totalSpent = 186;
 firstPersonSpent = totalSpent / 31;
 secondPersonSpent = firstPersonSpent * 5;
 thirdPersonSpent = secondPersonSpent * 5;
