@@ -1,0 +1,12 @@
+console.log('Days in July:', DAYS_IN_JULY);
+console.log('Hours in July:', DAYS_IN_JULY * 24);
+console.log('Minutes in July:', DAYS_IN_JULY * 24 * 60);
+console.log('Seconds in July:', DAYS_IN_JULY * 24 * 60 * 60);
+console.log('Days in April:', DAYS_IN_APRIL);
+console.log('Hours in April:', DAYS_IN_APRIL * 24);
+console.log('Minutes in April:', DAYS_IN_APRIL * 24 * 60);
+console.log('Seconds in April:', DAYS_IN_APRIL * 24 * 60 * 60);
+console.log('Days in Febuary:', DAYS_IN_FEBUARY);
+console.log('Hours in Febuary:', DAYS_IN_FEBUARY * 24);
+console.log('Minutes in Febuary:', DAYS_IN_FEBUARY * 24 * 60);
+console.log('Seconds in Febuary:', DAYS_IN_FEBUARY * 24 * 60 * 60);
