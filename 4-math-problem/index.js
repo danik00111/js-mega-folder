@@ -1,4 +1,4 @@
-// 3 people spent some money
+// 3 people spent some money on something
 // 1st spent x
 // 2nd spent 5x
 // 3rd spent 25x
