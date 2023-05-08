@@ -23,3 +23,6 @@ console.log(MY_EMAIL.length);
 console.log(NOT_AN_EMAIL.length);
 const LETTER = 'a';
 console.log(LETTER.length);
+const USER_NAME = 'Daniel';
+const PRICE = 19.99;
+console.log(`Thanks for using our e-shop, ${USER_NAME}. The price is $${PRICE}.`)
