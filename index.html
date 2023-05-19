@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>listing directory</title>
+</head>
+
+<body>
+  <a class="folder-name" href="./1-dz/">1-dz/</a>
+  <div class="folder">
+    <a href="./1-dz/confirm.html">confirm.html</a>
+    <a href="./1-dz/confirm.js">confirm.js</a>
+    <a href="./1-dz/index.html">index.html</a>
+    <a href="./1-dz/prompt.js">prompt.js</a>
+    <a href="./1-dz/var.js">var.js</a>
+  </div>
+  <a class="folder-name" href="./1-lightbulb/">1-lightbulb/</a>
+  <div class="folder">
+    <a href="./1-lightbulb/index.html">index.html</a>
+    <a href="./1-lightbulb/pic_bulboff.gif">pic_bulboff.gif</a>
+    <a href="./1-lightbulb/pic_bulbon.gif">pic_bulbon.gif</a>
+    <a href="./1-lightbulb/script.js">script.js</a>
+  </div>
+  <a class="folder-name" href="./2-math-and-typeof/">2-math-and-typeof/</a>
+  <div class="folder">
+    <a href="./2-math-and-typeof/index.js">index.js</a>
+  </div>
+  <a class="folder-name" href="./3-fahren/">3-fahren/</a>
+  <div class="folder">
+    <a href="./3-fahren/c-to-f.html">c-to-f.html</a>
+    <a href="./3-fahren/c-to-f.js">c-to-f.js</a>
+    <a href="./3-fahren/f-to-c.html">f-to-c.html</a>
+    <a href="./3-fahren/f-to-c.js">f-to-c.js</a>
+    <a href="./3-fahren/index.html">index.html</a>
+  </div>
+  <a class="folder-name" href="./3-float-and-floor/">3-float-and-floor/</a>
+  <div class="folder">
+    <a href="./3-float-and-floor/index.html">index.html</a>
+    <a href="./3-float-and-floor/script.js">script.js</a>
+  </div>
+  <a class="folder-name" href="./3-parse-float/">3-parse-float/</a>
+  <div class="folder">
+    <a href="./3-parse-float/index.html">index.html</a>
+    <a href="./3-parse-float/script.js">script.js</a>
+  </div>
+  <a class="folder-name" href="./3-sale/">3-sale/</a>
+  <div class="folder">
+    <a href="./3-sale/index.js">index.js</a>
+  </div>
+  <a class="folder-name" href="./4-dz/">4-dz/</a>
+  <div class="folder">
+    <a href="./4-dz/index.js">index.js</a>
+  </div>
+  <a class="folder-name" href="./4-math-problem/">4-math-problem/</a>
+  <div class="folder">
+    <a href="./4-math-problem/index.js">index.js</a>
+  </div>
+  <a class="folder-name" href="./4-prompt/">4-prompt/</a>
+  <div class="folder">
+    <a href="./4-prompt/index.html">index.html</a>
+    <a href="./4-prompt/script.js">script.js</a>
+  </div>
+  <a class="folder-name" href="./4-пирожки/">4-пирожки/</a>
+  <div class="folder">
+    <a href="./4-пирожки/index.js">index.js</a>
+  </div>
+  <a class="folder-name" href="./5-dz/">5-dz/</a>
+  <div class="folder">
+    <a href="./5-dz/index.js">index.js</a>
+  </div>
+  <a class="folder-name" href="./5-email/">5-email/</a>
+  <div class="folder">
+    <a href="./5-email/index.js">index.js</a>
+  </div>
+  <a class="folder-name" href="./5-ints-and-strings/">5-ints-and-strings/</a>
+  <div class="folder">
+    <a href="./5-ints-and-strings/index.js">index.js</a>
+  </div>
+  <a class="folder-name" href="./5-my-name-is/">5-my-name-is/</a>
+  <div class="folder">
+    <a href="./5-my-name-is/index.js">index.js</a>
+  </div>
+  <a class="folder-name" href="./5-pay/">5-pay/</a>
+  <div class="folder">
+    <a href="./5-pay/index.html">index.html</a>
+    <a href="./5-pay/script.js">script.js</a>
+  </div>
+  <a class="folder-name" href="./6-dz/">6-dz/</a>
+  <div class="folder">
+    <a href="./6-dz/index.html">index.html</a>
+    <a href="./6-dz/scr.js">scr.js</a>
+    <a href="./6-dz/style.css">style.css</a>
+  </div>
+  <a class="folder-name" href="./6-test-modal/">6-test-modal/</a>
+  <div class="folder">
+    <a href="./6-test-modal/index.html">index.html</a>
+    <a href="./6-test-modal/scr.js">scr.js</a>
+    <a href="./6-test-modal/style.css">style.css</a>
+  </div>
+  <a href="./index.html">index.html</a>
+</body>
+
+</html>
+<style>
+  .folder {
+    margin-left: 32px;
+  }
+
+  a:not(.folder-name) {
+    display: block;
+    color: cyan;
+    width: fit-content;
+    text-decoration: none;
+  }
+
+  a.folder-name {
+    text-decoration: none;
+    color: #2888e6;
+  }
+
+  .folder>a {
+    color: mediumaquamarine;
+  }
+
+  .folder>.folder>a {
+    color: lime;
+  }
+
+  .folder>.folder>.folder>a {
+    color: greenyellow;
+  }
+
+  .folder>.folder>.folder>.folder>a {
+    color: yellow;
+  }
+
+  .folder>.folder>.folder>.folder>.folder>a {
+    color: orange;
+  }
+
+  .folder>.folder>.folder>.folder>.folder>.folder>a {
+    color: orangered;
+  }
+
+  .folder>.folder>.folder>.folder>.folder>.folder>.folder>a {
+    color: red;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  body {
+    color: white;
+    background: black;
+    font-size: 32px;
+  }
+</style>
