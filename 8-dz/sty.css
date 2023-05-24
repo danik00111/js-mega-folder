@@ -1,0 +1,17 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:regular);
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+* {
+  font-family: 'Montserrat';
+  font-size: 16px;
+}
+input,
+input:hover {
+  border: 0;
+  outline: 0;
+  padding: 0;
+}
