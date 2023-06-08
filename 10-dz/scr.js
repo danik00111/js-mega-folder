@@ -1,22 +1,22 @@
 
 if (age < 3) {
-  divBaby;
+  divBaby.classList.add('anim');
 } else if (age < 10) {
-  divKid;
+  divKid.classList.add('anim');
 } else if (age < 18) {
-  divTeen;
+  divTeen.classList.add('anim');
 } else if (age < 30) {
-  divYoungadult;
+  divYoungadult.classList.add('anim');
 } else if (age < 50) {
-  divAdult;
+  divAdult.classList.add('anim');
 } else if (age < 100) {
-  divElderly;
+  divElderly.classList.add('anim');
 } else if (age < 200) {
-  divDead;
+  divDead.classList.add('anim');
 } else if (age < 500) {
-  divUfo;
+  divUfo.classList.add('anim');
 } else if (age > 500) {
-  divDino;
+  divDino.classList.add('anim');
 } else {
   location.href = "http://stackoverflow.com";
 }
