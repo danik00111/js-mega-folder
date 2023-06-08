@@ -1,5 +1,5 @@
 // just declaring consts for html elements
-// actual code starts at line 17
+// actual code starts at line 18
 
 let age;
 const MY_INPUT = document.querySelector('.input');
