@@ -1,22 +1,41 @@
+// just declaring consts for html elements
+// actual code starts at line h
 
-if (age < 3) {
-  divBaby.classList.add('anim');
-} else if (age < 10) {
-  divKid.classList.add('anim');
-} else if (age < 18) {
-  divTeen.classList.add('anim');
-} else if (age < 30) {
-  divYoungadult.classList.add('anim');
-} else if (age < 50) {
-  divAdult.classList.add('anim');
-} else if (age < 100) {
-  divElderly.classList.add('anim');
-} else if (age < 200) {
-  divDead.classList.add('anim');
-} else if (age < 500) {
-  divUfo.classList.add('anim');
-} else if (age > 500) {
-  divDino.classList.add('anim');
-} else {
-  location.href = "http://stackoverflow.com";
-}
+let age;
+const MY_INPUT = document.querySelector('.input');
+const MY_BUTTON = document.querySelector('.button');
+const IMG_BABY = document.querySelector('.baby');
+const IMG_KID = document.querySelector('.kic');
+const IMG_TEEN = document.querySelector('.teen');
+const IMG_YA = document.querySelector('.ya');
+const IMG_ADULT = document.querySelector('.adult');
+const IMG_ELDERLY = document.querySelector('.elderly');
+const IMG_DEAD = document.querySelector('.dead');
+const IMG_UFO = document.querySelector('.ufo');
+const IMG_DINO = document.querySelector('.dino');
+
+
+MY_BUTTON.addEventListener('click', () => {
+  age = MY_INPUT.value;
+  if (age < 3) {
+    IMG_BABY.classList.add('anim');
+  } else if (age < 12) {
+    IMG_KID.classList.add('anim');
+  } else if (age < 18) {
+    IMG_TEEN.classList.add('anim');
+  } else if (age < 28) {
+    IMG_YA.classList.add('anim');
+  } else if (age < 45) {
+    IMG_ADULT.classList.add('anim');
+  } else if (age < 90) {
+    IMG_ELDERLY.classList.add('anim');
+  } else if (age < 200) {
+    IMG_DEAD.classList.add('anim');
+  } else if (age < 500) {
+    IMG_UFO.classList.add('anim');
+  } else if (age > 500) {
+    IMG_DINO.classList.add('anim');
+  } else {
+    location.href = "https://youtu.be/5BZLz21ZS_Y";
+  }
+})
