@@ -15,3 +15,14 @@
   left: calc(50vw - 250px);
   transition: all 500ms cubic-bezier(.5,0,.5,1);
 }
+img.error {
+  width: 100vw;
+  height: 100vh;
+  transform: scale(0);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+img.error.anim {
+  transform: scale(1);
+}

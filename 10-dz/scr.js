@@ -40,6 +40,6 @@ MY_BUTTON.addEventListener('click', () => {
     IMG_ERROR.classList.add('anim');
     setTimeout(() => {
       location.href = "https://youtu.be/5BZLz21ZS_Y";
-    }, 1000);
+    }, 100);
   }
 })
