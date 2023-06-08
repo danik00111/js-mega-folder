@@ -13,6 +13,7 @@ const IMG_ELDER = document.querySelector('.elder');
 const IMG_DEAD = document.querySelector('.dead');
 const IMG_UFO = document.querySelector('.ufo');
 const IMG_DINO = document.querySelector('.dino');
+const IMG_ERROR = document.querySelector('.error');
 
 MY_BUTTON.addEventListener('click', () => {
   age = MY_INPUT.value;
@@ -36,6 +37,9 @@ MY_BUTTON.addEventListener('click', () => {
   } else if (age > 500) {
     IMG_DINO.classList.add('anim');
   } else {
-    location.href = "https://youtu.be/5BZLz21ZS_Y";
+    IMG_ERROR.classList.add('anim');
+    setTimeout(() => {
+      location.href = "https://youtu.be/5BZLz21ZS_Y";
+    }, 1000);
   }
 })
