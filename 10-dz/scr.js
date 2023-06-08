@@ -9,7 +9,7 @@ const IMG_KID = document.querySelector('.kic');
 const IMG_TEEN = document.querySelector('.teen');
 const IMG_YA = document.querySelector('.ya');
 const IMG_ADULT = document.querySelector('.adult');
-const IMG_ELDERLY = document.querySelector('.elderly');
+const IMG_ELDER = document.querySelector('.elder');
 const IMG_DEAD = document.querySelector('.dead');
 const IMG_UFO = document.querySelector('.ufo');
 const IMG_DINO = document.querySelector('.dino');
@@ -17,6 +17,7 @@ const IMG_DINO = document.querySelector('.dino');
 
 MY_BUTTON.addEventListener('click', () => {
   age = MY_INPUT.value;
+  document.querySelectorAll('.images>img').classList.remove('anim');
   if (age < 3) {
     IMG_BABY.classList.add('anim');
   } else if (age < 12) {
@@ -28,7 +29,7 @@ MY_BUTTON.addEventListener('click', () => {
   } else if (age < 45) {
     IMG_ADULT.classList.add('anim');
   } else if (age < 90) {
-    IMG_ELDERLY.classList.add('anim');
+    IMG_ELDER.classList.add('anim');
   } else if (age < 200) {
     IMG_DEAD.classList.add('anim');
   } else if (age < 500) {
