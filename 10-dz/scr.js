@@ -5,7 +5,7 @@ let age;
 const MY_INPUT = document.querySelector('.input');
 const MY_BUTTON = document.querySelector('.button');
 const IMG_BABY = document.querySelector('.baby');
-const IMG_KID = document.querySelector('.kic');
+const IMG_KID = document.querySelector('.kid');
 const IMG_TEEN = document.querySelector('.teen');
 const IMG_YA = document.querySelector('.ya');
 const IMG_ADULT = document.querySelector('.adult');
