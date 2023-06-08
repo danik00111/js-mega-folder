@@ -1,5 +1,5 @@
 // just declaring consts for html elements
-// actual code starts at line h
+// actual code starts at line 17
 
 let age;
 const MY_INPUT = document.querySelector('.input');
@@ -13,7 +13,6 @@ const IMG_ELDER = document.querySelector('.elder');
 const IMG_DEAD = document.querySelector('.dead');
 const IMG_UFO = document.querySelector('.ufo');
 const IMG_DINO = document.querySelector('.dino');
-
 
 MY_BUTTON.addEventListener('click', () => {
   age = MY_INPUT.value;
