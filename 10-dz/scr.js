@@ -1,45 +1,55 @@
-// just declaring consts for html elements
-// actual code starts at line 18
-
 let age;
-const MY_INPUT = document.querySelector('.input');
-const MY_BUTTON = document.querySelector('.button');
-const IMG_BABY = document.querySelector('.baby');
-const IMG_KID = document.querySelector('.kid');
-const IMG_TEEN = document.querySelector('.teen');
-const IMG_YA = document.querySelector('.ya');
-const IMG_ADULT = document.querySelector('.adult');
-const IMG_ELDER = document.querySelector('.elder');
-const IMG_DEAD = document.querySelector('.dead');
-const IMG_UFO = document.querySelector('.ufo');
-const IMG_DINO = document.querySelector('.dino');
-const IMG_ERROR = document.querySelector('.error');
+const MY_FORM = document.getElementById('form');
+const MY_INPUT = document.getElementById('input');
+const MY_BUTTON = document.getElementById('button');
+const IMG_BABY = document.querySelector('.images #baby');
+const IMG_KID = document.querySelector('.images #kid');
+const IMG_TEEN = document.querySelector('.images #teen');
+const IMG_YA = document.querySelector('.images #ya');
+const IMG_ADULT = document.querySelector('.images #adult');
+const IMG_ELDER = document.querySelector('.images #elder');
+const IMG_DEAD = document.querySelector('.images #dead');
+const IMG_UFO = document.querySelector('.images #ufo');
+const IMG_DINO = document.querySelector('.images #dino');
+const IMG_ERROR = document.getElementById('error');
 
-MY_BUTTON.addEventListener('click', () => {
-  age = MY_INPUT.value;
-  document.querySelectorAll('.images>img').classList.remove('anim');
-  if (age < 3) {
+MY_FORM.addEventListener('submit', (event) => {
+console.log('debug log');
+event.preventDefault(); // Prevent form submission
+age = parseInt(MY_INPUT.value);
+document.querySelectorAll('.images > img').forEach(img => img.classList.remove('anim'));
+switch (true) {
+  case (0 <= age && age < 3):
     IMG_BABY.classList.add('anim');
-  } else if (age < 12) {
+    break;
+  case (3 <= age && age < 12):
     IMG_KID.classList.add('anim');
-  } else if (age < 18) {
+    break;
+  case (12 <= age && age < 18):
     IMG_TEEN.classList.add('anim');
-  } else if (age < 28) {
+    break;
+  case (18 <= age && age < 45):
     IMG_YA.classList.add('anim');
-  } else if (age < 45) {
+    break;
+  case (45 <= age && age < 90):
     IMG_ADULT.classList.add('anim');
-  } else if (age < 90) {
+    break;
+  case (90 <= age && age < 200):
     IMG_ELDER.classList.add('anim');
-  } else if (age < 200) {
+    break;
+  case (200 <= age && age < 500):
     IMG_DEAD.classList.add('anim');
-  } else if (age < 500) {
+    break;
+  case (500 <= age && age < 1000):
     IMG_UFO.classList.add('anim');
-  } else if (age > 500) {
+    break;
+  case (age >= 1000):
     IMG_DINO.classList.add('anim');
-  } else {
+    break;
+  default:
     IMG_ERROR.classList.add('anim');
     setTimeout(() => {
       location.href = "https://youtu.be/5BZLz21ZS_Y";
     }, 100);
-  }
-})
+}
+});
