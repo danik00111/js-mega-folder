@@ -28,22 +28,22 @@ switch (true) {
   case (12 <= age && age < 18):
     IMG_TEEN.classList.add('anim');
     break;
-  case (18 <= age && age < 45):
+  case (18 <= age && age < 25):
     IMG_YA.classList.add('anim');
     break;
-  case (45 <= age && age < 90):
+  case (25 <= age && age < 50):
     IMG_ADULT.classList.add('anim');
     break;
-  case (90 <= age && age < 200):
+  case (50 <= age && age < 100):
     IMG_ELDER.classList.add('anim');
     break;
-  case (200 <= age && age < 500):
+  case (100 <= age && age < 200):
     IMG_DEAD.classList.add('anim');
     break;
-  case (500 <= age && age < 1000):
+  case (200 <= age && age < 500):
     IMG_UFO.classList.add('anim');
     break;
-  case (age >= 1000):
+  case (age >= 500):
     IMG_DINO.classList.add('anim');
     break;
   default:
