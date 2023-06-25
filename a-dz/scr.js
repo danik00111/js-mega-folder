@@ -17,7 +17,11 @@ const IMG_ERROR = document.getElementById('error');
 const doTheThing = () => {
   age = parseInt(MY_INPUT.value);
   document.querySelectorAll('.images > img').forEach(img => img.classList.remove('anim'));
-  switch (true) { // add anim to one of the images and redirect to a banger youtube video if its the error one
+  switch (true) { // add anim to one of the images
+    case (isNaN(age)): // covers the empty input
+      IMG_BABY.classList.add('anim');
+      ageType = 'zero';
+    break;
     case (0 <= age && age < 3):
       IMG_BABY.classList.add('anim');
       ageType = 'baby';
@@ -54,24 +58,12 @@ const doTheThing = () => {
       IMG_DINO.classList.add('anim');
       ageType = 'dino';
       break;
-    default:
-      IMG_ERROR.classList.add('anim');
-      ageType = 'error';
-      setTimeout(() => {
-        location.href = "https://youtu.be/5BZLz21ZS_Y";
-      }, 100);
+    // default:
+    //   IMG_ERROR.classList.add('anim');
+    //   ageType = 'what';
+    //   // setTimeout(() => {
+    //   //   location.href = "https://youtu.be/5BZLz21ZS_Y";
+    //   // }, 100);
   }
   console.log(age, ageType);
 }
-
-// stkvflw :)
-
-var observer = new MutationObserver(function(mutations) {
-  mutations.forEach(function(mutation) {
-    if (mutation.type === "attributes") {
-      doTheThing();
-    }
-  });
-});
-
-observer.observe(MY_INPUT,{attributes:true}); // configure it to listen to attribute changes

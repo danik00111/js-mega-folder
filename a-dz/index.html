@@ -12,11 +12,11 @@
 <body>
   <form id="form">
     Age:
-    <input type="number" id="input" min=0>
+    <input required type="number" min="0" id="input" oninput="doTheThing()" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))">
     <!-- <button type="submit" id="button">Confirm</button> -->
   </form>
   <div class=images>
-    <img src=./img/baby.jpg id=baby>
+    <img src=./img/baby.jpg id=baby class="anim">
     <img src=./img/kid.png id=kid>
     <img src=./img/teen.jpeg id=teen>
     <img src=./img/ya.jpg id=ya>
@@ -25,8 +25,8 @@
     <img src=./img/dead.jpeg id=dead>
     <img src=./img/ufo.jpg id=ufo>
     <img src=./img/dino.jpg id=dino>
+    <img src='https://placehold.co/500x500/fff/000?text=error: empty input' id=error>
   </div>
-  <img src=./img/error.png id=error>
   <script src="./scr.js"></script>
   <div style="text-align: right;">
     breakpoints:<br>
