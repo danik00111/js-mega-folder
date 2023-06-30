@@ -20,31 +20,31 @@ const doTheThing = () => {
   switch (true) { // add anim to one of the images
     case (isNaN(age)): // covers the empty input
       IMG_BABY.classList.add('anim');
-      ageType = 'zero';
+      ageType = '🍼';
     break;
     case (0 <= age && age < 3):
       IMG_BABY.classList.add('anim');
-      ageType = 'baby';
+      ageType = '👶';
       break;
     case (3 <= age && age < 12):
       IMG_KID.classList.add('anim');
-      ageType = 'kid';
+      ageType = '👦';
       break;
     case (12 <= age && age < 18):
       IMG_TEEN.classList.add('anim');
-      ageType = 'teen';
+      ageType = '🧑';
       break;
     case (18 <= age && age < 25):
       IMG_YA.classList.add('anim');
-      ageType = 'young adult';
+      ageType = '👱‍♂️';
       break;
     case (25 <= age && age < 50):
       IMG_ADULT.classList.add('anim');
-      ageType = 'adult';
+      ageType = '🧔‍♂️';
       break;
     case (50 <= age && age < 100):
       IMG_ELDER.classList.add('anim');
-      ageType = 'elder';
+      ageType = '🧓🏻';
       break;
     case (100 <= age && age < 200):
       IMG_DEAD.classList.add('anim');
@@ -56,7 +56,7 @@ const doTheThing = () => {
       break;
     case (age >= 500):
       IMG_DINO.classList.add('anim');
-      ageType = 'dino';
+      ageType = '🦖';
       break;
     // default:
     //   IMG_ERROR.classList.add('anim');
