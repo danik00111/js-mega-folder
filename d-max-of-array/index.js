@@ -1,4 +1,4 @@
-const biggestNumOfArray = (array) => {
+const maxOfArray = (array) => {
   if(Array.isArray(array)){
     let biggest = -Infinity;
     for(i=0;i<array.length;i++) {
@@ -22,14 +22,14 @@ let myBoolean = false;
 let myString = 'Hello World!'
 let haha = 69;
 
-console.log(biggestNumOfArray(myArray)); // 5938
-console.log(biggestNumOfArray(myNewArray)); // 269.64
-console.log(biggestNumOfArray(myBruhArray)); // NaN
-console.log(biggestNumOfArray(myObject)); // NaN
-console.log(biggestNumOfArray(myBoolean)); // NaN
-console.log(biggestNumOfArray(myString)); // NaN
-console.log(biggestNumOfArray(haha)); // NaN
-console.log(biggestNumOfArray(NaN)); // NaN
-console.log(biggestNumOfArray(undefined)); // NaN
-console.log(biggestNumOfArray()); // NaN
-// meanwhile Math.max(...myArray):
+console.log(maxOfArray(myArray)); // 5938
+console.log(maxOfArray(myNewArray)); // 269.64
+console.log(maxOfArray(myBruhArray)); // NaN
+console.log(maxOfArray(myObject)); // NaN
+console.log(maxOfArray(myBoolean)); // NaN
+console.log(maxOfArray(myString)); // NaN
+console.log(maxOfArray(haha)); // NaN
+console.log(maxOfArray(NaN)); // NaN
+console.log(maxOfArray(undefined)); // NaN
+console.log(maxOfArray()); // NaN
+// just use Math.max(...myArray):
