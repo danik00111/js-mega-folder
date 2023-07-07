@@ -1,14 +1,4 @@
-const maxOfArray = (array) => {
-  if(Array.isArray(array)){
-    let biggest = -Infinity;
-    for(i=0;i<array.length;i++) {
-      if(array[i] > biggest) {
-          biggest = array[i];
-      }
-    }
-    return typeof(biggest) === 'number' ? biggest : NaN;
-  } else { return NaN; }
-}
+import { maxOfArray } from "../snippets";
 
 let myArray = [2, -3, -2.3, 372, 5938, 7, -1, 3.245987645, 9, 0];
 let myNewArray = [undefined, 8, 74, 'Hello World!', undefined, -22, true, 269.64, NaN, 92];

@@ -1,8 +1,4 @@
-function randInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+import { randInt } from "../snippets";
 let month = randInt(1, 12);
 switch (month) {
   case 12:
