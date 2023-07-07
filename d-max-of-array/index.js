@@ -1,3 +1,4 @@
+"use strict";
 import { maxOfArray } from "../snippets";
 
 let myArray = [2, -3, -2.3, 372, 5938, 7, -1, 3.245987645, 9, 0];
@@ -22,4 +23,4 @@ console.log(maxOfArray(haha)); // NaN
 console.log(maxOfArray(NaN)); // NaN
 console.log(maxOfArray(undefined)); // NaN
 console.log(maxOfArray()); // NaN
-// just use Math.max(...myArray):
+// just use Math.max(...myArray)
