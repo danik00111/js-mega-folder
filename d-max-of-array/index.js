@@ -1,5 +1,4 @@
-"use strict";
-import { maxOfArray } from "../snippets";
+import { maxOfArray } from "../0-snippets";
 
 let myArray = [2, -3, -2.3, 372, 5938, 7, -1, 3.245987645, 9, 0];
 let myNewArray = [undefined, 8, 74, 'Hello World!', undefined, -22, true, 269.64, NaN, 92];
