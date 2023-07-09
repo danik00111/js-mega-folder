@@ -60,18 +60,6 @@
 // games.push('sims2');
 // games.splice(games.indexOf(tfYouDoingHere), 1, 'roblox');
 // console.log(games);
-const antiCase = (s) => {
-  if(typeof s !== 'string') {return undefined};
-  let newS = '';
-  for(let i=0;i<s.length;i++) {
-    newS += (/^[A-Z]*$/.test(s.charAt(i))) ? s.charAt(i).toLowerCase() : s.charAt(i).toUpperCase();
-  } //       ^^^^^^^^^^^^^^^^ регекс 🤯 ^ https://stackoverflow.com/a/40796345/
-  return newS;
-}
-
-console.log(antiCase('JavaScript'));
-console.log(antiCase('QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasfghjklzxcvbnm'));
-console.log(antiCase('123567890-=[]\'\\,./§!@#$%^&*()_+{}:"|<>?'));
 
 // let s = 'BrhUUo'
 // console.log(s.charAt(0))

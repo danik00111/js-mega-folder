@@ -32,9 +32,9 @@ const maxOfArray = (array) => {
     for (i = 0; i < array.length; i++) { // loop through all elements in the array
       if (array[i] > biggest) { /* check for the current element being the former biggest element,
       at the same time checking if its a number in the first place */
-        biggest = array[i];
+        biggest = array[i]; // set the former biggest to the current if it is
       }
-    } // set the former biggest to the current if it is
+    }
     return typeof (biggest) === 'number' ? biggest : NaN;
     /* return the biggest after iterating through all elements, or NaN if no good result */
   } else { return NaN; } // not an array
