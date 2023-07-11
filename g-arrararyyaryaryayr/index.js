@@ -55,10 +55,10 @@
 //   'brawl', 'genshin', 'minecraft', 'fortnite', 'Daniil Kremenskyi 🤬'
 // ]
 // const cringe = 'genshin';
-// const tfYouDoingHere = 'Daniil Kremenskyi 🤬';
+// const DaniilKremenskyi = 'Daniil Kremenskyi 🤬';
 // games.splice(games.indexOf(cringe), 1);
 // games.push('sims2');
-// games.splice(games.indexOf(tfYouDoingHere), 1, 'roblox');
+// games.splice(games.indexOf(DaniilKremenskyi), 1, 'roblox');
 // console.log(games);
 
 // let s = 'BrhUUo'
