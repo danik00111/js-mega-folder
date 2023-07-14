@@ -14,7 +14,7 @@ const FahrenheitToCelcuis = (f, b) => {
 }
 // from 3-fahren
 
-const isOdd = function (x) {
+const isOdd = (x) => {
   return x % 2;
 }
 // im bored
@@ -33,7 +33,7 @@ const maxOfArray = (array) => {
 }
 // from d-max-of-array
 
-function randInt(min, max) {
+const randInt = (min, max) => {
   min = Math.ceil(min); // we only focus on integers,
   max = Math.floor(max); // so round to integers, lower bound up, and upper bound down
   return Math.floor(Math.random() * (max - min + 1)) + min;
