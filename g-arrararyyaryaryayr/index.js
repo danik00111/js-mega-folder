@@ -61,15 +61,23 @@
 // games.splice(games.indexOf(DaniilKremenskyi), 1, 'roblox');
 // console.log(games);
 
-// let s = 'BrhUUo'
-// console.log(s.charAt(0))
-
-// if (typeof s === 'string') {
-//   let newS = '';
-//   console.log(newS);
-//   for (let i = 0; i < s.length; i++) {
-//     console.log(newS);
-//     newS = newS + (/^[A-Z]*$/.test(charAt(i))) ? s.charAt[i].toLowerCase() : s.charAt[i].toUpperCase();
-//   }
-//   console.log(newS);
-// } else { console.log(undefined) };
+let numbers = [12, 42, 59, 123, 77, 12, 999, 991, 42, 70, 111, 2043054, 7, 77, 203, 66, 253, 42];
+const arrayRemoveDupes = (r) => {
+  if(!Array.isArray(r)){return undefined;}
+  let newR = [];
+  let isDupe; // idk if putting a let in a for is safe
+  for(let i=0;i<r.length;i++) { // for each element
+    isDupe = false; // initiate it as being not a dupe
+    for(let j=0;j<newR.length;j++) { // for each element of newR
+      if(r[i] === newR[j]) { // compare current elem of r with current elem of newR
+        isDupe = true; // if it ever is, then mark the current element as dupe
+        break; // and break out of the for(j)
+      }
+    }
+    if(!isDupe) { newR.push(r[i]) }
+    // if the element isn't present in newR, add it.
+    // if it's a dupe, ignore it.
+  }
+  return newR; // return the result
+};
+console.log(arrayRemoveDupes(numbers));
