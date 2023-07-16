@@ -17,7 +17,6 @@ const FahrenheitToCelcuis = (f, b) => {
 const isOdd = (x) => {
   return x % 2;
 }
-// im bored
 
 const maxOfArray = (array) => {
   if (!Array.isArray(array)) return; // check for it being an array in the first place, return undef if not

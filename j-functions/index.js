@@ -1,14 +1,14 @@
-const AverageComma = () => {
-  let total = 0;
-  let myLength = 0;
-  for(let argument of arguments) {
-    if(typeof argument === 'number') {
-      total += argument;
-      myLength++;
-    }
-  }
-  return total / myLength;
-}
+// const AverageComma = () => {
+//   let total = 0;
+//   let myLength = 0;
+//   for(let argument of arguments) {
+//     if(typeof argument === 'number') {
+//       total += argument;
+//       myLength++;
+//     }
+//   }
+//   return total / myLength;
+// }
 const AverageArray = (r) => {
   if(!Array.isArray(r)) { return };
   let total = 0;
@@ -19,8 +19,11 @@ const AverageArray = (r) => {
       myLength++;
     }
   }
+  console.log(`${Math.floor(total / myLength)} + ${total % myLength}/${myLength}`);
   return total / myLength;
 }
 
-console.log(AverageComma(4, -Infinity, 7, 2, false, 'Hello World!', 7, 8));
-console.log(AverageArray([4, -Infinity, 7, 2, false, 'Hello World!', 7, 8]))
+// console.log(AverageComma( 4, -Infinity, 7, 2, false, 'Hello World!', 7, 8 ));
+console.log(AverageArray([4, -Infinity, 7, 2, false, 'Hello World!', 7, 8]));
+
+
