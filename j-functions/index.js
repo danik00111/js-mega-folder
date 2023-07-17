@@ -62,12 +62,12 @@ const toLetterGrade = (r) => {
     default:        return `${avg}... what.`;
   }
 }
-let arrayA = [100, 95, 100, 92, 86, 96, 85, 100];
-let arrayB = [88, 99, 96, 100, 85, 59, 80, 70];
-let arrayC = [80, 93, 82, 63, 42, 83, 83, 70];
-let arrayD = [70, 42, 69, 63, 67, 72, 63, 75];
-console.log(toLetterGrade(arrayA)); // 94 A
-console.log(toLetterGrade(arrayB)); // 85 B
-console.log(toLetterGrade(arrayC)); // 75 C
-console.log(toLetterGrade(arrayD)); // 65 D
+let gradesA = [100, 95, 100, 92, 86, 96, 85, 100];
+let gradesB = [88, 99, 96, 100, 85, 59, 80, 70];
+let gradesC = [80, 93, 82, 63, 42, 83, 83, 70];
+let gradesD = [70, 42, 69, 63, 67, 72, 63, 75];
+console.log(toLetterGrade(gradesA)); // 94 A
+console.log(toLetterGrade(gradesB)); // 85 B
+console.log(toLetterGrade(gradesC)); // 75 C
+console.log(toLetterGrade(gradesD)); // 65 D
 console.log(toLetterGrade([])); // NaN... what.
