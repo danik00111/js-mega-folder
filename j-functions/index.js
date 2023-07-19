@@ -35,7 +35,7 @@ const AverageOfArray = (r) => {
   let total = 0;
   let myLength = 0;
   for (let i = 0; i < r.length; i++) {
-    if (r[i] > -Infinity) { // check for number
+    if (!isNaN(r[i])) {
       total += r[i];
       myLength++;
     }
@@ -47,6 +47,7 @@ const toLetterGrade = (r) => {
   let avg = Math.round(AverageOfArray(r));
   if(!(typeof avg === 'number')) { return; }
   switch(true){
+    case avg > 100: return `${avg} HOW?!!!`;
     case avg >= 97: return `${avg} A+`;
     case avg >= 93: return `${avg} A`;
     case avg >= 90: return `${avg} A-`;
