@@ -21,7 +21,7 @@ const isOdd = (x) => {
 const maxOfArray = (array) => {
   if (!Array.isArray(array)) return; // check for it being an array in the first place, return undef if not
     let biggest = -Infinity; // initiating the former biggest value as something that can't beat anything
-    for (i = 0; i < array.length; i++) { // loop through all elements in the array
+    for (let i = 0; i < array.length; i++) { // loop through all elements in the array
       if (array[i] > biggest) { /* check for the current element being the former biggest element,
       at the same time checking if its a number in the first place */
         biggest = array[i]; // set the former biggest to the current if it is
