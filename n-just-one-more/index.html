@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Just One More Paradox</title>
+  <link rel="stylesheet" href="./sty.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic" rel="stylesheet" />
+</head>
+<body>
+  <h1 id="the-score"><span id="trailing">0</span><span id="score">100.0000</span></h1>
+  <button id="tailsflip">Tails!</button>
+  <button id="coinflip">Coinflip!</button>
+  <button id="headsflip">Heads!</button>
+  <p id="info">
+    You have a score, starting at, say, 100.<br>
+    Flip a coin <u>(it is a perfect 50/50 coin)</u>,<br>
+    if you get heads - your score is increased by 80%,<br>
+    tails - decreased by 50%. Sounds good, right?<br>
+    <br>
+    Right?<br>
+    <br>
+    You can also force an outcome, to see what happens<br>
+    after a certain amount of heads and tails.<br>
+    <br>
+    <br>
+    The reason why you get below 1, unable to climb back up, SO MUCH, is simple:<br>
+    <span style="background:black">One head (*1.8) and one tail (*0.5) together give *0.9,<br>so, on average, your score decreases,<br>even though you "get more from 1 head than lose from 1 tail".</span>
+  </p>
+  <p id="disclaimer">* score is rounded to 4 decimal places</p>
+  <script src="scr.js"></script>
+</body>
+</html>

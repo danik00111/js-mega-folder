@@ -1,0 +1,45 @@
+* {
+  font-family: "Montserrat";
+  text-align: center;
+}
+*:not(#trailing){
+  font-weight: 600;
+}
+#the-score {
+  margin-top: 1.5em;
+}
+#the-score * {
+  line-height: 0.1;
+  font-size: 5em;
+  font-family: monospace;
+}
+#trailing {
+  color: #a0a0a0;
+}
+#disclaimer {
+  font-size: 0.75em;
+  font-weight: 500;
+}
+.plus {
+  color: forestgreen;
+  transition: none;
+}
+.minus {
+  color: brown;
+  transition: none;
+}
+#tailsflip{
+  background: brown;
+}
+button {
+  outline: 0;
+  border: 1px black solid;
+  border-radius: 1em;
+  cursor:pointer;
+}
+#headsflip{
+  background: forestgreen;
+}
+
+@keyframes p{0%{color:forestgreen;}100%{color:black;}}
+@keyframes m{0%{color:brown;}100%{color:black;}}
