@@ -40,7 +40,7 @@ const toUserBasket = (i) => {
 const fromUserBasket = (i) => {
   if (i !== Math.floor(i) || i < 0) { console.log(`fromUserBasket invalid input "${i}"!`); return; }
   let indexToDelete = userBasket.findIndex(item => item.index === i);
-  if(indexToDelete === -1) { console.log(`Index ${i} not found in user basket!`); return; }
+  if(indexToDelete === -1) { console.log(`Item with index ${i} not found in user basket!`); return; }
   userBasket.splice(indexToDelete, 1);
   console.log(`Item "${shopStock[i].name}" removed from user basket!`)
   shopStock[i].stock++;
@@ -90,9 +90,9 @@ console.log('STOCK:', shopStock, '\nBASKET:', userBasket);
 //   { name: 'Hacks for Brawl Stars', price: 999.99, index: 3 },
 //   { name: 'Suspicious Red Spacesuit', price: 4254.99, index: 1 } <== HERE CHANGES
 // ]
-fromUserBasket(0); // Index 0 not found in user basket!
-fromUserBasket(4.1); // fromUserBasket invalic input "4.1"!
-fromUserBasket(-5); // fromUserBasket invalic input "-5"!
+fromUserBasket(0); // Item with index 0 not found in user basket!
+fromUserBasket(4.1); // fromUserBasket invalid input "4.1"!
+fromUserBasket(-5); // fromUserBasket invalid input "-5"!
 fromUserBasket(3);
 // Item "Hacks for Brawl Stars" removed from user basket!
 // Item "Hacks for Brawl Stars"'s stock variable increased by 1!
