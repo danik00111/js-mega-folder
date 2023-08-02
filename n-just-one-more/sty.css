@@ -20,18 +20,18 @@
   font-size: 0.75em;
   font-weight: 500;
 }
-.plus {
+.plus{
   color: forestgreen;
   transition: none;
 }
-.minus {
+.minus{
   color: brown;
   transition: none;
 }
 #tailsflip{
   background: brown;
 }
-button {
+button{
   outline: 0;
   border: 1px black solid;
   border-radius: 1em;
@@ -39,6 +39,13 @@ button {
 }
 #headsflip{
   background: forestgreen;
+}
+#spoiler {
+  background: black;
+  user-select: all;
+}
+#spoiler::selection, #spoiler ::selection {
+  background: white;
 }
 
 @keyframes p{0%{color:forestgreen;}100%{color:black;}}
