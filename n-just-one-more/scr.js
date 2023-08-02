@@ -4,7 +4,6 @@ const tbutton = document.getElementById('tailsflip');
 let score = document.getElementById('score').innerHTML;
 let zeros = '0';
 button.addEventListener("click", () => {
-  if (zeros !== true) { // nothing happens if you won
     document.getElementById('score').classList.remove('minus');
     document.getElementById('score').classList.remove('plus');
     if(Math.floor(Math.random()*(1-0+1))) {
@@ -22,20 +21,18 @@ button.addEventListener("click", () => {
       case score<100:zeros='00';break;
       case score<1000:zeros='0';break;
       case score<10000:zeros='';break;
-      case score>10000:zeros=true;break; // you won
+      case score>10000:zeros=true;break;
     }
     if(zeros === '0000') {
       document.getElementById('score').innerHTML = score.slice(1); // make all 0s greyed out
     } else if(zeros === true) {
-      document.getElementById('score').innerHTML = '10K!'; // you won
+      document.getElementById('score').innerHTML = '>10K!';
     } else {
       document.getElementById('score').innerHTML = score;
     }
     if (zeros !== true) { document.getElementById('trailing').innerHTML = zeros; }
-  }
 });
 hbutton.addEventListener("click", () => {
-  if (zeros !== true) { // nothing happens if you won
     document.getElementById('score').classList.remove('minus');
     document.getElementById('score').classList.remove('plus');
     score = (score * 1.8).toFixed(4);
@@ -47,20 +44,18 @@ hbutton.addEventListener("click", () => {
       case score<100:zeros='00';break;
       case score<1000:zeros='0';break;
       case score<10000:zeros='';break;
-      case score>10000:zeros=true;break; // you won
+      case score>10000:zeros=true;break;
     }
     if(zeros === '0000') {
       document.getElementById('score').innerHTML = score.slice(1); // make all 0s greyed out
     } else if(zeros === true) {
-      document.getElementById('score').innerHTML = '10K!'; // you won
+      document.getElementById('score').innerHTML = '>10K!';
     } else {
       document.getElementById('score').innerHTML = score;
     }
     if(zeros !== true) { document.getElementById('trailing').innerHTML = zeros; }
-  }
 });
 tbutton.addEventListener("click", () => {
-  if (zeros !== true) { // nothing happens if you won
     document.getElementById('score').classList.remove('minus');
     document.getElementById('score').classList.remove('plus');
     score = (score * 0.5).toFixed(4);
@@ -72,15 +67,14 @@ tbutton.addEventListener("click", () => {
       case score<100:zeros='00';break;
       case score<1000:zeros='0';break;
       case score<10000:zeros='';break;
-      case score>10000:zeros=true;break; // you won
+      case score>10000:zeros=true;break;
     }
     if(zeros === '0000') {
       document.getElementById('score').innerHTML = score.slice(1); // make all 0s greyed out
     } else if(zeros === true) {
-      document.getElementById('score').innerHTML = '10K!'; // you won
+      document.getElementById('score').innerHTML = '>10K!';
     } else {
       document.getElementById('score').innerHTML = score;
     }
     if (zeros !== true) { document.getElementById('trailing').innerHTML = zeros; }
-  }
 });
