@@ -18,8 +18,7 @@ let shopStock = [{
     'name': 'Backrooms Mango',
     'price': 7999.99,
     'stock': 0
-  }
-];
+}];
 
 let userBasket = [];
 
