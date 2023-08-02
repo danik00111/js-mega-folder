@@ -1,23 +1,23 @@
 let shopStock = [{
-    'name': 'Buckled Shoes',
-    'price': 49.99,
-    'stock': 62,
+    name: 'Buckled Shoes',
+    price: 49.99,
+    stock: 62,
   },{
-    'name': 'Suspicious Red Spacesuit',
-    'price': 4254.99,
-    'stock': 4,
+    name: 'Suspicious Red Spacesuit',
+    price: 4254.99,
+    stock: 4,
   },{
-    'name': '1000 vBucks for 10% off',
-    'price': 7.191, // official price: 7.99
-    'stock': 683, // 683 bulks of "1k vbucks"
+    name: '1000 vBucks for 10% off',
+    price: 7.191, // official price: 7.99
+    stock: 683, // 683 bulks of "1k vbucks"
   },{
-    'name': 'Hacks for Brawl Stars',
-    'price': 999.99,
-    'stock': 2,
+    name: 'Hacks for Brawl Stars',
+    price: 999.99,
+    stock: 2,
   },{
-    'name': 'Backrooms Mango',
-    'price': 7999.99,
-    'stock': 0
+    name: 'Backrooms Mango',
+    price: 7999.99,
+    stock: 0,
 }];
 
 let userBasket = [];
@@ -29,9 +29,9 @@ const toUserBasket = (i) => {
   if (i !== Math.floor(i) || i < 0 || i >= shopStock.length) { console.log(`toUserBasket invalid input "${i}"!`); return; }
   if(shopStock[i].stock < 1) { console.log(`Item "${shopStock[i].name}" is out of stock!`); return; }
   userBasket.push({
-    'name': shopStock[i].name,
-    'price': shopStock[i].price,
-    'index': i
+    name: shopStock[i].name,
+    price: shopStock[i].price,
+    index: i,
   });
   console.log(`Item "${shopStock[i].name}" moved to user basket!`)
   shopStock[i].stock--;
