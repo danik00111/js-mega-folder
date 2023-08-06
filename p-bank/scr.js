@@ -28,7 +28,6 @@ let bankAccount = {
     bankH.innerHTML = this.Balance; // update bank amount visible in html
     pockH.innerHTML = parseInt(pockH.innerHTML) + withamt;
     // update pocket amount visible in html
-    return withamt;
   },
   Deposit: function() {
     depoamt = parseInt(depoI.value);
@@ -50,7 +49,6 @@ let bankAccount = {
     bankH.innerHTML = this.Balance; // update bank amount visible in html
     pockH.innerHTML = parseInt(pockH.innerHTML) - depoamt;
     // update pocket amount visible in html
-    return depoamt;
   },
 }
 bankH.innerHTML = bankAccount.Balance; // init bank amount visible in html
