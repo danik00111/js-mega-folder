@@ -1,6 +1,46 @@
-.balance {
-  margin-top: 1.5em;
-  line-height: 0.1;
-  font-size: 5em;
+*:not(input) {
+  text-align:center;
   font-family: monospace;
+}
+#withInp {
+  text-align: right;
+}
+#depoInp {
+  text-align: left;
+}
+.balance {
+  font-size: 10em;
+}
+.pock {
+  color: forestgreen;
+}
+.bank {
+  color: goldenrod;
+}
+.errorshake {
+  animation: errorshake 0.5s;
+}
+@keyframes errorshake {
+  0%    { transform: translateX(0);}
+  12.5% { transform: translateX(0.5em);}
+  25%   { transform: translateX(0);}
+  37.5% { transform: translateX(-0.5em);}
+  50%   { transform: translateX(0);}
+  62.5% { transform: translateX(0.5em);}
+  75%   { transform: translateX(0);}
+  87.5% { transform: translateX(-0.5em);}
+  100%  { transform: translateX(0);}
+}
+
+
+/* https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
