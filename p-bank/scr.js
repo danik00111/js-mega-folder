@@ -50,7 +50,7 @@ let bankAccount = {
     bankH.innerHTML = this.Balance; // update bank amount visible in html
     pockH.innerHTML = parseInt(pockH.innerHTML) - depoamt;
     // update pocket amount visible in html
-    return withamt;
+    return depoamt;
   },
 }
 bankH.innerHTML = bankAccount.Balance; // init bank amount visible in html
