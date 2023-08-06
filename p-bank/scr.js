@@ -54,12 +54,12 @@ let bankAccount = {
 bankH.innerHTML = bankAccount.Balance; // init bank amount visible in html
 
 withI.addEventListener("keyup", function (event) { // when key
-    event.preventDefault(); // just in case
-    if (event.keyCode === 13) { // if key enter
-      bankAccount.Withdraw(); // do it
+  event.preventDefault(); // just in case
+  if (event.keyCode === 13) { // if key enter
+    bankAccount.Withdraw(); // do it
 }});
 depoI.addEventListener("keyup", function (event) { // when key
-    event.preventDefault(); // just in case
-    if (event.keyCode === 13) { // if key enter
-      bankAccount.Deposit(); // do it
+  event.preventDefault(); // just in case
+  if (event.keyCode === 13) { // if key enter
+    bankAccount.Deposit(); // do it
 }});
