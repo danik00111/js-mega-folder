@@ -3,6 +3,7 @@ const bankH = document.querySelector('.bank');
 const withI = document.querySelector('#withInp');
 const depoI = document.querySelector('#depoInp');
 let withamt;
+let depoamt;
 let bankAccount = {
   ownerName: 'MorraMay',
   accountID: 0x4ba957c20,
