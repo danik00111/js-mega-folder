@@ -5,24 +5,23 @@
   <meta name=viewport content='width=device-width, initial-scale=1.0'>
   <title>Bank</title>
   <link rel=stylesheet href=sty.css>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
   <div class="balance pock">1500</div>
-
-  <button id=depo name=depo disabled>Depo ⇓</button>
-  <input type=number name=depo disabled
+  <span>⬇︎ With</span>
+  <input type=number name=depo
   id=depoInp for=depo pattern="[0-9]{10}">
-
   <br><br>
-
   <input type=number name=with
   id=withInp for=with pattern="[0-9]{10}">
-  <button id=with name=with>With ⇑</button>
-
+  <span>Depo ⬆︎</span>
   <div class="balance bank"></div>
   * There are parseInt()s all over the code,
-  so it only works with integers.
+  so it only works with integers.<br>
+  That's intentional, as it may break
+  due to rounding errors.<br>
+  ** Something was wrong with buttons,
+  so this only worls with ENTERing in the input.
   <script src=scr.js></script>
 </body>
 </html>
