@@ -1,0 +1,12 @@
+* {
+  font-family: "Menlo Regular";
+  font-size: 0.95rem;
+}
+hl {
+  color: red;
+}
+p {
+  text-align: center;
+  font-size: 5em;
+  color: steelblue;
+}

@@ -40,12 +40,15 @@ button{
 #headsflip{
   background: forestgreen;
 }
-#spoiler {
-  background: black;
+spoiler {
+  background-color: black;
+  color: #00000000;
   user-select: all;
 }
-#spoiler::selection, #spoiler ::selection {
-  background: white;
+
+spoiler::selection, spoiler ::selection {
+  background-color: lightgray;
+  color: black;
 }
 
 @keyframes p{0%{color:forestgreen;}100%{color:black;}}

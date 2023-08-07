@@ -5,9 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="./sty.css">
+  <link href="https://db.onlinewebfonts.com/c/9f94dc20bb2a09c15241d3a880b7ad01?family=Menlo+Regular" rel="stylesheet">
 </head>
 <body>
-  
+  <div class="codeblock">
+    let weather = {<br>
+    <hl>&nbsp;&nbsp;Temperature: 24</hl>, // °C<br>
+    &nbsp;&nbsp;Humidity: 0.75, // 0 = 0%, 1 = 100%<br>
+    &nbsp;&nbsp;Wind: {<br>
+    &nbsp;&nbsp;Speed: 0.4, // m/s<br>
+    &nbsp;&nbsp;Direction: 0.3563, // 0 = north, 0.25 = east, 0.5 = south, 0.75 = west<br>
+    &nbsp;&nbsp;},<br>
+    <hl>
+      &nbsp;&nbsp;isFreezing() {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;return this.Temperature &lt; 0;<br>
+      &nbsp;&nbsp;}</hl>,<br>
+    }<br>
+    <hl>document.querySelector('.js-output').innerHTML = weather.isFreezing();</hl>
+  </div>
+  <p class="js-output"></p>
+  <div class="codeblock">
+    let anotherWeather = {<br>
+    <hl>&nbsp;&nbsp;Temperature: -2</hl>, // °C<br>
+    &nbsp;&nbsp;Humidity: 0.64, // 0 = 0%, 1 = 100%<br>
+    &nbsp;&nbsp;Wind: {<br>
+    &nbsp;&nbsp;Speed: 3.4, // m/s<br>
+    &nbsp;&nbsp;Direction: 0.9352, // 0 = north, 0.25 = east, 0.5 = south, 0.75 = west<br>
+    &nbsp;&nbsp;},<br>
+    <hl>
+      &nbsp;&nbsp;isFreezing() {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;return this.Temperature &lt; 0;<br>
+      &nbsp;&nbsp;}</hl>,<br>
+    }<br>
+    <hl>document.querySelector('.other-js-output').innerHTML = weather.isFreezing();</hl>
+  </div>
+  <p class="other-js-output"></p>
   <script src="./scr.js"></script>
 </body>
 </html>
