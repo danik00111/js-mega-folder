@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <h1 style=text-align:center;>listing directory</h1>
+  <h1>listing directory</h1>
   <div class="folders">
     <a class="folder-name" href="./1-dz/">1-dz/</a>
     <div class="folder">
@@ -231,6 +231,7 @@
       </div>
     </div>
   </div>
+  <span>* sorted in the same order as seen in vscode (alphabetically, folders first)</span>
 </body>
 
 </html>
@@ -246,6 +247,14 @@
   h1{
     font-size: 9vw;
     font-family: "Menlo Bold";
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  span {
+    font-size: 1vw;
+    width: 100vw;
+
   }
 
   .folders {
@@ -254,7 +263,7 @@
   }
 
   .folder {
-    margin-left: 32px;
+    margin-left: 1.205em;
   }
 
   a:not(.folder-name) {
