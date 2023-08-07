@@ -6,14 +6,14 @@ let user = {
     return (pas===this.Password && eml===this.Email);
   }
 }
-
+let outputspan = document.querySelector('.output');
 document.querySelector('#butter').addEventListener('click', () => {
   let inputpas = document.querySelector('#password').value;
   let inputeml = document.querySelector('#email').value;
-  document.querySelector('.output').innerHTML = user.Check(inputpas, inputeml);
-  document.querySelector('.output').classList.remove('right');
-  document.querySelector('.output').classList.remove('nulle');
+  outputspan.innerHTML = user.Check(inputpas, inputeml);
+  outputspan.classList.remove('right');
+  outputspan.classList.remove('nulle');
   if(user.Check(inputpas, inputeml)) {
-    document.querySelector('.output').classList.add('right');
+    outputspan.classList.add('right');
   }
 });
