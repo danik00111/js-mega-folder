@@ -25,12 +25,13 @@ let movies = [{
 }]
 
 for(let i=0;i<movies.length;i++) { // loop thorugh all movies objects
-  document.querySelector(`.movie:nth-child(${i+1}) .banner`).src = movies[i].BannerPath;
-  document.querySelector(`.movie:nth-child(${i+1}) .title`).innerHTML = movies[i].Title;
-  document.querySelector(`.movie:nth-child(${i+1}) .director`).innerHTML = movies[i].Director.Name;
-  document.querySelector(`.movie:nth-child(${i+1}) .director`).href = movies[i].Director.WikiLink;
-  document.querySelector(`.movie:nth-child(${i+1}) .year`).innerHTML = movies[i].Year;
-  document.querySelector(`.movie:nth-child(${i+1}) .percend`).innerHTML = Math.round((movies[i].Rating) * 100);
-  document.querySelector(`.movie:nth-child(${i+1}) .rating`).classList.add((movies[i].FreshnessCheck()) ? 'fresh' : 'rotten');
-  document.querySelector(`.movie:nth-child(${i+1}) .tomatometer`).src = `./img/tomatometer-${(movies[i].FreshnessCheck()) ? 'fresh' : 'rotten'}.svg`;
+  let currentMovie = document.querySelector(`.movie:nth-child(${i+1})`);
+  currentMovie.querySelector('.banner').src = movies[i].BannerPath;
+  currentMovie.querySelector('.title').innerHTML = movies[i].Title;
+  currentMovie.querySelector('.director').innerHTML = movies[i].Director.Name;
+  currentMovie.querySelector('.director').href = movies[i].Director.WikiLink;
+  currentMovie.querySelector('.year').innerHTML = movies[i].Year;
+  currentMovie.querySelector('.percend').innerHTML = Math.round((movies[i].Rating) * 100);
+  currentMovie.querySelector('.rating').classList.add((movies[i].FreshnessCheck()) ? 'fresh' : 'rotten');
+  currentMovie.querySelector('.tomatometer').src = `./img/tomatometer-${(movies[i].FreshnessCheck()) ? 'fresh' : 'rotten'}.svg`;
 }
