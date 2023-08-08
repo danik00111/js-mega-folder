@@ -62,9 +62,16 @@ body {
 }
 
 .director {
-  color: #69c982;
+  color: hsl(180, 50%, 50%);
+  text-decoration: none;
   font-size: 1.4rem;
   font-weight: bold;
+}
+.director:hover {
+  text-decoration: underline;
+}
+.director:visited {
+  color: hsl(240, 50%, 50%);
 }
 
 .rating {
