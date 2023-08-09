@@ -37,6 +37,7 @@
       <a href="./weather/sty.css">sty.css</a>
     </div>
     <a href="./index.html">index.html</a>
+    <a href="../" parent-folder>../</a>
   </div>
   <div class="spaen">* sorted in the same order as seen in vscode (alphabetically, folders first)</div>
 </body>
@@ -71,20 +72,24 @@
     margin: 1em auto;
   }
 
+  [parent-folder] {
+    margin-left: -1.205em;
+    color: mediumvioletred;
+  }
   .folder {
     margin-left: 1.205em;
   }
 
   a:not(.folder-name) {
     display: block;
-    color: cyan;
+    color: darkorchid;
     width: fit-content;
     text-decoration: none;
   }
 
   a.folder-name {
     text-decoration: none;
-    color: #2888e6;
+    color: dodgerblue;
   }
 
   .folder a {

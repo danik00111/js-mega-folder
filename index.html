@@ -243,6 +243,7 @@
       <a href="./p-dz/index.html">index.html</a>
     </div>
     <a href="./index.html">index.html</a>
+        <a href="../" parent-folder>../</a>
   </div>
   <div class="spaen">* sorted in the same order as seen in vscode (alphabetically, folders first)</div>
 </body>
@@ -281,16 +282,21 @@
     margin-left: 1.205em;
   }
 
+  [parent-folder] {
+    margin-left: -1.205em;
+    color: mediumvioletred;
+  }
+
   a:not(.folder-name) {
     display: block;
-    color: cyan;
+    color: darkorchid;
     width: fit-content;
     text-decoration: none;
   }
 
   a.folder-name {
     text-decoration: none;
-    color: #2888e6;
+    color: dodgerblue;
   }
 
   .folder a {
