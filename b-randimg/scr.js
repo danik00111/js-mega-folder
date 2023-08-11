@@ -18,7 +18,6 @@ const IMG_ELDER = document.querySelector('.images #elder');
 const IMG_DEAD = document.querySelector('.images #dead');
 const IMG_UFO = document.querySelector('.images #ufo');
 const IMG_DINO = document.querySelector('.images #dino');
-const IMG_ERROR = document.getElementById('error');
 
 MY_BUTTON_NEXT.addEventListener('click', () => {
   document.querySelectorAll('.images > img').forEach(img => img.classList.remove('anim'));
