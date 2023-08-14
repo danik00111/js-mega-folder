@@ -30,7 +30,7 @@ const maxOfArray = (array) => {
     return typeof (biggest) === 'number' ? biggest : NaN;
     /* return the biggest after iterating through all elements, or NaN if no good result */
 }
-// from d-max-of-array
+// from d-max-array
 
 const randInt = (min, max) => {
   min = Math.ceil(min); // we only focus on integers,

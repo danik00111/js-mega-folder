@@ -1,4 +1,4 @@
-import { randInt } from "../snippets";
+import { randInt } from "../0-snippets/index.js";
 let month = randInt(1, 12);
 switch (month) {
   case 12:
