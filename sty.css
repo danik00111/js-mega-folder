@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Menlo Regular", monospace;
+  color: white;
+  background: black;
+  font-size: 3vw;
+}
+h1 {
+  font-size: 9vw;
+  font-family: "Menlo Bold", monospace;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 auto;
+}
+.spaen {
+  font-size: 1vw;
+  display: inline-block;
+  text-align: center;
+}
+.folders {
+  width: fit-content;
+  margin: 1em auto;
+}
+[parent-folder] {
+  margin-left: -1.205em;
+  color: mediumvioletred !important;
+}
+.folder {
+  margin-left: 1.205em;
+}
+a:not(.folder-name) {
+  display: block;
+  color: darkorchid;
+  width: fit-content;
+  text-decoration: none;
+}
+a.folder-name {
+  text-decoration: none;
+  color: dodgerblue;
+}
+.folder a {
+  color: mediumaquamarine;
+}
+.folder .folder a {
+  color: lime;
+}
+.folder .folder .folder a {
+  color: greenyellow;
+}
+.folder .folder .folder .folder a {
+  color: yellow;
+}
+.folder .folder .folder .folder .folder a {
+  color: orange;
+}
+.folder .folder .folder .folder .folder .folder a {
+  color: orangered;
+}
+.folder .folder .folder .folder .folder .folder .folder a {
+  color: red;
+}
+a:hover {
+  text-decoration: underline;
+}

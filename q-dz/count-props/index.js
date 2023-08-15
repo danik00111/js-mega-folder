@@ -1,4 +1,5 @@
 const countProps = (obj) => (obj === Object(obj)) ? Object.keys(obj).length : undefined;
+
 let objert = {
   Temperature: 24,
   Humidity: .75,
@@ -10,7 +11,6 @@ let objert = {
     return this.Temperature < 0;
   },
 }
-
 
 console.log(countProps({})); // 0
 console.log(Object.keys(objert)); // [ 'temp', 'humi', 'wind', 'isFr' ]
