@@ -32,5 +32,5 @@ const getAllValues = (arr,key) => {
 
 const calcTotalPrice = (arr,prod) => arr.find(x => x.name === prod).price * arr.find(x => x.name === prod).stock;
 
-console.log(getAllValues(shopStock,'name'));
-console.log(calcTotalPrice(shopStock,'Buckled Shoes'));
+console.log(getAllValues(shopStock,'name')); // ['bsh','susp','vbx','hxb','brm']
+console.log(calcTotalPrice(shopStock,'Buckled Shoes')); // 3099.38

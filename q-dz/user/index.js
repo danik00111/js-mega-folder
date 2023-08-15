@@ -22,3 +22,8 @@ for(key of Object.keys(user)) {
     console.log(`${key}: ${user[key]},`);
   }
 }
+/*
+  hobby: skydiving,
+  premium: false,
+  mood: happy
+*/

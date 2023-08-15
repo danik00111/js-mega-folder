@@ -8,4 +8,4 @@ let employees = {
   Poly: 5
 }
 
-console.log(findBestEmployee(employees));
+console.log(findBestEmployee(employees)); // Kiwi
