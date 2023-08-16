@@ -50,4 +50,4 @@ const calcCategoryPrice = (arr,cate) => {
 
 console.log(getAllValues(shopStock,'name')); // ['bsh','susp','vbx','hxb','brm','prh']
 console.log(calcTotalPrice(shopStock,'Buckled Shoes')); // 3099.38
-console.log(calcCategoryPrice(shopStock,'edible')); // 69350.58
+console.log(calcCategoryPrice(shopStock,'clothes')); // 20199.34
