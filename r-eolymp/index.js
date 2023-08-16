@@ -48,10 +48,10 @@ process.stdin.on("data", data => {
         console.log(0); break;
     }
     case (distanceCenters <= e[5]): // center of c1 ON c2
-      console.log((e[2] === 0) ? 1 : 2); // 2 intersetion points, unless if radius of c1 is 0 then uhhhhhhhh ∞? idek
+      console.log((e[2] === 0) ? 1 : 2); // 2 intersetion points, unless if radius of c1 is 0 then uhhhhhhhh 1 ig
     break;
     case (distanceCenters <= e[2]): // center of c2 ON c1
-      console.log((e[5] === 0) ? 1 : 2); // 2 intersetion points, unless if radius of c2 is 0 then uhhhhhhhh ∞? idek
+      console.log((e[5] === 0) ? 1 : 2); // 2 intersetion points, unless if radius of c2 is 0 then uhhhhhhhh 1 ig
     break;
     default:
       console.log('Something unexpected happened.');
