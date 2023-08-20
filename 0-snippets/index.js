@@ -71,6 +71,7 @@ const arrayRemoveDupes = (r) => {
 };
 
 const decimalToRoman = (num) => {
+  if(num >= 4000) return '>=4K!';
   let output = '';
   switch (true) {
     case (Math.floor(num) >= 3000): output += 'MMM'; break;
@@ -114,6 +115,7 @@ const decimalToRoman = (num) => {
 }
 
 const romanToDecimal = (r) => {
+  if(r.startsWith('MMMM')) return '>=4K!';
   let rom = r;
   let output = 0;
   switch(true) {
