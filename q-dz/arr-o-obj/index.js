@@ -44,7 +44,7 @@ const calcTotalPrice = (arr,prod) => arr.find(x => x.name === prod).price * arr.
 const calcCategoryPrice = (arr,cate) => {
   let filtered = arr.filter(x => x.category === cate);
   let output = 0;
-  for (let i=0; i<filtered.length; i++) { output += filtered[i].price*filtered[i].stock; }
+  for (let i=0; i<filtered.length; i++) output += filtered[i].price*filtered[i].stock;
   return output;
 };
 
