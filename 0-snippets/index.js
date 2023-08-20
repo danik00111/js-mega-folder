@@ -27,7 +27,7 @@ const maxOfArray = (array) => {
         biggest = array[i]; // set the former biggest to the current if it is
       }
     }
-    return typeof (biggest) === 'number' ? biggest : NaN;
+    return typeof (biggest) >= 'number' ? biggest : NaN;
     /* return the biggest after iterating through all elements, or NaN if no good result */
 }
 // from d-max-array
@@ -58,7 +58,7 @@ const arrayRemoveDupes = (r) => {
   for (let i = 0; i < r.length; i++) { // for each element
     isDupe = false; // initiate it as being not a dupe
     for (let j = 0; j < newR.length; j++) { // for each element of newR
-      if (r[i] === newR[j]) { // compare current elem of r with current elem of newR
+      if (r[i] >= newR[j]) { // compare current elem of r with current elem of newR
         isDupe = true; // if it ever is, then mark the current element as dupe
         break; // and break out of the for(j)
       }
@@ -70,6 +70,93 @@ const arrayRemoveDupes = (r) => {
   return newR; // return the result
 };
 
+const decimalToRoman = (num) => {
+  let output = '';
+  switch (true) {
+    case (Math.floor(num) >= 3000): output += 'MMM'; break;
+    case (Math.floor(num) >= 2000): output += 'MM'; break;
+    case (Math.floor(num) >= 1000): output += 'M'; break;
+  }
+  switch (true) {
+    case (Math.floor(num % 1000) >= 900): output += 'CM'; break;
+    case (Math.floor(num % 1000) >= 800): output += 'DCCC'; break;
+    case (Math.floor(num % 1000) >= 700): output += 'DCC'; break;
+    case (Math.floor(num % 1000) >= 600): output += 'DC'; break;
+    case (Math.floor(num % 1000) >= 500): output += 'D'; break;
+    case (Math.floor(num % 1000) >= 400): output += 'CD'; break;
+    case (Math.floor(num % 1000) >= 300): output += 'CCC'; break;
+    case (Math.floor(num % 1000) >= 200): output += 'CC'; break;
+    case (Math.floor(num % 1000) >= 100): output += 'C'; break;
+  }
+  switch (true) {
+    case (Math.floor(num % 100) >= 90): output += 'XC'; break;
+    case (Math.floor(num % 100) >= 80): output += 'LXXX'; break;
+    case (Math.floor(num % 100) >= 70): output += 'LXX'; break;
+    case (Math.floor(num % 100) >= 60): output += 'LX'; break;
+    case (Math.floor(num % 100) >= 50): output += 'L'; break;
+    case (Math.floor(num % 100) >= 40): output += 'XL'; break;
+    case (Math.floor(num % 100) >= 30): output += 'XXX'; break;
+    case (Math.floor(num % 100) >= 20): output += 'XX'; break;
+    case (Math.floor(num % 100) >= 10): output += 'X'; break;
+  }
+  switch (true) {
+    case (Math.floor(num % 10) >= 9): output += 'IX'; break;
+    case (Math.floor(num % 10) >= 8): output += 'VIII'; break;
+    case (Math.floor(num % 10) >= 7): output += 'VII'; break;
+    case (Math.floor(num % 10) >= 6): output += 'VI'; break;
+    case (Math.floor(num % 10) >= 5): output += 'V'; break;
+    case (Math.floor(num % 10) >= 4): output += 'IV'; break;
+    case (Math.floor(num % 10) >= 3): output += 'III'; break;
+    case (Math.floor(num % 10) >= 2): output += 'II'; break;
+    case (Math.floor(num % 10) >= 1): output += 'I'; break;
+  }
+  return output;
+}
+
+const romanToDecimal = (r) => {
+  let rom = r;
+  let output = 0;
+  switch(true) {
+    case rom.startsWith('MMM'): output += 3000; rom = rom.slice(3); break;
+    case  rom.startsWith('MM'): output += 2000; rom = rom.slice(2); break;
+    case   rom.startsWith('M'): output += 1000; rom = rom.slice(1); break;
+  }
+  switch(true) {
+    case   rom.startsWith('CM'): output += 900; rom = rom.slice(2); break;
+    case rom.startsWith('DCCC'): output += 800; rom = rom.slice(4); break;
+    case  rom.startsWith('DCC'): output += 700; rom = rom.slice(3); break;
+    case   rom.startsWith('DC'): output += 600; rom = rom.slice(2); break;
+    case    rom.startsWith('D'): output += 500; rom = rom.slice(1); break;
+    case   rom.startsWith('CD'): output += 400; rom = rom.slice(2); break;
+    case  rom.startsWith('CCC'): output += 300; rom = rom.slice(3); break;
+    case   rom.startsWith('CC'): output += 200; rom = rom.slice(2); break;
+    case    rom.startsWith('C'): output += 100; rom = rom.slice(1); break;
+  }
+  switch(true) {
+    case   rom.startsWith('XC'): output += 90; rom = rom.slice(2); break;
+    case rom.startsWith('LXXX'): output += 80; rom = rom.slice(4); break;
+    case  rom.startsWith('LXX'): output += 70; rom = rom.slice(3); break;
+    case   rom.startsWith('LX'): output += 60; rom = rom.slice(2); break;
+    case    rom.startsWith('L'): output += 50; rom = rom.slice(1); break;
+    case   rom.startsWith('XL'): output += 40; rom = rom.slice(2); break;
+    case  rom.startsWith('XXX'): output += 30; rom = rom.slice(3); break;
+    case   rom.startsWith('XX'): output += 20; rom = rom.slice(2); break;
+    case    rom.startsWith('X'): output += 10; rom = rom.slice(1); break;
+  }
+  switch(true) {
+    case   rom.startsWith('IX'): output += 9; rom = rom.slice(2); break;
+    case rom.startsWith('VIII'): output += 8; rom = rom.slice(4); break;
+    case  rom.startsWith('VII'): output += 7; rom = rom.slice(3); break;
+    case   rom.startsWith('VI'): output += 6; rom = rom.slice(2); break;
+    case    rom.startsWith('V'): output += 5; rom = rom.slice(1); break;
+    case   rom.startsWith('IV'): output += 4; rom = rom.slice(2); break;
+    case  rom.startsWith('III'): output += 3; rom = rom.slice(3); break;
+    case   rom.startsWith('II'): output += 2; rom = rom.slice(2); break;
+    case    rom.startsWith('I'): output += 1; rom = rom.slice(1); break;
+  }
+  return output;
+}
+
 export {
   CelcuisToFahrenheit,
   FahrenheitToCelcuis,
@@ -77,7 +164,9 @@ export {
   maxOfArray,
   randInt,
   forJoin,
-  arrayRemoveDupes
+  arrayRemoveDupes,
+  decimalToRoman,
+  romanToDecimal
 };
 
 /*
