@@ -116,16 +116,17 @@ const decimalToRoman = (num) => {
 
 const decToRomV2 = (num) => {
   if(num >= 4000) return 'Error: Roman numerals only go as far as 3999.';
+  if(num <= 0) return 'Error: Roman numerals don\'t have a way to represent 0 and negative numbers, I guess.';
   const dictionary = [
-    ['I','II','III','IV','V','VI','VII','VIII','IX'],
-    ['X','XX','XXX','XL','L','LX','LXX','LXXX','XC'],
-    ['C','CC','CCC','CD','D','DC','DCC','DCCC','CM'],
-    ['M','MM','MMM']
+    ['','I','II','III','IV','V','VI','VII','VIII','IX'],
+    ['','X','XX','XXX','XL','L','LX','LXX','LXXX','XC'],
+    ['','C','CC','CCC','CD','D','DC','DCC','DCCC','CM'],
+    ['','M','MM','MMM']
   ];
-  const ones = (num % 10) - 1;
-  const tens = (num % 100 - ones) - 1;
-  const huns = (num % 1000 - tens) - 1;
-  const thos = (num / 1000 - huns) - 1;
+  const ones = Math.floor(num % 10);
+  const tens = Math.floor((num % 100 - ones) / 10);
+  const huns = Math.floor((num % 1000 - tens) / 100);
+  const thos = Math.floor((num - huns) / 1000);
   return dictionary[0][ones] + dictionary[1][tens] + dictionary[2][huns] + dictionary[3][thos];
 };
 
