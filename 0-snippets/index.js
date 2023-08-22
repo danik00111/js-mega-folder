@@ -127,7 +127,7 @@ const decToRomV2 = (num) => {
   const tens = Math.floor((num % 100 - ones) / 10);
   const huns = Math.floor((num % 1000 - tens) / 100);
   const thos = Math.floor((num - huns) / 1000);
-  return dictionary[0][ones] + dictionary[1][tens] + dictionary[2][huns] + dictionary[3][thos];
+  return dictionary[3][thos] + dictionary[2][huns] + dictionary[1][tens] + dictionary[0][ones];
 };
 
 const romanToDecimal = (r) => {
