@@ -74,45 +74,60 @@ const decimalToRoman = (num) => {
   if(num >= 4000) return '>=4K!';
   let output = '';
   switch (true) {
-    case (Math.floor(num) >= 3000): output += 'MMM'; break;
-    case (Math.floor(num) >= 2000): output += 'MM'; break;
-    case (Math.floor(num) >= 1000): output += 'M'; break;
+    case num >= 3000: output += 'MMM'; break;
+    case num >= 2000: output += 'MM'; break;
+    case num >= 1000: output += 'M'; break;
   }
   switch (true) {
-    case (Math.floor(num % 1000) >= 900): output += 'CM'; break;
-    case (Math.floor(num % 1000) >= 800): output += 'DCCC'; break;
-    case (Math.floor(num % 1000) >= 700): output += 'DCC'; break;
-    case (Math.floor(num % 1000) >= 600): output += 'DC'; break;
-    case (Math.floor(num % 1000) >= 500): output += 'D'; break;
-    case (Math.floor(num % 1000) >= 400): output += 'CD'; break;
-    case (Math.floor(num % 1000) >= 300): output += 'CCC'; break;
-    case (Math.floor(num % 1000) >= 200): output += 'CC'; break;
-    case (Math.floor(num % 1000) >= 100): output += 'C'; break;
+    case (num % 1000) >= 900: output += 'CM'; break;
+    case (num % 1000) >= 800: output += 'DCCC'; break;
+    case (num % 1000) >= 700: output += 'DCC'; break;
+    case (num % 1000) >= 600: output += 'DC'; break;
+    case (num % 1000) >= 500: output += 'D'; break;
+    case (num % 1000) >= 400: output += 'CD'; break;
+    case (num % 1000) >= 300: output += 'CCC'; break;
+    case (num % 1000) >= 200: output += 'CC'; break;
+    case (num % 1000) >= 100: output += 'C'; break;
   }
   switch (true) {
-    case (Math.floor(num % 100) >= 90): output += 'XC'; break;
-    case (Math.floor(num % 100) >= 80): output += 'LXXX'; break;
-    case (Math.floor(num % 100) >= 70): output += 'LXX'; break;
-    case (Math.floor(num % 100) >= 60): output += 'LX'; break;
-    case (Math.floor(num % 100) >= 50): output += 'L'; break;
-    case (Math.floor(num % 100) >= 40): output += 'XL'; break;
-    case (Math.floor(num % 100) >= 30): output += 'XXX'; break;
-    case (Math.floor(num % 100) >= 20): output += 'XX'; break;
-    case (Math.floor(num % 100) >= 10): output += 'X'; break;
+    case (num % 100) >= 90: output += 'XC'; break;
+    case (num % 100) >= 80: output += 'LXXX'; break;
+    case (num % 100) >= 70: output += 'LXX'; break;
+    case (num % 100) >= 60: output += 'LX'; break;
+    case (num % 100) >= 50: output += 'L'; break;
+    case (num % 100) >= 40: output += 'XL'; break;
+    case (num % 100) >= 30: output += 'XXX'; break;
+    case (num % 100) >= 20: output += 'XX'; break;
+    case (num % 100) >= 10: output += 'X'; break;
   }
   switch (true) {
-    case (Math.floor(num % 10) >= 9): output += 'IX'; break;
-    case (Math.floor(num % 10) >= 8): output += 'VIII'; break;
-    case (Math.floor(num % 10) >= 7): output += 'VII'; break;
-    case (Math.floor(num % 10) >= 6): output += 'VI'; break;
-    case (Math.floor(num % 10) >= 5): output += 'V'; break;
-    case (Math.floor(num % 10) >= 4): output += 'IV'; break;
-    case (Math.floor(num % 10) >= 3): output += 'III'; break;
-    case (Math.floor(num % 10) >= 2): output += 'II'; break;
-    case (Math.floor(num % 10) >= 1): output += 'I'; break;
+    case (num % 10) >= 9: output += 'IX'; break;
+    case (num % 10) >= 8: output += 'VIII'; break;
+    case (num % 10) >= 7: output += 'VII'; break;
+    case (num % 10) >= 6: output += 'VI'; break;
+    case (num % 10) >= 5: output += 'V'; break;
+    case (num % 10) >= 4: output += 'IV'; break;
+    case (num % 10) >= 3: output += 'III'; break;
+    case (num % 10) >= 2: output += 'II'; break;
+    case (num % 10) >= 1: output += 'I'; break;
   }
   return output;
 }
+
+const decToRomV2 = (num) => {
+  if(num >= 4000) return 'Error: Roman numerals only go as far as 3999.';
+  const dictionary = [
+    ['I','II','III','IV','V','VI','VII','VIII','IX'],
+    ['X','XX','XXX','XL','L','LX','LXX','LXXX','XC'],
+    ['C','CC','CCC','CD','D','DC','DCC','DCCC','CM'],
+    ['M','MM','MMM']
+  ];
+  const ones = (num % 10) - 1;
+  const tens = (num % 100 - ones) - 1;
+  const huns = (num % 1000 - tens) - 1;
+  const thos = (num / 1000 - huns) - 1;
+  return dictionary[0][ones] + dictionary[1][tens] + dictionary[2][huns] + dictionary[3][thos];
+};
 
 const romanToDecimal = (r) => {
   if(r.startsWith('MMMM')) return '>=4K!';
@@ -168,7 +183,8 @@ export {
   forJoin,
   arrayRemoveDupes,
   decimalToRoman,
-  romanToDecimal
+  decToRomV2,
+  romanToDecimal,
 };
 
 /*
