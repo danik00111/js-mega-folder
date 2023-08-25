@@ -1,5 +1,5 @@
 // The pun in the folder name, is that "worcestershire sauce" is hard to pronounce.
-// and today, on the lessons, we are learning desctructuriz- wh. how do you pronounce that.
+// and today, on the lessons, we are learning desctrurctruriz- wh. how do you pronounce that.
 
 const user = {
   name: 'John',
