@@ -5,10 +5,10 @@ const musicLibrary = {
       name: 'The Beatles',
       albums: [
         {
-          title: 'Sgt. Pepper\'s Lonely Hearts Club Band',
+          title:'Sgt. Pepper\'s Lonely Hearts Club Band',
           year: 1967,
           tracks: [
-            { title: 'With a Little Help from My Friends', duration: '2: 44' },
+            { title: 'With a Little Help from My Friends', duration: '2:44' },
             { title: 'Lucy in the Sky with Diamonds', duration: '3:28' },
             { title: 'A Day in the Life', duration: '5:33' }
           ]
@@ -17,7 +17,7 @@ const musicLibrary = {
           title: 'Abbey Road',
           year: 1969,
           tracks: [
-            { title: 'Come Together', duration: '4: 19' },
+            { title: 'Come Together', duration: '4:19' },
             { title: 'Something', duration: '3:01' },
             { title: 'Here Comes the Sun', duration: '3:06' }
           ]
@@ -54,39 +54,47 @@ const {
   count,
   artists: [
     {
-      nameQ,
+      name: nameQ,
       albums: [
         {
-          titleQQ, yearQQ, tracks: [
-            { titleQQQ, durationQQQ },
-            { titleQQW, durationQQW },
-            { titleQQE, durationQQE }
+          title: titleQQ,
+          year: yearQQ,
+          tracks: [
+            { title: titleQQQ, duration: durationQQQ },
+            { title: titleQQW, duration: durationQQW },
+            { title: titleQQE, duration: durationQQE }
           ]
         },
         {
-          titleQW, yearQW, tracks: [
-            { titleQWQ, durationQWQ },
-            { titleQWW, durationQWW },
-            { titleQWE, durationQWE }
+          title: titleQW,
+          year: yearQW,
+          tracks: [
+            { title: titleQWQ, duration: durationQWQ },
+            { title: titleQWW, duration: durationQWW },
+            { title: titleQWE, duration: durationQWE }
           ]
         }
       ]
     },
     {
-      nameW,
+      name: nameW,
       albums: [
         {
-          titleWQ, yearWQ, tracks: [
-            { titleWQQ, durationWQQ },
-            { titleWQW, durationWQW },
-            { titleWQE, durationWQE }
+          title: titleWQ,
+          year: yearWQ,
+          tracks: [
+            { title: titleWQQ, duration: durationWQQ },
+            { title: titleWQW, duration: durationWQW },
+            { title: titleWQE, duration: durationWQE }
           ]
         },
         {
-          titleWW, yearWW, tracks: [
-            { titleWWQ, durationWWQ },
-            { titleWWW, durationWWW },
-            { titleWWE, durationWWE }
+          title: titleWW,
+          year: yearWW,
+          tracks: [
+            { title: titleWWQ, duration: durationWWQ },
+            { title: titleWWW, duration: durationWWW },
+            { title: titleWWE, duration: durationWWE }
           ]
         }
       ]
@@ -94,4 +102,9 @@ const {
   ]
 } = musicLibrary;
 
-console.log(artists[1]);
+console.log(count);
+console.log(nameQ);
+console.log(titleWQ);
+console.log(yearQQ);
+console.log(titleWQW);
+console.log(durationWWQ);
