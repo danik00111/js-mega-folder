@@ -26,8 +26,8 @@ h1 {
   margin: 1em auto;
 }
 [parent-folder] {
-  margin-left: -1.205em;
   color: mediumvioletred !important;
+  margin-left: -1.205em;
 }
 .folder {
   margin-left: 1.205em;
@@ -65,4 +65,11 @@ a.folder-name {
 }
 a:hover {
   text-decoration: underline;
+}
+
+#volume-link {
+  color: mediumvioletred;
+}
+.volume {
+  margin-left: 1.205em;
 }

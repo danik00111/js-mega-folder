@@ -1,4 +1,4 @@
-import { randInt } from "../0-snippets/index.js";
+import { randInt } from "..//index.js";
 console.log(`Guess the number between 1 and 100 in 7 tries. Type "h" to give up.`)
 let tries = 7;
 let numder = randInt(1,100);

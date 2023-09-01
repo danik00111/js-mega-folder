@@ -1,4 +1,4 @@
-import { decimalToRoman, romanToDecimal} from "../0-snippets/index.js";
+import { decimalToRoman, romanToDecimal } from "../../snippets/index.js";
 console.log(`
   Input: 2 roman numerals, that are separated by a + (WITHCOUT SPACES) and are both less than 2000.
   Output: the sum of the two roman numerals... as a roman numeral.

@@ -1,4 +1,4 @@
-import { randInt } from "../0-snippets/index.js";
+import { randInt } from "../../snippets/index.js";
 let weekday = randInt(0, 6);
 switch (weekday) {
   case 0:

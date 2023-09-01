@@ -1,4 +1,4 @@
-import { maxOfArray } from '../../0-snippets/index.js';
+import { maxOfArray } from '../../snippets/index.js';
 const findBestEmployee = (obj) => Object.keys(obj)[Object.values(obj).indexOf(maxOfArray(Object.values(obj)))];
 
 let employees = {
