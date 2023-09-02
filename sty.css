@@ -8,6 +8,7 @@ body {
   color: white;
   background: black;
   font-size: 3vw;
+  user-select: none;
 }
 h1 {
   font-size: 9vw;
@@ -23,7 +24,7 @@ h1 {
 }
 .folders {
   width: fit-content;
-  margin: 1em auto;
+  margin: 1em 0;
 }
 [parent-folder] {
   color: mediumvioletred !important;
@@ -69,6 +70,7 @@ a:hover {
 
 #volume-link {
   color: mediumvioletred;
+  display: inline;
 }
 .volume {
   margin-left: 1.205em;
@@ -77,4 +79,13 @@ a:hover {
 [disabled]:hover {
   text-decoration: line-through;
   cursor: not-allowed;
+}
+
+.volfold {
+  color: #404040;
+  cursor: pointer;
+}
+
+.folded {
+  display: none;
 }
