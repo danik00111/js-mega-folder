@@ -73,3 +73,8 @@ a:hover {
 .volume {
   margin-left: 1.205em;
 }
+
+[disabled]:hover {
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
