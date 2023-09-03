@@ -68,7 +68,7 @@ const arrayRemoveDupes = (r) => {
     // if it's a dupe, ignore it.
   }
   return newR; // return the result
-};
+}; // just use .filter((x, i) => arr1.indexOf(x) === i);
 
 const decimalToRoman = (num) => {
   if(num >= 4000) return '>=4K!';
@@ -175,6 +175,19 @@ const romanToDecimal = (r) => {
   return output;
 }
 
+const noDupesAndSort = (arr1, arr2) => {
+  if (!Array.isArray(arr1) || !Array.isArray(arr2)) return undefined; // check for unexpected input
+  const filtarr1 = arr1.filter((x, i) => arr1.indexOf(x) === i); // filter arr1 for dupes
+  const filtarr2 = arr2.filter((x, i) => arr2.indexOf(x) === i); // filter arr2 for dupes
+  const filtarr3 = filtarr2.filter(x => !filtarr1.includes(x)); // also filter arr2 to not include anything from arr1
+  const noDupes = filtarr1.concat(filtarr3).sort((a, b) => a - b); // concat & sort
+  if (noDupes.every(x => typeof x === 'number')) return noDupes.sort((a, b) => a - b);
+  // sort and return, except if there's strings...
+  const strs = noDupes.filter((x) => typeof x === 'string').sort(); // only strings & sort
+  const nums = noDupes.filter((x) => typeof x === 'number').sort((a, b) => a - b); // only numbers & sort
+  return nums.concat(strs); // concat & return
+};
+
 export {
   CelcuisToFahrenheit,
   FahrenheitToCelcuis,
@@ -186,6 +199,7 @@ export {
   decimalToRoman,
   decToRomV2,
   romanToDecimal,
+  noDupesAndSort
 };
 
 /*
