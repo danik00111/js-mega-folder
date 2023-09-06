@@ -1,22 +1,22 @@
 let users = [{
   name: 'Poly',
   following: ['Mango', 'Kiwi'],
-  skills: [ 'lasereyes', 'invisibility' ],
+  skills: ['lasereyes', 'invisibility'],
   balance: 9471,
 },{
   name: 'Ajax',
   following: [ ],
-  skills: [ 'timecontrol', 'flight' ],
+  skills: ['timecontrol', 'flight'],
   balance: 6894,
 },{
   name: 'Mango',
   following: ['Ajax'],
-  skills: [ 'mindcontrol', 'lasereyes'],
+  skills: ['mindcontrol', 'lasereyes'],
   balance: 2759,
 },{
   name: 'Kiwi',
   following: ['Mango', 'Poly', 'Ajax'],
-  skills: [ 'flight', 'mindcontrol' ],
+  skills: ['flight', 'mindcontrol'],
   balance: 4025,
 }]
 
