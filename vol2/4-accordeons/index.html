@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>1Toggle</button>
+  <div class="content">
+    1 The The;
+  </div>
+  <br>
+  <button>2Toggle</button>
+  <div class="content">
+    2 The The;
+  </div>
+  <br>
+  <button>3Toggle</button>
+  <div class="content">
+    3 The The;
+  </div>
+</body>
+</html>
+<style>
+  .content {
+    display: none;
+  }
+  .content.shown, button {
+    display: inline;
+  }
+</style>
+<script>
+  let contents = document.querySelectorAll('.content');
+  let buttons = document.querySelectorAll('button');
+  let openedIndex = -1;
+  buttons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      if (openedIndex !== -1) contents[openedIndex].classList.remove('shown');
+      if (openedIndex !== index) {
+        contents[index].classList.add('shown');
+      } else {
+        contents[index].classList.remove('shown');
+      };
+      openedIndex = index;
+    });
+  })
+</script>
