@@ -26,17 +26,17 @@ const sumArray = (r) => {
   return sum;
 }
 const totalBalance = sumArray(users.map(x => x.balance));
-console.log(totalBalance);
+console.log(totalBalance); // 23149
 
 /////////////////////////////////////////////////////////////////////
 
 const findFollowers = (arr, username) => arr.filter(x => x.following.includes(username)).map(x => x.name);
-console.log(findFollowers(users, 'Ajax'));
+console.log(findFollowers(users, 'Ajax')); // ['Mango', 'Kiwi']
 
 /////////////////////////////////////////////////////////////////////
 
 const sortByFollows = (arr) => arr.sort((a, b) => b.following.length - a.following.length).map(x => x.name);
-console.log(sortByFollows(users));
+console.log(sortByFollows(users)); // ['Kiwi', 'Poly', 'Mango', 'Ajax']
 
 /////////////////////////////////////////////////////////////////////
 
@@ -44,4 +44,4 @@ import { noDupesAndSort } from "../../snippets/index.js";
 
 let allSkills = noDupesAndSort([].concat(...(users.map(x => x.skills))), []);
 
-console.log(allSkills);
+console.log(allSkills); // ['flight', 'invisibility', 'lasereyes', 'mindcontrol', 'timecontrol']
