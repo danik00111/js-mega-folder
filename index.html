@@ -233,11 +233,7 @@
         // toggle the class
         volume.classList.toggle("folded");
         // change the foldy arrow depending on if its folded now or not
-        if(volume.classList.contains("folded")) {
-          button.innerHTML = '>';
-        } else {
-          button.innerHTML = 'v';
-        }
+        button.innerHTML = (volume.classList.contains("folded")) ? '>' : 'v';
       });
     });
   </script>
