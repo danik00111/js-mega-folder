@@ -188,6 +188,18 @@ const noDupesAndSort = (arr1, arr2) => {
   return nums.concat(strs); // concat & return
 };
 
+const InsideOutify = (arr) => {
+  let result = {};
+  let currentKey;
+  let currentValue;
+  for (let i = 0; i < Object.keys(arr[0]).length; i++) {
+    currentKey = Object.keys(arr[0])[i];
+    currentValue = arr.map(obj => obj[currentKey]);
+    result[currentKey] = currentValue;
+  }
+  return result;
+}
+
 export {
   CelcuisToFahrenheit,
   FahrenheitToCelcuis,
@@ -199,7 +211,8 @@ export {
   decimalToRoman,
   decToRomV2,
   romanToDecimal,
-  noDupesAndSort
+  noDupesAndSort,
+  InsideOutify
 };
 
 /*
