@@ -10,6 +10,7 @@
   overflow: hidden;
   border-radius: var(--bdrs);
   transition: background 0.5s ease-in-out;
+  margin-top: 64px;
 }
 .slider {
   height: calc(var(--height) * 1);
