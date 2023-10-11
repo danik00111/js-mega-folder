@@ -1,0 +1,14 @@
+.slider-container { display: flex; align-items: flex-start; }
+.slider-container.lightred { background-color: #ffc0c0; }
+.slider-container.lightblue { background-color: #c0c0ff; }
+.slider-container.lightyellow { background-color: #ffffc0; }
+.main-image {
+  width: 200px;
+  position: absolute;
+}
+.header {
+  text-align: right;
+  margin-right: calc(var(--bdrs)/2);
+  font-weight: bold;
+  font-size: 28px;
+}

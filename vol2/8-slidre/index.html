@@ -4,23 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Слайдер</title>
+  <link rel="stylesheet" href="./slider.css">
+  <link rel="stylesheet" href="./slides.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic" rel="stylesheet" />
 </head>
+<style>
+  *{margin:0;padding:0;border:0;outline:0;box-sizing:border-box;font-family:'Montserrat';}
+</style>
 <body>
   <div class="slider-container">
     <div class="slider">
       <div class="slide">
         <div class="slide-part">
           <img class=main-image src="./img/html-logo.png" alt="html-logo">
+          <p class="header">HTML - The bones of the site.</p>
         </div>
       </div>
       <div class="slide">
         <div class="slide-part">
           <img class=main-image src="./img/css-logo.png" alt="css-logo">
+          <p class="header">CSS - the muscles of the site.</p>
         </div>
       </div>
       <div class="slide">
         <div class="slide-part">
           <img class=main-image src="./img/js-logo.png" alt="js-logo">
+          <p class="header">JS - The brains of the site.</p>
         </div>
       </div>
     </div>
@@ -34,129 +43,6 @@
     <div class="dot"></div>
     <div class="dot"></div>
   </div>
+  <script src="./script.js"></script>
 </body>
 </html>
-<style> /* the base of the slider */
-  :root {
-    --width: 720px;
-    --height: 480px;
-    --bdrs: 72px;
-    --dot-size: 18px;
-  }
-  .slider-container {
-    max-width: var(--width);
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: var(--bdrs);
-    transition: all 0.5s ease-in-out;
-  }
-  .slider {
-    height: calc(var(--height) * 1);
-    display: flex;
-    transition: 0.5s;
-    width: var(--width);
-    /* height: var(--height); */
-  }
-  .slide {
-    width: var(--width);
-    height: var(--height);
-    flex: 0 0 100%;
-    min-width: 100%;
-    height: var(--height);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    background-color: #00000000;
-    color: #fff;
-    transition: transform 0.5s ease-in-out;
-  }
-  button {
-    margin-top: 20px;
-    padding: 5px 10px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  .slide-part {
-    width: var(--width);
-    height: var(--height);
-  }
-  .dots {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: calc(var(--dot-size) * 5);
-    height: calc(var(--dot-size) * 1.5);
-    margin: 24px auto 0;
-  }
-  .dot {
-    width: var(--dot-size);
-    height: var(--dot-size);
-    background: black;
-    border-radius: 50%;
-    transition: all 250ms;
-  }
-  .dot:hover {
-    transform: scale(1.5);
-    transition: all 250ms;
-    /* background: red; */
-    cursor: pointer;
-  }
-  .dot.active {
-    transform: scale(1.5);
-  }
-  .dot.active:hover {
-    cursor: default;
-  }
-  .dot.active:nth-child(1) {background: red;}
-  .dot.active:nth-child(2) {background: blue;}
-  .dot.active:nth-child(3) {background: yellow;}
-</style>
-<style> /* the content of the slides */
-  .slider-container.lightred { background-color: #ffc0c0; }
-  .slider-container.lightblue { background-color: #c0c0ff; }
-  .slider-container.lightyellow { background-color: #ffffc0; }
-  .main-image {
-    width: 200px;
-    position: relative;
-    /* right: 20px; */
-  }
-</style>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const slider = document.querySelector(".slider");
-    const prevBtn = document.getElementById("prev");
-    const nextBtn = document.getElementById("next");
-    const slides = document.querySelectorAll(".slide");
-    const dots = document.querySelectorAll(".dot");
-    let sliderContainer = document.querySelector('.slider-container');
-    let currentIndex = 0;
-    const showSlide = (index) => { slider.style.transform = `translateX(-${index * 100}%)`; }
-    const goToNthSlide = (n) => { currentIndex = n; showSlide(currentIndex); updateDots(); }
-    const updateDots = () => {
-      dots.forEach((dot, index) => { dot.classList.toggle("active", index === currentIndex); });
-      switch(currentIndex) {
-        case 0:
-          sliderContainer.classList.add('lightred');
-          sliderContainer.classList.remove('lightblue');
-          sliderContainer.classList.remove('lightyellow');
-        break; case 1:
-          sliderContainer.classList.remove('lightred');
-          sliderContainer.classList.add('lightblue');
-          sliderContainer.classList.remove('lightyellow');
-        break; case 2:
-          sliderContainer.classList.remove('lightred');
-          sliderContainer.classList.remove('lightblue');
-          sliderContainer.classList.add('lightyellow');
-        break;
-      }
-    }
-    const goToNextSlide = () => { currentIndex = (currentIndex + 1) % slides.length; showSlide(currentIndex); updateDots(); }
-    const goToPrevSlide = () => { currentIndex = (currentIndex - 1 + slides.length) % slides.length; showSlide(currentIndex); updateDots(); }
-    prevBtn.addEventListener("click", goToPrevSlide);
-    nextBtn.addEventListener("click", goToNextSlide);
-    dots.forEach((dot, index) => { dot.addEventListener("click", () => { goToNthSlide(index) }); });
-    showSlide(currentIndex);
-    updateDots();
-  });
-</script>
