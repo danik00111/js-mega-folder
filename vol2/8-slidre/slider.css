@@ -75,3 +75,9 @@
   width: calc(var(--width) + 100px);
   margin: 0 auto;
 }
+.scale-issue { display: none; }
+#h { display: flex; align-items: center; justify-content: center; height: 100vh; }
+@media (max-width:900px) or (max-height:555px) {
+  .main-cont,.dots,#h { display: none; }
+  .scale-issue { display: block; }
+}
