@@ -1,16 +1,15 @@
 :root {
-  --width: 720px;
-  --height: 480px;
+  --width: 800px;
+  --height: 500px;
   --bdrs: 72px;
   --dot-size: 18px;
 }
 .slider-container {
   max-width: var(--width);
-  margin: 0 auto;
+  /* margin: 0 auto; */
   overflow: hidden;
   border-radius: var(--bdrs);
   transition: background 0.5s ease-in-out;
-  margin-top: 64px;
 }
 .slider {
   height: calc(var(--height) * 1);
@@ -31,16 +30,17 @@
   font-size: 24px;
   background-color: #00000000;
   transition: transform 0.5s ease-in-out;
+  position: relative;
 }
-button {
+#next, #prev {
   margin-top: 20px;
   padding: 5px 10px;
   font-size: 16px;
   cursor: pointer;
-  outline: black solid 2px;
+  outline: black solid 1px;
   border-radius: 4px;
+  background: none;
 }
-button:first-child { margin-right: 6px;}
 .slide-part { width: var(--width); height: var(--height); }
 .dots {
   display: flex;
@@ -68,3 +68,10 @@ button:first-child { margin-right: 6px;}
 .dot.active:nth-child(1) { background: red; }
 .dot.active:nth-child(2) { background: blue; }
 .dot.active:nth-child(3) { background: yellow; }
+.main-cont {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: calc(var(--width) + 100px);
+  margin: 0 auto;
+}

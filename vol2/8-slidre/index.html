@@ -12,36 +12,54 @@
   *{margin:0;padding:0;border:0;outline:0;box-sizing:border-box;font-family:'Montserrat';}
 </style>
 <body>
-  <div class="slider-container">
-    <div class="slider">
-      <div class="slide">
-        <div class="slide-part">
-          <img class=main-image src="./img/html-logo.png" alt="html-logo">
-          <p class="header">HTML - The bones of the site.</p>
+  <div style="display: flex; align-items: center; justify-content: center; height: 100vh;">
+    <div>
+      <div class="main-cont">
+      <button id="prev">&lt;</button>
+        <div class="slider-container">
+          <div class="slider">
+            <div class="slide">
+              <div class="slide-part">
+                <img class=main-image src="./img/html-logo.png" alt="html-logo">
+                <p class="header">HTML - The bones of the site.</p>
+                <button class="button" id="btn-html">Learn HTML</button>
+                <p>It's the image you see on the left.</p>
+                <p>It's the buttons you see at the bottom.</p>
+                <p>It's the text that you can currently read.</p>
+                <p>It's the line break in the middle of a paragraph... <br> that is too long to fit in one line.</p>
+              </div>
+            </div>
+            <div class="slide">
+              <div class="slide-part">
+                <img class=main-image src="./img/css-logo.png" alt="css-logo">
+                <p class="header">CSS - the muscles of the site.</p>
+                <button class="button" id="btn-css">Learn CSS</button>
+                <p>It's what rounds the corners.</p>
+                <p>It's what regulates the images' size.</p>
+                <p>It's what makes the margins between elements.</p>
+                <p>It's what enlarges the buttons, when you hover over them.</p>
+                <p>It's what decides, if overflowing text should wrap to the next line, or be hidden.</p>
+              </div>
+            </div>
+            <div class="slide">
+              <div class="slide-part">
+                <img class=main-image src="./img/js-logo.png" alt="js-logo">
+                <p class="header">JS - The brains of the site.</p>
+                <button class="button" id="btn-js">Learn JS</button>
+                <p>It's what powers the buttons and circles, <br> changing the slide when one is tapped.</p>
+                <p>It's what changes the backgound... <br> and (paired with CSS) enlarges and colors a circle... <br> based on what slide you're currently on.</p>
+              </div>
+            </div>
+          </div>
         </div>
+        <button id="next">&gt;</button>
       </div>
-      <div class="slide">
-        <div class="slide-part">
-          <img class=main-image src="./img/css-logo.png" alt="css-logo">
-          <p class="header">CSS - the muscles of the site.</p>
-        </div>
-      </div>
-      <div class="slide">
-        <div class="slide-part">
-          <img class=main-image src="./img/js-logo.png" alt="js-logo">
-          <p class="header">JS - The brains of the site.</p>
-        </div>
+      <div class="dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
       </div>
     </div>
-  </div>
-  <div style="display:flex;justify-content:center;">
-    <button id="prev">&lt;</button>
-    <button id="next">&gt;</button>
-  </div>
-  <div class="dots">
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
   </div>
   <script src="./script.js"></script>
 </body>

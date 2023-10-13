@@ -11,4 +11,27 @@
   margin-right: calc(var(--bdrs)/2);
   font-weight: bold;
   font-size: 28px;
+  margin-bottom: 200px;
 }
+p {
+  margin-top: 8px;
+}
+.button {
+  font-size: 24px;
+  cursor: pointer;
+  outline: black solid 2px;
+  border-radius: 8px;
+  position: absolute;
+  transition: all 250ms;
+  right: calc(var(--bdrs)/2);
+  padding: 10px 20px;
+  background: none;
+  top: 48px;
+}
+.button:hover { color: white; outline-color: white;}
+/* #btn-html { background: #ffc0c0; } */
+#btn-html:hover { background: #004040; }
+/* #btn-css { background: #c0c0ff; } */
+#btn-css:hover { background: #404000; }
+/* #btn-js { background: #ffffc0; } */
+#btn-js:hover { background: #000040; }
