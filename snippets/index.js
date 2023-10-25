@@ -14,9 +14,7 @@ const FahrenheitToCelcuis = (f, b) => {
 }
 // from 3-fahren
 
-const isOdd = (x) => {
-  return x % 2;
-}
+const isOdd = (x) => x % 2;
 
 const maxOfArray = (array) => {
   if (!Array.isArray(array)) return; // check for it being an array in the first place, return undef if not
@@ -117,7 +115,7 @@ const decimalToRoman = (num) => {
 const decToRomV2 = (num) => {
   if(num >= 4000) return 'Error: Roman numerals only go as far as 3999.';
   if(num <= 0) return 'Error: Roman numerals don\'t have a way to represent 0 and negative numbers, I guess.';
-  const dictionary = [
+  const lookup = [
     ['','I','II','III','IV','V','VI','VII','VIII','IX'],
     ['','X','XX','XXX','XL','L','LX','LXX','LXXX','XC'],
     ['','C','CC','CCC','CD','D','DC','DCC','DCCC','CM'],
@@ -127,7 +125,7 @@ const decToRomV2 = (num) => {
   const tens = Math.floor((num % 100 - ones) / 10);
   const huns = Math.floor((num % 1000 - tens) / 100);
   const thos = Math.floor((num - huns) / 1000);
-  return dictionary[3][thos] + dictionary[2][huns] + dictionary[1][tens] + dictionary[0][ones];
+  return lookup[3][thos] + lookup[2][huns] + lookup[1][tens] + lookup[0][ones];
 };
 
 const romanToDecimal = (r) => {
