@@ -1,0 +1,102 @@
+*:not(button,input){margin:0;padding:0;border:0;outline:0;box-sizing:border-box;}
+/* all websites */ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+input[type=number] { -moz-appearance: textfield; } /* firfox */
+
+.elev {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  width: 40px;
+  height: 80px;
+  background: gray;
+}
+.door {
+  position: absolute;
+  width: 4px;
+  height: 80px;
+  background: brown;
+}
+.elevator-call {
+  margin: 16px 0 0 16px;
+}
+.elev-buttons {
+  margin: 16px 0 0 16px;
+  background: #a0a0a0;
+  width: 137.5px;
+  height: 337.5px;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 32px;
+}
+.elev-grouper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.elev-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #d0d0d0;
+  user-select: none;
+  cursor: pointer;
+  box-shadow: 4px 4px 12px black;
+  border: 3px solid #404040;
+}
+.elev-button:hover { box-shadow: 2px 2px 6px black; }
+.elev-button:active { box-shadow: inset 4px 4px 12px black; }
+.elev-button.lid-up { border-color: lime; }
+.floor-number {
+  margin: 16px 0 0 16px;
+  background: blue;
+  width: 200px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 32px;
+}
+.led-digit {
+  position: relative;
+  height: 272.5px;
+}
+.led-digit.tens {
+  width: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.led-digit.ones { width: 149.75px; position: relative; }
+.led-digit.ones .led-segment {
+  position: absolute;
+}
+.led-segment {
+  width: 15px;
+  height: 125px;
+  border-radius: 15px;
+  background: hsl(240, 100%, 65%);
+}
+.led-segment.lid-up { background: hsl(240, 100%, 90%); }
+.led-digit.tens .led-segment, .led-segment:is(.b,.c,.e,.f) { width: 15px; height: 125px; }
+
+.led-segment:is(.a,.d,.g) {
+  transform: rotate(90deg);
+  left: 67.5px;
+}
+.led-segment.a { top: -55px; }
+.led-segment.b { top: 8.75px; left: 134.75px;}
+.led-segment.c { top: 138.75px; left: 134.75px;}
+.led-segment.d { top: 202.5px; }
+.led-segment.e { top: 138.75px; }
+.led-segment.f { top: 8.75px; }
+.led-segment.g { top: 73.75px; }
+
+.temp-buttons {
+  margin: 16px 0 16px 16px;
+}

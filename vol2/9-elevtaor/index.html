@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./sty.css">
+</head>
+<body>
+  <div class="elev">
+    <div class="door"></div>
+  </div>
+  <div class="elevator-call">
+    <button onclick="elevFunc();">elevFunc();</button> <span>(run an elevator step)</span><br>
+    <button id="elevator-call-btn">Call the elevator from floor</button>
+    <input type="number" id="elevator-call-inp" pattern="^[0-9]*$" min="1" max="10">
+    * a regex is used to check valid input<br>
+    queue: <span id="queue-output"></span>
+  </div>
+  <div class="elev-buttons">
+    <div class="elev-grouper">
+      <button floor=10 class="elev-button"><p>10</p></button>
+      <button floor=9 class="elev-button"><p>9</p></button>
+    </div>
+    <div class="elev-grouper">
+      <button floor=8 class="elev-button"><p>8</p></button>
+      <button floor=7 class="elev-button"><p>7</p></button>
+    </div>
+    <div class="elev-grouper">
+      <button floor=6 class="elev-button"><p>6</p></button>
+      <button floor=5 class="elev-button"><p>5</p></button>
+    </div>
+    <div class="elev-grouper">
+      <button floor=4 class="elev-button"><p>4</p></button>
+      <button floor=3 class="elev-button"><p>3</p></button>
+    </div>
+    <div class="elev-grouper">
+      <button floor=2 class="elev-button"><p>2</p></button>
+      <button floor=1 class="elev-button"><p>1</p></button>
+    </div>
+  </div>
+  <div class="floor-number">
+    <div class="led-digit tens">
+      <div class="led-segment"></div>
+      <div class="led-segment"></div>
+    </div>
+    <div class="led-digit ones">
+      <div class="led-segment a"></div>
+      <div class="led-segment b"></div>
+      <div class="led-segment c"></div>
+      <div class="led-segment d"></div>
+      <div class="led-segment e"></div>
+      <div class="led-segment f"></div>
+      <div class="led-segment g"></div>
+    </div>
+  </div>
+  <div class="temp-buttons">
+    temp buttons<br>
+    <button onclick="floorUp();">floorUp();</button><br>
+    <button onclick="floorDown();">floorDown();</button><br>
+    <button onclick="floorTo(document.getElementById('tepmoray').value);" style="padding-right:0;">floorTo(</button><input type=number id="tepmoray" min="0" max="19"><span style="font-family:Arial;font-size:14px;padding-top:1px;padding-bottom:2px;">);</span><br>
+    <button onclick="elevTo(document.getElementById('tepmoraydos').value);" style="padding-right:0;">elevTo(</button><input type=number id="tepmoraydos" min="0" max="19"><span style="font-family:Arial;font-size:14px;padding-top:1px;padding-bottom:2px;">);</span>
+  </div>
+  <script src="./scr.js"></script>
+</body>
+</html>
