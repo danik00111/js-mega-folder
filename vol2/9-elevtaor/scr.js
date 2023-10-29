@@ -117,4 +117,7 @@ const updateFloorCalls = () => {
 }
 
 let elevLoop = setInterval(elevFunc, 1000);
-const unloop=()=>{clearInterval(elevLoop)};
+const unloop = () => {
+  clearInterval(elevLoop);
+  document.getElementById('unloop-btn').disabled = true;
+};
