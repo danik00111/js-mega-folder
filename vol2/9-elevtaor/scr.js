@@ -65,25 +65,15 @@ let elevDir = null;
 const elevFunc = () => {
   elevActualFunc();
   if(document.querySelector(`.elev-button:nth-child(${floor})`).classList.contains('lid-up')) document.querySelector(`.elev-button:nth-child(${floor})`).classList.remove('lid-up');
-  console.log(floorCalls[0][floor - 1]);
   if(floorCalls[0][floor-1] === true) {
     floorCalls[0][floor-1] = false;
     queue.splice(queue.indexOf(floor), 1);
     // Open the doors to pick up the passanger...
   };
-  console.log(floorCalls[0][floor - 1]);
   queueOutput.innerHTML = queue;
 };
 const elevActualFunc = () => {
   updateFloorCalls();
-  console.log(isGoingUp());
-  console.log(isGoingDown());
-  console.log(litButtonsInside());
-  console.log(litButtonsOutside());
-  console.log(isGoingUpInside());
-  console.log(isGoingUpOutside());
-  console.log(isGoingDownInside());
-  console.log(isGoingDownOutside());
   if(elevDir === null) { // special case for first elev movement
     if(litButtonsInside()) { // prioritize requests from inside the elev
       if(isGoingUpInside()) { floorUp(); elevDir = true; console.log('Elevator going up (in, null)'); return; };
