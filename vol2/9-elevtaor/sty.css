@@ -26,9 +26,11 @@ input[type=number] { -moz-appearance: textfield; } /* firfox */
   height: 337.5px;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
   border-radius: 32px;
 }
-.elev-grouper {
+.elev-grouper { /* commented out */
   width: 100%;
   display: flex;
   align-items: center;
