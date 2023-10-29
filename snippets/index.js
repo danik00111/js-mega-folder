@@ -68,6 +68,15 @@ const arrayRemoveDupes = (r) => {
   return newR; // return the result
 }; // just use .filter((x, i) => arr1.indexOf(x) === i);
 
+const ANTIcASE = (s) => {
+  if (typeof s !== 'string') { return };
+  let newS = '';
+  for (let i = 0; i < s.length; i++) {
+    newS += (/^[A-Z]*$/.test(s.charAt(i))) ? s.charAt(i).toLowerCase() : s.charAt(i).toUpperCase();
+  } //       ^^^^^^^^^^^^^^^^ regex🤯 ^ https://stackoverflow.com/a/40796345/
+  return newS;
+}
+
 const decimalToRoman = (num) => {
   if(num >= 4000) return '>=4K!';
   let output = '';
@@ -210,7 +219,8 @@ export {
   decToRomV2,
   romanToDecimal,
   noDupesAndSort,
-  InsideOutify
+  InsideOutify,
+  ANTIcASE
 };
 
 /*
