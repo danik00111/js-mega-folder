@@ -122,8 +122,8 @@ const decimalToRoman = (num) => {
 }
 
 const decToRomV2 = (num) => {
-  if(num >= 4000) return 'Error: Roman numerals only go as far as 3999.';
-  if(num <= 0) return 'Error: Roman numerals don\'t have a way to represent 0 and negative numbers, I guess.';
+  if(num >= 4000) return '>=4K!';
+  if(num <= 0) return '#NEG!';
   const lookup = [
     ['','I','II','III','IV','V','VI','VII','VIII','IX'],
     ['','X','XX','XXX','XL','L','LX','LXX','LXXX','XC'],
@@ -215,12 +215,12 @@ export {
   randInt,
   forJoin,
   arrayRemoveDupes,
+  ANTIcASE,
   decimalToRoman,
   decToRomV2,
   romanToDecimal,
   noDupesAndSort,
   InsideOutify,
-  ANTIcASE
 };
 
 /*
