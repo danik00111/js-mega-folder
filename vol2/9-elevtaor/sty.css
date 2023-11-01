@@ -17,7 +17,7 @@ input[type=number] { -moz-appearance: textfield; } /* firfox */
   background: brown;
 }
 .elevator-call {
-  margin: 16px 0 0 16px;
+  margin: 8px 0 0 16px;
 }
 .elev-buttons {
   margin: 16px 0 0 16px;
