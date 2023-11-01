@@ -67,7 +67,7 @@ const isLgSt = () => {
   the.forEach((die, i) => {
     if (die === the[i - 1] + 1) {
       count++;
-      if (count === 4) { found = true; }
+      if (count === 5) { found = true; }
     } else if (die !== the[i - 1]) { count = 1; }
   });
   return found;
