@@ -99,7 +99,16 @@ const bonusYath = () => {
 const routine = (x) => {
   if(scores[x] !== null) { console.log('< you already scored there'); return; }
   if(scores[11] === 50 && isYath()) {
-
+    switch(x) {
+      case 0: case 1: case 2: case 3: case 4: case 5: console.log('< why'); return;
+      case 6: scores[6] = cupSum(); break;
+      case 7: scores[7] = cupSum(); break;
+      case 8: scores[8] = 25; break;
+      case 9: scores[9] = 30; break;
+      case 10: scores[10] = 40; break;
+      case 11: console.log('< wait wh- HOWWWWWWWWWWWWW'); process.exit(69); break;
+      case 12: scores[12] = cupSum(); break;
+    }
   }
   switch(x) {
     case 0:
@@ -145,7 +154,7 @@ const routine = (x) => {
   }
   if(!(scores.includes(null))) {
     console.log(`\n< Well, the game ends here.\n< Here's how you did:\n\n< 1s-6s: ${scores[0]}, ${scores[1]}, ${scores[2]}, ${scores[3]}, ${scores[4]}, ${scores[5]},\n< 3oak: ${scores[6]}, 4oak: ${scores[7]}, fullhouse: ${scores[8]},\n< straights: ${scores[9]}, ${scores[10]}, yath: ${scores[11]}, chance: ${scores[12]},\n< totals: ${totalT()} + ${totalB()} ${(totalT() >= 63) ? '(+35 bonus) ' : ''}${(bonusYaths === 0) ? '' : `(+${bonusYaths * 100} bounus) `}= ${totalT() + totalB() + ((totalT() >= 63) ? 35 : 0) + ((bonusYaths === 0) ? 0 : bonusYaths * 100)}`);
-    process.exit();
+    process.exit(11);
   };
   roll();
 }
