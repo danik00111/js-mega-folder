@@ -150,7 +150,7 @@ process.stdin.on("data", r => {
       }
       break;
     case (input.startsWith('reroll ')):
-      rerolle(input.slice(7)); // example input: "reroll 10010", any missing digits are 
+      rerolle(input.slice(7)); // example input: "reroll 10010", any missing digits are counted as 0
     break;
     case input === 'wollolllo\n': console.log('< Narwinia.'); rerolls = +Infinity; break; // temporary + dev-only
     default: console.log('< Waht??!¿'); break;
