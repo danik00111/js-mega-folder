@@ -3,7 +3,7 @@ let diceCup;
 let rerolls;
 let afdf;
 let bonusYaths = 0;
-console.log('Input: idek just type "help"')
+console.log('If you don\'t know anything about Yathzee,\nI highly recommend googling the rules and/or playing a couple of online games.\nTo get started, type [help] in the terminal (without the brackets).')
 const roll = () => {
   if(rerolls !== +Infinity) rerolls = 2;
   diceCup = [randInt(1,6),randInt(1,6),randInt(1,6),randInt(1,6),randInt(1,6)];
