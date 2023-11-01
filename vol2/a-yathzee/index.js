@@ -118,15 +118,15 @@ process.stdin.on("data", r => {
         case '5ofakind\n':
         case 'fiveofakind\n':
         case 'five of a kind\n':
-          case 'yz\n': case 'y\n': case 'yathzee\n': case 'yacht\n': case 'yath\n':
-            console.log(`< zamnnnnnnn, you scored the yummy ${isYath() ? '50' : '0'} points ZAMNNNNN${isYath() ? '' : '💀💀💀'}`); process.exit();
-          break;
-          case 'fh\n': case 'fullhouse\n': case 'full house\n': case 'house\n':
+        case 'yz\n': case 'y\n': case 'yathzee\n': case 'yacht\n': case 'yath\n':
+          console.log(`< zamnnnnnnn, you scored the yummy ${isYath() ? '50' : '0'} points ZAMNNNNN${isYath() ? '' : '💀💀💀'}`); process.exit();
+        break;
+        case 'fh\n': case 'fullhouse\n': case 'full house\n': case 'house\n':
           console.log(`< fh, you score ${isFH() ? '25' : '0'} points${isFH() ? '' : ' bro fr thought he be having fh lul 💀💀'}`); process.exit();
-          break;
+        break;
         case 'straight\n': case 'st\n': case 'str\n': case 'strt\n':
-          if(isLgSt()) { console.log(`< 40pts for the large straight`); process.exit(); }
-          else if(isShSt()) { console.log(`< 30pts for the small straight`); process.exit(); }
+          if(isLgSt()) { console.log(`< 40pts for the large straight \n< (maybe you meant small straight?)`); process.exit(); }
+          else if(isShSt()) { console.log(`< 30pts for the small straight \n< (maybe you meant large straight, for whatever reason?)`); process.exit(); }
           else { console.log(`< idk what straight you meant but 0 points any way`); process.exit(); }
         break;
         case 'small straight\n': case 'short straight\n':
@@ -134,14 +134,17 @@ process.stdin.on("data", r => {
         case 'smst\n': case 'smstr\n': case 'smstrt\n':
         case 'shst\n': case 'shstr\n': case 'shstrt\n':
         case 'ss\n':
-          console.log(`< small straight, you score ${isShSt() ? '30 pts' : '0 pts brughhhhhh:skyll:💀'}`);
-          break;
+          console.log(`< small straight, you score ${isShSt() ? '30 pts' : '0 pts brughhhhhh:skyll:💀'}`); process.exit();
+        break;
         case 'large straight\n': case 'long straight\n':
         case 'largestraight\n': case 'longstraight\n':
         case 'lgst\n': case 'lgstr\n': case 'lgstrt\n':
         case 'lgst\n': case 'lgstr\n': case 'lgstrt\n':
         case 'ls\n':
-          console.log(`< large straight, you score ${isLgSt() ? '40 pts' : '0 pts brughhhhhh:skyll:💀💀'}`);
+          console.log(`< large straight, you score ${isLgSt() ? '40 pts' : '0 pts brughhhhhh:skyll:💀💀'}`); process.exit();
+        break;
+        case 'chance\n': case 'ch\n': case 'sum\n': case 'c\n':
+          console.log(`< chance, you got ${cupSum()} points`); process.exit();
         break;
         default: console.log('< Waht¿¿'); break;
       }
