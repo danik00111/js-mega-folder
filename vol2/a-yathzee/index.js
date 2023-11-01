@@ -1,18 +1,4 @@
-import { randInt } from '../../snippets/index.js'
-// const rolle = () => randInt(1,6);
-// class diceCup {
-//   cup;
-//   set roll(cup) {
-//     cup = [rolle(),rolle(),rolle(),rolle(),rolle()];
-//     console.log(cup);
-//   }
-//   get isThreeOfAKind() {
-//     is = false;
-//     idek = cup.reduce((acc, value) => (acc[value] = -~acc[value], acc), {});
-//   };
-//   get isFourOfAKind() {};
-// }
-// diceCup.roll();
+import { randInt } from '../../snippets/index.js';
 let diceCup;
 let rerolls;
 let yeah;
@@ -29,10 +15,8 @@ const rerolle = (h) => {
   let str = h;
   if(parseInt(str) != str) { console.log('< uhmhmh watthrt'); return; }
   diceCup.forEach((die, i) => {
-    // console.log(`< die ${i}, char there ${str.charAt(i)} (${str.charAt(i) === '1'})`);
     if(str.charAt(i) === '1') {
       diceCup[i] = randInt(1,6);
-      // console.log(`< rerolled die ${i}, now is ${diceCup[i]}`);
     }
   })
   rerolls--;
