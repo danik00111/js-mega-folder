@@ -6,7 +6,7 @@ let afdf;
 let bonusYaths = 0;
 console.log('If you don\'t know anything about Yathzee,\nI highly recommend googling the rules and/or playing a couple of online games.\nTo get started, type [help] in the terminal (without the brackets).')
 const roll = () => {
-  if(rerolls !== +Infinity) rerolls = 2;
+  rerolls = 2;
   diceCup = [randInt(1,6),randInt(1,6),randInt(1,6),randInt(1,6),randInt(1,6)];
   console.log(diceCup);
 }
@@ -167,7 +167,7 @@ process.stdin.on("data", r => {
       process.exit();
     break;
     case (input === 'help\n'):
-      console.log('< [help] - you are here!\n< [exit] - exit the node.js\n< [advhelp {cmd}] - help on a specific command\n< [score {cell}] - score your dice\n< [rr {5 bits}] - reroll your dice up to twice\n< ????? - set your rerolls to infty (for debug purposes only)\n< [scores] - view the scores');
+      console.log('< [help] - you are here!\n< [exit] - exit the node.js\n< [advhelp {cmd}] - help on a specific command\n< [score {cell}] - score your dice\n< [rr {5 bits}] - reroll your dice up to twice\n< [scores] - view the scores');
     break;
     case (input.startsWith('advhelp ')):
       switch(input.slice(8)) {
@@ -198,12 +198,6 @@ process.stdin.on("data", r => {
       }
       break;
     case (input.startsWith('rr ')): rerolle(input.slice(3)); break; // example input: "reroll 10010", any missing digits are counted as 0
-    case input === 'wollolllo\n': console.log('< Narwinia.'); rerolls = +Infinity; break; // temporary + dev-only
-    case ((input.startsWith('set '))&&(rerolls === +Infinity)): // temporary + dev-only
-      afdf = input.slice(4);
-      for(let i=0;i<5;i++) diceCup[i] = parseInt(afdf.charAt(i));
-      console.log(diceCup);
-    break;
     case (input === 'scores\n'): console.log(`< 1s-6s: ${scores[0]}, ${scores[1]}, ${scores[2]}, ${scores[3]}, ${scores[4]}, ${scores[5]},\n< 3oak: ${scores[6]}, 4oak: ${scores[7]}, fullhouse: ${scores[8]},\n< straights: ${scores[9]}, ${scores[10]}, yath: ${scores[11]}, chance: ${scores[12]},\n< totals: ${totalT()} + ${totalB()} ${(totalT() >= 63) ? '(+35 bonus) ' : ''}${(bonusYaths === 0) ? '' : `(+${bonusYaths * 100} bounus) `}= ${totalT() + totalB() + ((totalT() >= 63) ? 35 : 0) + ((bonusYaths === 0) ? 0 : bonusYaths*100)}`); break;
     default: console.log('< Waht??!¿'); break;
   }
