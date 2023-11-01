@@ -77,7 +77,6 @@ let scoreboard = [
 const totalT = () => {
   let t = 0;
   for(let i = 0; i < 6; i++) t += scoreboard[i];
-  if(t>=63) t += 35;
   return t;
 }
 const totalB = () => {
@@ -86,7 +85,7 @@ const totalB = () => {
   return t;
 }
 const routine = (x) => {
-  if(scoreboard[x] !== null) { console.log('< you already scored there. [scoreboard]'); return; }
+  if(scoreboard[x] !== null) { console.log('< you already scored there'); return; }
   switch(x) {
     case 0:
       console.log(`ones, you score ${([...diceCup].filter(x=>x==1).length) * 1} points`);
@@ -129,6 +128,10 @@ const routine = (x) => {
       scoreboard[12] = cupSum();
     break; default: console.log('< hugh,'); process.exit(420); break;
   }
+  if(!(scoreboard.includes(null))) {
+    console.log(`\n< Well, the game ends here.\n< Here's how you did:\n\n< 1s-6s: ${scoreboard[0]}, ${scoreboard[1]}, ${scoreboard[2]}, ${scoreboard[3]}, ${scoreboard[4]}, ${scoreboard[5]},\n< 3oak: ${scoreboard[6]}, 4oak: ${scoreboard[7]}, fullhouse: ${scoreboard[8]},\n< straights: ${scoreboard[9]}, ${scoreboard[10]}, yath: ${scoreboard[11]}, chance: ${scoreboard[12]},\n< totals: ${totalT()} + ${totalB()}${(totalT() >= 63) ? ' (+35 bonus)' : ''} = ${totalT() + totalB() + ((totalT() >= 63) ? 35 : 0)}`);
+    process.exit();
+  };
   roll();
 }
 process.stdin.on("data", r => {
@@ -136,14 +139,14 @@ process.stdin.on("data", r => {
   switch(true) {
     case (input === 'exit\n'):process.exit();break;
     case (input === 'help\n'):
-      console.log('< [help] - you are here!\n< [exit] - exit the node.js\n< [advhelp {cmd}] - help on a specific command\n< [score {cell}] - score your dice\n< [reroll {5 bits}] - reroll your dice up to twice\n< ????? - set your rerolls to infty (for debug purposes only)\n< [scoreboard] - view the scoreboard');
+      console.log('< [help] - you are here!\n< [exit] - exit the node.js\n< [advhelp {cmd}] - help on a specific command\n< [score {cell}] - score your dice\n< [rr {5 bits}] - reroll your dice up to twice\n< ????? - set your rerolls to infty (for debug purposes only)\n< [scoreboard] - view the scoreboard');
     break;
     case (input.startsWith('advhelp ')):
       switch(input.slice(8)) {
         case 'help\n': case 'exit\n': case 'scoreboard\n': console.log('< actually dumb person detected 💀💀'); break;
         case 'advhelp\n': console.log('< good morning rise and shine 💀💀💀💀'); break;
         case 'score\n': console.log("< available ways to score:\n< 1s, 2s, ..., 6s - sum of the dice with this side up\n< 3ofakind, 4ofakind - 0 if you don't have 3 or 4 dice with the same number, sum of all dice if you do\n< yathzee - basically fiveofakind for 50 points\n< smallstraight, largestraight - if 4 or 5 dice in ascending order, then 30 / 40 pts, else 0\n< chance - sum of all dice, no matter what the dice are")
-        case 'reroll\n': console.log('< example usage: [reroll 10011] to reroll the 1st, 4th, and 5th dice, [reroll 101] to reroll the 1st and 4rd die (all missing digits count as 0)'); break;
+        case 'rr\n': console.log('< example usage: [rr 10011] to reroll the 1st, 4th, and 5th dice, [rr 101] to reroll the 1st and 4rd die (all missing digits count as 0)'); break;
         default: console.log('< huh'); break;
       }
     break;
@@ -166,14 +169,9 @@ process.stdin.on("data", r => {
         default: console.log('< Waht¿¿'); break;
       }
       break;
-    case (input.startsWith('reroll ')): rerolle(input.slice(7)); break; // example input: "reroll 10010", any missing digits are counted as 0
+    case (input.startsWith('rr ')): rerolle(input.slice(3)); break; // example input: "reroll 10010", any missing digits are counted as 0
     case input === 'wollolllo\n': console.log('< Narwinia.'); rerolls = +Infinity; break; // temporary + dev-only
-    case (input === 'scoreboard\n'):
-      console.log(`1s-6s: ${scoreboard[0]}, ${scoreboard[1]}, ${scoreboard[2]}, ${scoreboard[3]}, ${scoreboard[4]}, ${scoreboard[5]},
-3oak: ${scoreboard[6]}, 4oak: ${scoreboard[7]}, fullhouse: ${scoreboard[8]},
-straights: ${scoreboard[9]}, ${scoreboard[10]}, yath: ${scoreboard[11]}, chance: ${scoreboard[12]},
-totals: `);
-    break;
+    case (input === 'scoreboard\n'): console.log(`< 1s-6s: ${scoreboard[0]}, ${scoreboard[1]}, ${scoreboard[2]}, ${scoreboard[3]}, ${scoreboard[4]}, ${scoreboard[5]},\n< 3oak: ${scoreboard[6]}, 4oak: ${scoreboard[7]}, fullhouse: ${scoreboard[8]},\n< straights: ${scoreboard[9]}, ${scoreboard[10]}, yath: ${scoreboard[11]}, chance: ${scoreboard[12]},\n< totals: ${totalT()} + ${totalB()}${(totalT() >= 63) ? ' (+35 bonus)' : ''} = ${totalT() + totalB() + ((totalT() >= 63) ? 35 : 0)}`); break;
     default: console.log('< Waht??!¿'); break;
   }
 });
