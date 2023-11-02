@@ -170,7 +170,7 @@ const newTurn = (x) => {
   if(!(scores.includes(null))) {
     console.log(`\n< Well, the game ends here.\n< Here's how you did:\n`);
     theScores();
-    process.exit(11);
+    process.exit();
   };
   roll();
 }
