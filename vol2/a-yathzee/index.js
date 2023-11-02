@@ -160,9 +160,7 @@ const routine = (x) => {
   };
   roll();
 }
-const theScores = () => {
-  console.log(`< 1s-6s: ${scores[0]}, ${scores[1]}, ${scores[2]}, ${scores[3]}, ${scores[4]}, ${scores[5]},\n< 3oak: ${scores[6]}, 4oak: ${scores[7]}, fullhouse: ${scores[8]},\n< straights: ${scores[9]}, ${scores[10]}, yath: ${scores[11]}, chance: ${scores[12]},\n< totals: ${totalT()} + ${totalB()} ${(totalT() >= 63) ? '(+35 bonus) ' : ''}${(bonusYaths === 0) ? '' : `(+${bonusYaths * 100} bounus) `}= ${totalT() + totalB() + ((totalT() >= 63) ? 35 : 0) + ((bonusYaths === 0) ? 0 : bonusYaths * 100)}`);
-}
+const theScores = () => { console.log(`< 1s-6s: ${scores[0]}, ${scores[1]}, ${scores[2]}, ${scores[3]}, ${scores[4]}, ${scores[5]},\n< 3oak: ${scores[6]}, 4oak: ${scores[7]}, fullhouse: ${scores[8]},\n< straights: ${scores[9]}, ${scores[10]}, yath: ${scores[11]}, chance: ${scores[12]},\n< totals: ${totalT()} + ${totalB()} ${(totalT() >= 63) ? '(+35 bonus) ' : ''}${(bonusYaths === 0) ? '' : `(+${bonusYaths * 100} bounus) `}= ${totalT() + totalB() + ((totalT() >= 63) ? 35 : 0) + ((bonusYaths === 0) ? 0 : bonusYaths * 100)}`); }
 process.stdin.on("data", r => {
   let input = String(r).toLowerCase();
   switch(true) {
