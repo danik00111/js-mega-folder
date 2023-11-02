@@ -137,10 +137,10 @@ const routine = (x) => {
       console.log(`< 4oak, you score ${(isTOAK()) ? cupSum() : '0 bro fr thought his dice be 4oak lul💀'}`);
       scores[7] = isFOAK() ? cupSum() : 0;
     break; case 8:
-      console.log(`< fh, you score ${isFH() ? '25 points' : '0 points bro fr thought he be having fh lul 💀💀'}`);
+      console.log(`< fh, you score ${isFH() ? '25 points' : '0 points bro fr thought he be having fh lul 💀'}`);
       scores[8] = isFH() ? 25 : 0;
     break; case 9:
-      console.log(`< small straight, you score ${isShSt() ? '30 pts' : '0 pts brughhhhhh:skyll:💀'}`);
+      console.log(`< small straight, you score ${isShSt() ? '30 pts' : '0 pts brughhhhhh:skyll:💀💀'}`);
       scores[9] = isShSt() ? 30 : 0;
       break; case 10:
       console.log(`< large straight, you score ${isLgSt() ? '40 pts' : '0 pts brughhhhhh:skyll:💀💀'}`);
