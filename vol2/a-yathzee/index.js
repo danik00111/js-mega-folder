@@ -203,8 +203,8 @@ process.stdin.on("data", r => {
         case 'fours\n':  case '4s\n': case '4\n': newTurn(3); break;
         case 'fives\n':  case '5s\n': case '5\n': newTurn(4); break;
         case 'sixes\n':  case '6s\n': case '6\n': newTurn(5); break;
-        case 'toak\n': case '3oak\n': case '3 of a kind\n': case '3ofakind\n': case 'threeofakind\n': case 'three of a kind\n': newTurn(6); break;
-        case 'foak\n': case '4oak\n': case '4 of a kind\n': case '4ofakind\n': case 'fourofakind\n': case 'four of a kind\n': newTurn(7); break;
+        case 'toak\n': case '3oak\n': case '3k\n': case '3o\n': case '3 of a kind\n': case '3ofakind\n': case 'threeofakind\n': case 'three of a kind\n': newTurn(6); break;
+        case 'foak\n': case '4oak\n': case '4k\n': case '4o\n': case '4 of a kind\n': case '4ofakind\n': case 'fourofakind\n': case 'four of a kind\n': newTurn(7); break;
         case 'fh\n': case 'fullhouse\n': case 'full house\n': case 'house\n': case 'h\n': newTurn(8); break;
         case 'small straight\n': case 'short straight\n': case 'smallstraight\n': case 'shortstraight\n': case 'smst\n': case 'smstr\n': case 'smstrt\n': case 'shst\n': case 'shstr\n': case 'shstrt\n': case 'ss\n': newTurn(9); break;
         case 'large straight\n': case 'long straight\n': case 'largestraight\n': case 'longstraight\n': case 'lgst\n': case 'lgstr\n': case 'lgstrt\n': case 'ls\n': newTurn(10); break;
