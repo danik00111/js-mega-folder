@@ -141,7 +141,7 @@ const newTurn = (x, y) => {
       break;
       case 10:
         scores[x] = 40;
-        console.log(`< small straight, you score 40 pts}`);
+        console.log(`< large straight, you score 40 pts`);
       break;
       case 11:
         console.log('< wait wh- HOWWWWWWWWWWWWW');
