@@ -208,7 +208,7 @@ process.stdin.on("data", r => {
         case 'fh\n': case 'fullhouse\n': case 'full house\n': case 'house\n': case 'h\n': newTurn(8); break;
         case 'small straight\n': case 'short straight\n': case 'smallstraight\n': case 'shortstraight\n': case 'smst\n': case 'smstr\n': case 'smstrt\n': case 'shst\n': case 'shstr\n': case 'shstrt\n': case 'ss\n': newTurn(9); break;
         case 'large straight\n': case 'long straight\n': case 'largestraight\n': case 'longstraight\n': case 'lgst\n': case 'lgstr\n': case 'lgstrt\n': case 'ls\n': newTurn(10); break;
-        case '5oak\n': case '5 of a kind\n': case '5ofakind\n': case 'fiveofakind\n': case 'five of a kind\n': case 'yz\n': case 'y\n': case 'yathzee\n': case 'yacht\n': case 'yath\n': newTurn(11); break;
+        case '5oak\n': case '5 of a kind\n': case '5k\n': case '5o\n': case '5ofakind\n': case 'fiveofakind\n': case 'five of a kind\n': case 'yz\n': case 'y\n': case 'yathzee\n': case 'yacht\n': case 'yath\n': newTurn(11); break;
         case 'chance\n': case 'ch\n': case 'sum\n': case 'c\n': newTurn(12); break;
         case 'straight\n': case 'st\n': case 'str\n': case 'strt\n': console.log('< what straight? [score smst] [score lgst]'); break;
         default: console.log('< Waht¿¿'); break;
