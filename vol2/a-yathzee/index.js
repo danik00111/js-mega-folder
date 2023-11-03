@@ -207,6 +207,7 @@ process.stdin.on("data", r => {
     case (input === 'help\n'):
       console.log('< [help] - you are here!\n< [exit] - exit the node.js\n< [advhelp {cmd}] - help on a specific command\n< [score {cell}] - score your dice\n< [rr {5 bits}] - reroll your dice up to twice\n< [scores] - view the scores');
     break;
+    case (input.startsWith('advhelp {')): console.log('< without the curly brackets,,,,,,,,,,,\n');
     case (input.startsWith('advhelp ')):
       switch(input.slice(8)) {
         case 'help\n': case 'exit\n': case 'scores\n': console.log('< actually dumb person detected 💀💀'); break;
