@@ -236,7 +236,7 @@ process.stdin.on("data", r => {
         default: console.log('< Waht¿¿'); break;
       }
       break;
-    case (input.startsWith('rr ')): rerolle(input.slice(3)); break; // example input: "reroll 10010", any missing digits are counted as 0
+    case (input.startsWith('rr ')): rerolle(input.slice(3)); break; // example input: "rr 10010", any missing digits are counted as 0
     case (input === 'scores\n'): theScores(); break;
     default: console.log('< Waht??!¿'); break;
   }
