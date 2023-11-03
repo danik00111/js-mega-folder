@@ -167,7 +167,7 @@ const newTurn = (x, y) => {
       console.log(`< 3oak, you score ${(isTOAK()) ? cupSum() : '0 bro fr thought his dice be 3oak lul'}`);
       scores[x] = isTOAK() ? cupSum() : 0;
     break; case 7:
-      console.log(`< 4oak, you score ${(isTOAK()) ? cupSum() : '0 bro fr thought his dice be 4oak lul'}`);
+      console.log(`< 4oak, you score ${(isFOAK()) ? cupSum() : '0 bro fr thought his dice be 4oak lul'}`);
       scores[x] = isFOAK() ? cupSum() : 0;
     break; case 8:
       console.log(`< fh, you score ${isFH() ? '25 points' : '0 points bro fr thought he be having fh lul 💀'}`);
