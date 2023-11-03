@@ -109,19 +109,19 @@ const bonusYath = () => {
   let dize = diceCup[0];
   if(scores[dize-1] === null) {
     console.log(`< You will have to play that in ${dize}s for ${5 * (dize+1)} pts.`)
-    newTurn(dize-1); return;
+    newTurn(dize-1, 'h'); return;
   }
   console.log(`< Play this as a joker anywhere in the bottom sect!`)
 }
-const newTurn = (x) => {
+const newTurn = (x, y) => {
   if(scores[x] !== null) { console.log('< you already scored there'); return; }
   if(scores[11] === 50 && isYath()) {
     switch(x) {
       case 0: case 1: case 2: case 3: case 4: case 5:
-        if([...scores].splice(6).includes(null)) {
+        if([...scores].splice(6).includes(null) && y !== 'h') {
           console.log('< why'); return;
         } else {
-          scores[x] = 5 * (x+1);
+          scores[x] = 5 * (x+1); roll();
         };
       return;
       case 6:
@@ -154,6 +154,7 @@ const newTurn = (x) => {
       break;
       default: console.log('< uhmmhmhgh hugh'); return;
     }
+    roll();
     return;
   }
   switch(x) {
