@@ -99,6 +99,7 @@ const totalB = () => {
   for(let i = 6; i < 13; i++) t += scores[i];
   return t;
 }
+const total = () => totalT() + totalB() + ((totalT() >= 63) ? 35 : 0) + ((bonusYaths === 0) ? 0 : bonusYaths * 100);
 /*
  * end scoreboard code
  * start actual game functionality (switch/case hell)
@@ -153,6 +154,8 @@ const newTurn = (x, y) => {
       break;
       default: console.log('< uhmmhmhgh hugh'); return;
     }
+    if (total() === 1575) { console.log('< yeh, you being fr lucky here eh?\nimagine actually rolling 12 bonus yathzees and getting 30 total on all the sum cells 💀💀💀💀\n< nawh i call cap 💀💀💀💀💀🆘💀💀💀💀💀'); process.exit(1575) };
+    if (!(scores.includes(null))) { gameEnd(); };
     roll();
     return;
   }
@@ -183,14 +186,15 @@ const newTurn = (x, y) => {
       scores[x] = cupSum();
     break; default: console.log('< hugh,'); process.exit(420); break;
   }
-  if(!(scores.includes(null))) {
-    console.log(`\n< Well, the game ends here.\n< Here's how you did:\n`);
-    theScores();
-    process.exit();
-  };
+  if(!(scores.includes(null))) { gameEnd(); };
   roll();
 }
-const theScores = () => { console.log(`< 1s-6s: ${[...scores].splice(0,6).join(', ')},\n< 3oak: ${scores[6]}, 4oak: ${scores[7]}, fullhouse: ${scores[8]},\n< straights: ${scores[9]}, ${scores[10]}, yath: ${scores[11]}, chance: ${scores[12]},\n< totals: ${totalT()} + ${totalB()} ${(totalT() >= 63) ? '(+35 bonus) ' : ''}${(bonusYaths === 0) ? '' : `(+${bonusYaths * 100} 🅱️onus) `}= ${totalT() + totalB() + ((totalT() >= 63) ? 35 : 0) + ((bonusYaths === 0) ? 0 : bonusYaths * 100)}`); }
+const gameEnd = () => {
+  console.log(`\n< Well, the game ends here.\n< Here's how you did:\n`);
+  theScores();
+  process.exit();
+};
+const theScores = () => { console.log(`< 1s-6s: ${[...scores].splice(0,6).join(', ')},\n< 3oak: ${scores[6]}, 4oak: ${scores[7]}, fullhouse: ${scores[8]},\n< straights: ${scores[9]}, ${scores[10]}, yath: ${scores[11]}, chance: ${scores[12]},\n< totals: ${totalT()} + ${totalB()} ${(totalT() >= 63) ? '(+35 bonus) ' : ''}${(bonusYaths === 0) ? '' : `(+${bonusYaths * 100} 🅱️onus) `}= ${total()}`); }
 process.stdin.on("data", r => {
   let input = String(r).toLowerCase();
   switch(true) {
