@@ -3,11 +3,11 @@ const randInt = (min, max) => (Math.floor(Math.random() * (Math.floor(max) - Mat
 let diceCup;
 let rerolls;
 let bonusYaths = 0;
+console.log('If you don\'t know anything about Yathzee,\nI highly recommend googling the rules and/or playing a couple of online games.\nTo get started, type [help] in the terminal (without the brackets).')
 /*
  * end setup
  * start helperfuncs to roll
  */
-console.log('If you don\'t know anything about Yathzee,\nI highly recommend googling the rules and/or playing a couple of online games.\nTo get started, type [help] in the terminal (without the brackets).')
 const roll = () => {
   rerolls = 2;
   diceCup = [randInt(1,6),randInt(1,6),randInt(1,6),randInt(1,6),randInt(1,6)];
