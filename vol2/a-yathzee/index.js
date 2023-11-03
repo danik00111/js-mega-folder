@@ -154,7 +154,7 @@ const newTurn = (x, y) => {
       break;
       default: console.log('< uhmmhmhgh hugh'); return;
     }
-    if (total() === 1575) { console.log('< yeh, you being fr lucky here eh?\n< imagine actually rolling 12 bonus yathzees and getting 30 total on all the sum cells 💀💀💀💀\n< nawh i call cap 💀💀💀💀💀🆘💀💀💀💀💀'); process.exit(1575) };
+    if (total() === 1575) { console.log('< yeh, you being fr lucky here eh? 💀\n< imagine actually rolling 12 bonus yathzees and getting 30 total on all the sum cells💀💀💀💀\n< nawh i call cap 💀💀💀🆘💀💀💀🧢💀💀💀🆘💀💀💀'); process.exit(1575) };
     if (!(scores.includes(null))) { gameEnd(); };
     roll();
     return;
