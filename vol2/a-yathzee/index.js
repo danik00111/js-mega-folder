@@ -99,7 +99,7 @@ const totalB = () => {
   for(let i = 6; i < 13; i++) t += scores[i];
   return t;
 }
-const total = () => totalT() + totalB() + ((totalT() >= 63) ? 35 : 0) + ((bonusYaths === 0) ? 0 : bonusYaths * 100);
+const total = () => totalT() + totalB() + ((totalT() >= 63) ? 35 : 0) + (bonusYaths * 100);
 /*
  * end scoreboard code
  * start actual game functionality (switch/case hell)
