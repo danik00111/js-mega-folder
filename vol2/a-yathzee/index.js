@@ -2,7 +2,6 @@
 const randInt = (min, max) => (Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) + Math.ceil(min));
 let diceCup;
 let rerolls;
-let afdf;
 let bonusYaths = 0;
 /*
  * end setup
