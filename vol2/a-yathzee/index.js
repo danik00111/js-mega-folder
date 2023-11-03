@@ -191,7 +191,7 @@ process.stdin.on("data", r => {
         case 'help\n': case 'exit\n': case 'scores\n': console.log('< actually dumb person detected 💀💀'); break;
         case 'advhelp\n': console.log('< good morning rise and shine 💀💀💀💀'); break;
         case 'score\n': console.log("< available ways to score:\n< 1s, 2s, ..., 6s - sum of the dice with this side up\n< 3ofakind, 4ofakind - 0 if you don't have 3 or 4 dice with the same number, sum of all dice if you do\n< yathzee - basically fiveofakind for 50 points\n< smallstraight, largestraight - if 4 or 5 dice in ascending order, then 30 / 40 pts, else 0\n< chance - sum of all dice, no matter what the dice are");
-        case 'rr\n': console.log('< example usage: [rr 10011] to reroll the 1st, 4th, and 5th dice, [rr 101] to reroll the 1st and 4rd die (all missing digits count as 0)'); break;
+        case 'rr\n': console.log('< example usage: [rr 10011] to reroll the 1st, 4th, and 5th dice, [rr 101] to reroll the 1st and 4th die (all missing digits count as 0)'); break;
         default: console.log('< huh'); break;
       }
     break;
