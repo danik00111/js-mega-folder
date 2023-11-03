@@ -4,6 +4,10 @@ let diceCup;
 let rerolls;
 let afdf;
 let bonusYaths = 0;
+/*
+ * end setup
+ * start helperfuncs to roll
+ */
 console.log('If you don\'t know anything about Yathzee,\nI highly recommend googling the rules and/or playing a couple of online games.\nTo get started, type [help] in the terminal (without the brackets).')
 const roll = () => {
   rerolls = 2;
@@ -24,6 +28,10 @@ const rerolle = (h) => {
   if (scores[11] === 50 && isYath()) { console.log(`< OMGE BONUS YATHZEE 😱hOWWW🆘💀 you get a whopping 100 POINTS BONUS 😱😱😱🤪`); bonusYath(); return; }
   console.log('< rerolls left:', rerolls);
 }
+/*
+ * end helperfuncs to roll
+ * start helperfuncs to check for combos
+ */
 const isTOAK = () => {
   let counts = {};
   for (const die of [...diceCup]) counts[die] = (counts[die] || 0) + 1;
@@ -74,6 +82,10 @@ const isLgSt = () => {
 }
 const cupSum = () => diceCup.reduce((partialSum, a) => partialSum + a, 0);
 roll();
+/*
+ * end helperfuncs to check for combos
+ * start scoreboard code
+ */
 let scores = [
   null, null, null, null, null, null, null, null, null, null, null, null, null,
 // 1s,   2s,   3s,   4s,   5s,   6s,   3k,   4k,   fh,   ss,   ls,   yz,   ch
@@ -88,6 +100,10 @@ const totalB = () => {
   for(let i = 6; i < 13; i++) t += scores[i];
   return t;
 }
+/*
+ * end scoreboard code
+ * start actual game functionality (switch/case hell)
+ */
 const bonusYath = () => {
   bonusYaths++;
   let dize = diceCup[0];
