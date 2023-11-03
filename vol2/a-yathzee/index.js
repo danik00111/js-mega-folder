@@ -107,7 +107,7 @@ const bonusYath = () => {
   bonusYaths++;
   let dize = diceCup[0];
   if(scores[dize-1] === null) {
-    console.log(`< You will have to play that in ${dize}s for ${5 * (dize+1)} pts.`)
+    console.log(`< You will have to play that in ${dize}s for ${5 * (dize)} pts.`)
     newTurn(dize-1, 'h'); return;
   }
   console.log(`< Play this as a joker anywhere in the bottom sect!`)
