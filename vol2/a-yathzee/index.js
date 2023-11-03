@@ -57,7 +57,7 @@ const isFH = () => {
   return uniqueCounts.size === 2 && (uniqueCounts.has(2) && uniqueCounts.has(3));
 }
 const isShSt = () => {
-  let the = [...diceCup].sort((a,b)=>a-b);
+  let the = [...diceCup].sort();
   let count = 1;
   let found = false;
   the.forEach((die, i) => {
@@ -69,7 +69,7 @@ const isShSt = () => {
   return found;
 }
 const isLgSt = () => {
-  let the = [...diceCup].sort((a,b)=>a-b);
+  let the = [...diceCup].sort();
   let count = 1;
   let found = false;
   the.forEach((die, i) => {
