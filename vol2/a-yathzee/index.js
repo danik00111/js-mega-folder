@@ -203,6 +203,7 @@ process.stdin.on("data", r => {
       theScores();
       process.exit();
     break;
+    case (input === '[help]\n'): console.log('< no, without the square brackets, type commands without the [ ]\n');
     case (input === 'help\n'):
       console.log('< [help] - you are here!\n< [exit] - exit the node.js\n< [advhelp {cmd}] - help on a specific command\n< [score {cell}] - score your dice\n< [rr {5 bits}] - reroll your dice up to twice\n< [scores] - view the scores');
     break;
