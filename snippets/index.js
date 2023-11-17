@@ -207,21 +207,10 @@ const InsideOutify = (arr) => {
   return result;
 }
 
-export {
-  CelcuisToFahrenheit,
-  FahrenheitToCelcuis,
-  isOdd,
-  maxOfArray,
-  randInt,
-  forJoin,
-  arrayRemoveDupes,
-  ANTIcASE,
-  decimalToRoman,
-  decToRomV2,
-  romanToDecimal,
-  noDupesAndSort,
-  InsideOutify,
-};
+const rootGet = (x) => getComputedStyle(document.querySelector(':root')).getPropertyValue('--' + x);
+const rootSet = (x, y) => { document.querySelector(':root').style.setProperty('--' + x, y) };
+
+export {CelcuisToFahrenheit,FahrenheitToCelcuis,isOdd,maxOfArray,randInt,forJoin,arrayRemoveDupes,ANTIcASE,decimalToRoman,decToRomV2,romanToDecimal,noDupesAndSort,InsideOutify,rootGet,rootSet};
 
 /*
 export NVM_DIR="$HOME/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
