@@ -14,7 +14,8 @@ class Game {
         else this.form(this.field.split(' '));
         if(this.field.length>0)this.on=true;
       break; case x.startsWith('analyze '):
-        console.log(`The ${(evaluate(x.split(' ').slice(1).map(y=>parseInt(y))))?'player to move':'waiting player'} can force a win.`)
+        if(x == 'analyze ' || x == 'analyze') { console.log('where value') } else {
+          console.log(`The ${(evaluate(x.split(' ').slice(1).map(y=>parseInt(y))))?'player to move':'waiting player'} can force a win.`)}
     }
   }
   play(x) {
