@@ -14,7 +14,7 @@ class Game {
         if(this.field.length>0)this.on=true;
       break; case x.startsWith('eval '):
         if(x == 'eval ' || x == 'eval') { console.log('where value') } else {
-          console.log(`The ${(evaluate(x.split(' ').slice(1).map(y=>parseInt(y))))?'player to move':'waiting player'} can force a win.`)}
+          console.log(`< The ${(evaluate(x.split(' ').slice(1).map(y=>parseInt(y))))?'player to move':'waiting player'} can force a win.`)}
     }
   }
   play(x) {
@@ -65,9 +65,9 @@ const advHelp = {
 < the first one pointing to a number in a zero-indexed array (0 = first number),
 < and the second one being how much bubbles you want to pop
 < (both numbers must be integers).`,
-  "advhelp advhelp": 'bruhhhghghh',
-  "advhelp abort": 'bruhhhghghh',
-  "advhelp help": 'bruhhhghghh',
+  "advhelp advhelp": '< rise and shine 💀💀',
+  "advhelp abort": '< rise and shine 💀💀',
+  "advhelp help": '< rise and shine 💀💀',
 }
 //..'....|....'....|....'....|....'....|....'....|....'....|....'....|....'....| 80 chars ruler
 const help = `
