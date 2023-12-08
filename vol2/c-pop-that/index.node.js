@@ -54,14 +54,13 @@ const helpCmds = `
 <   start a new game with the board state you choose
 <   (either [square], [octagon], or a custom one).
 < [eval [board]] -
-<   run a script to analyse a custom board with minimax,
-<   and see who has a forced win in the position.
-<   (i dont actually know if ill be able to code a minimax)
+<   evaluates a custom board, outputs who has a forced win in the position.
 < [pop [i] [n]] - 
 <   play a move, popping [n] bubbles in the [i]th row (0-indexed).
 < [exit] - exit this node.js.
 < [advhelp [cmd]] - get some more info on a command's syntax
 `
+//..'....|....'....|....'....|....'....|....'....|....'....|....'....|....'....| 80 char ruler
 const advHelp = {
   "advhelp newgame": `< For a custom board, put any amount of numbers, separated by spaces.
 < Square preset is 6 rows of 6, nim preset is 1-3-5-7, and octagon/circle preset is 3-5-6-6-5-3.`,
