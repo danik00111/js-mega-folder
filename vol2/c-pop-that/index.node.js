@@ -13,8 +13,8 @@ class Game {
         else if(this.field==='newgame octagon'){this.field=[3,5,6,6,5,3];}
         else this.form(this.field.split(' '));
         if(this.field.length>0)this.on=true;
-      break; case x.startsWith('analyze '):
-        if(x == 'analyze ' || x == 'analyze') { console.log('where value') } else {
+      break; case x.startsWith('eval '):
+        if(x == 'eval ' || x == 'eval') { console.log('where value') } else {
           console.log(`The ${(evaluate(x.split(' ').slice(1).map(y=>parseInt(y))))?'player to move':'waiting player'} can force a win.`)}
     }
   }
@@ -48,7 +48,7 @@ const helpCmds = `
 <   if no game is currently ran,
 <   start a new game with the board state you choose
 <   (either [square], [octagon], or a custom one).
-< [analyze [board]] -
+< [eval [board]] -
 <   run a script to analyse a custom board with minimax,
 <   and see who has a forced win in the position.
 <   (i dont actually know if ill be able to code a minimax)
@@ -60,7 +60,7 @@ const helpCmds = `
 const advHelp = {
   "advhelp newgame": `< For a custom board, put any amount of numbers, separated by spaces.
 < Square preset is 6 rows of 6, and octagon preset is 3-5-6-6-5-3.`,
-  "advhelp analyze": `< For a custom board, put any amount of numbers, separated by spaces.
+  "advhelp eval": `< For a custom board, put any amount of numbers, separated by spaces.
 < Square preset is 6 rows of 6, and octagon preset is 3-5-6-6-5-3.`,
   "advhelp pop": `< In the argument, put 2 numbers,
 < the first one pointing to a number in a zero-indexed array (0 = first number),
