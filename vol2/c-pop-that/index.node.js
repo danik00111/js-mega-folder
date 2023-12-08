@@ -12,16 +12,14 @@ class Game {
         else if(this.field==='newgame octagon'){this.field=[3,5,6,6,5,3];}
         else this.form(this.field.split(' '));
         if(this.field.length>0)this.on=true;
-      break; case x.startsWith('eval '):
-        if(x == 'eval ' || x == 'eval') { console.log('where value') } else {
-          console.log(`< The ${(evaluate(x.split(' ').slice(1).map(y=>parseInt(y))))?'player to move':'waiting player'} can force a win.`)}
+      break; default: console.warn('huh');
     }
   }
   play(x) {
-    if(x=='abort'){
-      console.log('Allat for this...');
-      this.on=false;turn=true;field=[];
-      return;
+    if (x.startsWith('eval ')){
+      if (x == 'eval ' || x == 'eval') { console.log('where value') } else {
+        console.log(`< The ${(evaluate(x.split(' ').slice(1).map(y=>parseInt(y)))) ? 'player to move' : 'waiting player'} can force a win.`)
+      }; return;
     }
     let np = x.split(' ');
     np.shift();
@@ -32,7 +30,7 @@ class Game {
     };
     this.form(this.field);
     if(this.field.length===0){
-      console.log(`P${turn?1:2} wins!`);
+      console.log(`P${this.turn?1:2} wins!`);
       this.on=false; turn = true;
     }
   }
@@ -69,7 +67,6 @@ const advHelp = {
   "advhelp abort": '< rise and shine 💀💀',
   "advhelp help": '< rise and shine 💀💀',
 }
-//..'....|....'....|....'....|....'....|....'....|....'....|....'....|....'....| 80 chars ruler
 const help = `
 < 2 players take turns on a board of pop it (usually 6 rows of 6 bubbles).
 < on your turn, you pop one or more bubbles
