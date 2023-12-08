@@ -1,9 +1,10 @@
-// import {minimax} from "./minimax.js";
+import evaluate from "./eval.js";
+console.log(evaluate([]));
 class Game {
   field = [];
-  state = 'mainmenu';
+  on = false;
   turn = true;
-  get snap() { return `< board: ${this.field}, p${this.turn?1:2} to play, code state: ${this.state}\n` }
+  get snap() { return `< board: ${this.field}, p${this.turn?1:2} to play, game running: ${this.on}\n` }
   mainMenu(x) {
     switch(true){
       case x.startsWith('newgame '):
@@ -11,15 +12,15 @@ class Game {
         if(this.field==='newgame square'){this.field=[6,6,6,6,6,6];}
         else if(this.field==='newgame octagon'){this.field=[3,5,6,6,5,3];}
         else this.form(this.field.split(' '));
-        if(this.field.length>0)this.state='game';
+        if(this.field.length>0)this.on=true;
       break; case x.startsWith('analyze '):
-      console.log('cod go here i guess 😭')
+        console.log(`The ${(evaluate(x.split(' ').slice(1).map(y=>parseInt(y))))?'player to move':'waiting player'} can force a win.`)
     }
   }
   play(x) {
     if(x=='abort'){
       console.log('Allat for this...');
-      this.state='mainmenu';turn=true;field=[];
+      this.on=false;turn=true;field=[];
       return;
     }
     let np = x.split(' ');
@@ -32,7 +33,7 @@ class Game {
     this.form(this.field);
     if(this.field.length===0){
       console.log(`P${turn?1:2} wins!`);
-      this.state='mainmenu'; turn = true;
+      this.on=false; turn = true;
     }
   }
   form(x) {this.field = x.map(Number).filter(n=>Number.isInteger(n)&&n>0)}
@@ -86,8 +87,8 @@ process.stdin.on('data',h=>{
     break; case(inp==='help'):               console.log(help);
     break; case(inp==='help cmds'):          console.log(helpCmds);
     break; case(inp.startsWith('advhelp ')): console.log(advHelp[inp]);
-    break; case(game.state==='mainmenu'):    game.mainMenu(inp);
-    break; case(game.state==='game'):        game.play(inp);
+    break; case(!game.on):                   game.mainMenu(inp);
+    break; case(game.on):                    game.play(inp);
     break; }
   console.log(game.snap);
 });
