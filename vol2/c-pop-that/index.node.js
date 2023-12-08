@@ -1,3 +1,4 @@
+// import {minimax} from "./minimax.js";
 class Game {
   field = [];
   state = 'mainmenu';
@@ -48,6 +49,7 @@ const helpCmds = `
 < [analyze [board]] -
 <   run a script to analyse a custom board with minimax,
 <   and see who has a forced win in the position.
+<   (i dont actually know if ill be able to code a minimax)
 < [pop [i] [n]] - 
 <   play a move, popping [n] bubbles in the [i]th row (0-indexed).
 < [abort] - stop the game midway.
@@ -56,14 +58,15 @@ const helpCmds = `
 const advHelp = {
   "advhelp newgame": `< For a custom board, put any amount of numbers, separated by spaces.
 < Square preset is 6 rows of 6, and octagon preset is 3-5-6-6-5-3.`,
-"advhelp analyze": `< For a custom board, put any amount of numbers, separated by spaces.
+  "advhelp analyze": `< For a custom board, put any amount of numbers, separated by spaces.
 < Square preset is 6 rows of 6, and octagon preset is 3-5-6-6-5-3.`,
-"advhelp pop": `< In the argument, put 2 numbers,
+  "advhelp pop": `< In the argument, put 2 numbers,
 < the first one pointing to a number in a zero-indexed array (0 = first number),
 < and the second one being how much bubbles you want to pop
 < (both numbers must be integers).`,
-"advhelp advhelp": 'bruhhhghghh',
-"advhelp help": 'bruhhhghghh',
+  "advhelp advhelp": 'bruhhhghghh',
+  "advhelp abort": 'bruhhhghghh',
+  "advhelp help": 'bruhhhghghh',
 }
 //..'....|....'....|....'....|....'....|....'....|....'....|....'....|....'....| 80 chars ruler
 const help = `
@@ -87,4 +90,4 @@ process.stdin.on('data',h=>{
     break; case(game.state==='game'):        game.play(inp);
     break; }
   console.log(game.snap);
-})
+});
