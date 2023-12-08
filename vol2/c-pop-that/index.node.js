@@ -1,5 +1,4 @@
 import evaluate from "./eval.js";
-console.log(evaluate([]));
 class Game {
   field = [];
   on = false;
