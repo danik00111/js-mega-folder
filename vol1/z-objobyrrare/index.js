@@ -1,31 +1,31 @@
 let poeple = [{
   name: 'Poly',
   eyeColor: 0xff4000,
-  gender: 'f',
+  gender: 'm',
   isActive: true,
   email: 'polytheplaceholder@gmail.com',
-  age: 19,
+  age: 12,
 },{
   name: 'Ajax',
   eyeColor: 0x4000ff,
   gender: 'm',
   isActive: false,
   email: 'ajaxtheplaceholder@gmail.com',
-  age: 16,
+  age: 13,
 },{
   name: 'Mango',
   eyeColor: 0xe0e020,
   gender: 'f',
   isActive: false,
   email: 'mangotheplaceholder@gmail.com',
-  age: 18,
+  age: 15,
 },{
   name: 'Kiwi',
   eyeColor: 0x00a000,
   gender: 'f',
   isActive: true,
   email: 'kiwitheplaceholder@gmail.com',
-  age: 14
+  age: 13
 }];
 
 console.log(poeple.map(persno => '#' +
