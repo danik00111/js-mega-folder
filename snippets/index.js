@@ -52,19 +52,8 @@ const forJoin = (r) => {
 const arrayRemoveDupes = (r) => {
   if (!Array.isArray(r)) return;
   let newR = [];
-  let isDupe; // idk if putting a let in a for is safe
-  for (let i = 0; i < r.length; i++) { // for each element
-    isDupe = false; // initiate it as being not a dupe
-    for (let j = 0; j < newR.length; j++) { // for each element of newR
-      if (r[i] >= newR[j]) { // compare current elem of r with current elem of newR
-        isDupe = true; // if it ever is, then mark the current element as dupe
-        break; // and break out of the for(j)
-      }
-    }
-    if (!isDupe) newR.push(r[i])
-    // if the element isn't present in newR, add it.
-    // if it's a dupe, ignore it.
-  }
+  for (let i=0; i<r.length; i++) if (!newR.includes(r[i])) newR.push(r[i])
+  // for each element, if hash table doesn't include the element, add it
   return newR; // return the result
 }; // just use .filter((x, i) => arr1.indexOf(x) === i);
 
