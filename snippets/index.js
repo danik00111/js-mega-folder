@@ -62,7 +62,7 @@ const ANTIcASE = (s) => {
   let newS = '';
   for (let i = 0; i < s.length; i++) {
     newS += (/^[A-Z]*$/.test(s.charAt(i))) ? s.charAt(i).toLowerCase() : s.charAt(i).toUpperCase();
-  } //       ^^^^^^^^^^^^^^^^ regex🤯 ^ https://stackoverflow.com/a/40796345/
+  } //       ^^^^^^^^^^^^^^^^ regex🤯 https://stackoverflow.com/a/40796345/
   return newS;
 }
 
