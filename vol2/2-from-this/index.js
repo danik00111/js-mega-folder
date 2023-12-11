@@ -1,23 +1,6 @@
-Object.defineProperty(Array.prototype, 'filtre', {
-  value: function (a, b) {
-    return this.filter(x => (
-        (
-          x >= (
-            (a * (a < b))
-            +
-            (b * (a >= b))
-          )
-        ) && (
-          x <= (
-            (a * (a >= b))
-            +
-            (b * (a < b))
-          )
-        )
-      )
-    );
-  }
+Object.defineProperty(Array.prototype, 'filterRange', {
+  value:function(a,b){return this.filter(x=>((x>=Math.min(a,b))&&(x<=Math.max(a,b))))}
 });
 
-console.log([4, 6, 2].filtre(1, 5));
-console.log([9, 2, 1, 5, 6].filtre(8, 3));
+console.log([4, 0, 5, 6, 2].filterRange(1, 5));
+console.log([9, 2, 1, 5, 6].filterRange(8, 3));
