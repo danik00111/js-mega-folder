@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bookovel - Login</title></head><body>
+
+<main>
+  <input type="text" name="name-field" id="name-field" placeholder="Full Name">
+  <div class="notice name-rq">Full name required for registration.</div>
+  <div class="notice name-ambiguous">Letters & spaces only.</div>
+  <div class="notice name-inv">Invalid name - make sure it's two words, separated by a single space.</div>
+  <input type="email" name="email-field" id="email-field" placeholder="Email">
+  <div class="notice email-rq">Email required.</div>
+  <div class="notice email-inv">Invalid email.</div>
+  <div class="notice email-taken">Email taken.</div>
+  <input type="password" name="pass-field" id="pass-field" placeholder="Password">
+  <div class="notice pass-rq">Password required.</div>
+  <div class="notice pass-short">Too short - 8 chars min.</div>
+  <div class="notice pass-weak">You know how to make a good password, right?</div>
+  <div>
+    <button id="login">Login</button>/<button id="register">Register</button>
+  </div>
+  <div class="denied"></div>
+</main>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="./scr.js" type="module"></script>
+</body></html><style>
+*{
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 24px;
+  font-family: monospace;
+  user-select: none;
+}body{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background: bisque;
+}main{
+  width: 565px;
+  height: 325px;
+  border-radius: 32px;
+  box-shadow: tan 0 0 60px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+}input{
+  background: none;
+  text-align: center;
+  padding: 4px;
+  width:100%
+}button{
+  background: none;
+  text-align: center;
+  padding: 4px;
+  color: blue;
+}button:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}.notice{
+  display: none;
+  color: red;
+  font-size: 12px;
+}.denied{
+  color: red;
+  font-size: 12px;
+}.notice::before{
+  content: '* ';
+}.notice.shown{
+  display: block;
+}
+
+</style>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>idek</title>
+  <style _name="custom-flex">
+    flex{display:flex}
+    flex[wrap]{flex-wrap:wrap}
+    flex[vertical]{flex-direction:column}
+    flex[reverse]{flex-direction:reverse}
+    flex[vertical][reverse]{flex-direction:column-reverse}
+    flex[jcontent="spb"]{justify-content:space-between;}
+    flex[jcontent="spr"]{justify-content:space-around;}
+    flex[jcontent="spe"]{justify-content:space-evenly;}
+    flex[jcontent="start"]{justify-content:flex-start;}
+    flex[jcontent="center"]{justify-content:center;}
+    flex[jcontent="end"]{justify-content:flex-end;}
+    flex[aitems="start"]{align-items:flex-start;}
+    flex[aitems="center"]{align-items:center;}
+    flex[aitems="end"]{align-items:end;}
+  </style>
+  <script src="https://kit.fontawesome.com/6d7cb93199.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <flex vertical jcontent="center" aitems="center">
+    <div><input type="radio" name="Gender" id="Math"><label style="width:100px" for="Math">Math</label></div>
+    <div><input type="radio" name="Gender" id="Biology"><label style="width:100px" for="Biology">Biology</label></div>
+    <div><input type="radio" name="Gender" id="Language"><label style="width:100px" for="Language">Language</label></div>
+    <div><input type="radio" name="Gender" id="Chemistry"><label style="width:100px" for="Chemistry">Chemistry</label></div>
+    <div><input type="radio" name="Gender" id="Physics"><label style="width:100px" for="Physics">Physics</label></div>
+  </flex>
+  <flex jcontent="spe" style="width:100vw;padding-top:50px;">
+    <flex jcontent="center" aitems="center" class="icon Math"><i class="fa-solid fa-calculator"></i></flex>
+    <flex jcontent="center" aitems="center" class="icon Biology"><i class="fa-solid fa-leaf"></i></flex>
+    <flex jcontent="center" aitems="center" class="icon Language"><i class="fa-solid fa-globe"></i></flex>
+    <flex jcontent="center" aitems="center" class="icon Chemistry"><i class="fa-solid fa-flask"></i></flex>
+    <flex jcontent="center" aitems="center" class="icon Physics"><i class="fa-solid fa-atom"></i></flex>
+  </flex>
+</body>
+</html>
+<style>
+  .icon {
+    display:flex;color:#f0f0f0;font-size:100px;
+    width:100px;height:100px;padding:25px;
+    border-radius:40px;border:#f0f0f0 10px solid;
+    transition: color 0.5s ease-out, border-color 0.5s ease-out;
+  }
+  .icon .fa-solid {
+    display: block;
+    width: 100px;
+    height: 100px;
+    line-height: inherit;
+  }
+  .icon .fa-solid:before {
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
+  body:has(#Math:checked) flex.Math { transition: color 0.5s ease-in-out, border-color 0.5s ease-in-out; color:#09f;border-color:#09f }
+  body:has(#Biology:checked) flex.Biology { transition: color 0.5s ease-in-out, border-color 0.5s ease-in-out; color:#3f6;border-color:#3f6 }
+  body:has(#Language:checked) flex.Language { transition: color 0.5s ease-in-out, border-color 0.5s ease-in-out; color:#f33;border-color:#f33 }
+  body:has(#Chemistry:checked) flex.Chemistry { transition: color 0.5s ease-in-out, border-color 0.5s ease-in-out; color:#63f;border-color:#63f }
+  body:has(#Physics:checked) flex.Physics { transition: color 0.5s ease-in-out, border-color 0.5s ease-in-out; color:#fc3;border-color:#fc3 }
+</style>

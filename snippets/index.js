@@ -1,11 +1,11 @@
-const CelcuisToFahrenheit = (c, b) => {
+export const CelcuisToFahrenheit = (c, b) => {
   let f = (1.8 * c) + 32; // define the fahrenheit
   if (b) {
     console.log(f); // console.log it if the boolean is true
   }
   return f; // return the fahrenheit
 }
-const FahrenheitToCelcuis = (f, b) => {
+export const FahrenheitToCelcuis = (f, b) => {
   let c = (f - 32) / 1.8; // define the celcius
   if (b) {
     console.log(c); // console.log it if the boolean is true
@@ -14,9 +14,9 @@ const FahrenheitToCelcuis = (f, b) => {
 }
 // from 3-fahren
 
-const isOdd = (x) => x % 2;
+export const isOdd = (x) => x % 2;
 
-const maxOfArray = (array) => {
+export const maxOfArray = (array) => {
   if (!Array.isArray(array)) return; // check for it being an array in the first place, return undef if not
     let biggest = -Infinity; // initiating the former biggest value as something that can't beat anything
     for (let i = 0; i < array.length; i++) { // loop through all elements in the array
@@ -30,7 +30,7 @@ const maxOfArray = (array) => {
 }
 // from d-max-array
 
-const randInt = (min, max) => {
+export const randInt = (min, max) => {
   min = Math.ceil(min); // we only focus on integers,
   max = Math.floor(max); // so round to integers, lower bound up, and upper bound down
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -40,7 +40,7 @@ const randInt = (min, max) => {
 }
 // from 9-dz
 
-const forJoin = (r) => {
+export const forJoin = (r) => {
   if (!Array.isArray(r)) return;
   let string = r[0];
   for (let i = 1; i < r.length; i++) {
@@ -49,7 +49,7 @@ const forJoin = (r) => {
   return string;
 } // just use .join(', ')
 
-const arrayRemoveDupes = (r) => {
+export const arrayRemoveDupes = (r) => {
   if (!Array.isArray(r)) return;
   let newR = [];
   for (let i=0; i<r.length; i++) if (!newR.includes(r[i])) newR.push(r[i])
@@ -57,7 +57,7 @@ const arrayRemoveDupes = (r) => {
   return newR; // return the result
 }; // just use .filter((x, i) => arr1.indexOf(x) === i);
 
-const ANTIcASE = (s) => {
+export const ANTIcASE = (s) => {
   if (typeof s !== 'string') { return };
   let newS = '';
   for (let i = 0; i < s.length; i++) {
@@ -66,7 +66,7 @@ const ANTIcASE = (s) => {
   return newS;
 }
 
-const decimalToRoman = (num) => {
+export const decimalToRoman = (num) => {
   if(num >= 4000) return '>=4K!';
   let output = '';
   switch (true) {
@@ -110,7 +110,7 @@ const decimalToRoman = (num) => {
   return output;
 }
 
-const decToRomV2 = (num) => {
+export const decToRomV2 = (num) => {
   if(num >= 4000) return '>=4K!';
   if(num <= 0) return '#NEG!';
   const lookup = [
@@ -122,11 +122,10 @@ const decToRomV2 = (num) => {
   const ones = Math.floor(num % 10);
   const tens = Math.floor((num % 100 - ones) / 10);
   const huns = Math.floor((num % 1000 - tens) / 100);
-  const thos = Math.floor((num - huns) / 1000);
-  return lookup[3][thos] + lookup[2][huns] + lookup[1][tens] + lookup[0][ones];
+  return lookup[3][Math.floor((num - huns) / 1000)] + lookup[2][huns] + lookup[1][tens] + lookup[0][ones];
 };
 
-const romanToDecimal = (r) => {
+export const romanToDecimal = (r) => {
   if(r.startsWith('MMMM')) return '>=4K!';
   let rom = r;
   let output = 0;
@@ -171,7 +170,7 @@ const romanToDecimal = (r) => {
   return output;
 }
 
-const noDupesAndSort = (arr1, arr2) => {
+export const noDupesAndSort = (arr1, arr2) => {
   if (!Array.isArray(arr1) || !Array.isArray(arr2)) return undefined; // check for unexpected input
   const filtarr1 = arr1.filter((x, i) => arr1.indexOf(x) === i); // filter arr1 for dupes
   const filtarr2 = arr2.filter((x, i) => arr2.indexOf(x) === i); // filter arr2 for dupes
@@ -184,7 +183,7 @@ const noDupesAndSort = (arr1, arr2) => {
   return nums.concat(strs); // concat & return
 };
 
-const InsideOutify = (arr) => {
+export const InsideOutify = (arr) => {
   let result = {};
   let currentKey;
   let currentValue;
@@ -196,11 +195,37 @@ const InsideOutify = (arr) => {
   return result;
 }
 
-const rootGet = (x) => getComputedStyle(document.querySelector(':root')).getPropertyValue('--' + x);
-const rootSet = (x, y) => { document.querySelector(':root').style.setProperty('--' + x, y) };
+export const rootGet = (x) => getComputedStyle(document.querySelector(':root')).getPropertyValue('--' + x);
+export const rootSet = (x, y) => { document.querySelector(':root').style.setProperty('--' + x, y) };
 
-export {CelcuisToFahrenheit,FahrenheitToCelcuis,isOdd,maxOfArray,randInt,forJoin,arrayRemoveDupes,ANTIcASE,decimalToRoman,decToRomV2,romanToDecimal,noDupesAndSort,InsideOutify,rootGet,rootSet};
-
-/*
-export NVM_DIR="$HOME/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-*/
+export const t = {
+  r: "\x1b[0m", // reset
+  x: {
+    b: "\x1b[1m", // bright
+    d: "\x1b[2m", // dim
+    u: "\x1b[4m", // underscore
+    l: "\x1b[5m", // blink
+    i: "\x1b[7m", // invert bg and fg
+    h: "\x1b[8m", // hidden
+  }, f: {
+    k: "\x1b[30m", // black
+    r: "\x1b[31m", // red
+    g: "\x1b[32m", // green
+    y: "\x1b[33m", // yellow
+    b: "\x1b[34m", // blue
+    m: "\x1b[35m", // magenta
+    c: "\x1b[36m", // cyan
+    w: "\x1b[37m", // white
+    s: "\x1b[90m", // gray
+  }, b: {
+    k: "\x1b[40m", // black
+    r: "\x1b[41m", // red
+    g: "\x1b[42m", // green
+    y: "\x1b[43m", // yellow
+    b: "\x1b[44m", // blue
+    m: "\x1b[45m", // magenta
+    c: "\x1b[46m", // cyan
+    w: "\x1b[47m", // white
+    s: "\x1b[100m", //gray
+  },
+} // https://stackoverflow.com/a/41407246

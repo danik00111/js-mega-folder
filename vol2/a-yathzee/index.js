@@ -1,5 +1,4 @@
-// import { randInt } from '../../snippets/index.js';
-const randInt = (min, max) => (Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) + Math.ceil(min));
+const dice = () => Math.floor(Math.random()*6)+1;
 let diceCup;
 let rerolls;
 let bonusYaths = 0;
@@ -10,7 +9,7 @@ console.log('If you don\'t know anything about Yathzee,\nI highly recommend goog
  */
 const roll = () => {
   rerolls = 2;
-  diceCup = [randInt(1,6),randInt(1,6),randInt(1,6),randInt(1,6),randInt(1,6)];
+  diceCup = [dice(),dice(),dice(),dice(),dice()];
   console.log(diceCup);
 }
 const rerolle = (h) => {
@@ -19,7 +18,7 @@ const rerolle = (h) => {
   if(parseInt(str) != str) { console.log('< uhmhmh watthrt'); return; }
   diceCup.forEach((die, i) => {
     if(str.charAt(i) === '1') {
-      diceCup[i] = randInt(1,6);
+      diceCup[i] = dice();
     }
   })
   rerolls--;

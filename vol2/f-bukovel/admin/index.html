@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookovel - Search Users</title>
+</head>
+<body>
+  
+</body>
+</html>
+<script>
+  class User {
+    bookStart; bookEnd; fullName; email; roomId; addons;
+    constructor({dateS,dateE,fullname,email,roomId,...addons}){
+      this.bookStart = new Date(dateS);
+      this.bookEnd = new Date(dateE);
+      this.fullName = fullname;
+      this.email = email;
+      this.roomId = roomId;
+      this.addons = [0,0,0];
+      if([...addons].includes('skating')) this.addons[0] = 1;
+      if([...addons].includes('sauna')) this.addons[1] = 1;
+      if([...addons].includes('idek')) this.addons[2] = 1;
+    }
+    info(){return `${this.fullName}, booked room #${this.roomId} for the duration of ${this.bookStart} - ${this.bookEnd}`}
+  }
+  class Users {
+    list = [];
+    add(u){this.list.push(u)}
+    pop(fn){this.list.splice(this.list.indexOf(this.list.find(o=>o[fullName]===fn)),1)}
+    list(){
+      return this.list.map(u=>u.info()).join(', \n');
+    }
+  }
+  const bookedUsers = new Users();
+  bookedUsers.add(new User({
+    
+  }))
+</script>
