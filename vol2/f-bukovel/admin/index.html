@@ -1,40 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bookovel - Search Users</title>
-</head>
-<body>
-  
-</body>
-</html>
-<script>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bookovel - Search Users</title></head><body>
+  <main>
+    <!-- <h1>Search</h1> -->
+      <input type="text" id="search" name="search" placeholder="Search by name..."
+        oninput="document.getElementById('field').innerHTML=(bookedUsers.filter(document.getElementById('search').value))">
+      <div id="field"></div>
+  </main>
+</body></html><style>
+  *{
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-family: monospace;
+  user-select: none;
+  text-align: center;
+}body{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background: bisque;
+}main{
+  width: 80%;
+  height: 80%;
+  border-radius: 32px;
+  box-shadow: tan 0 0 60px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px;
+}input{
+  display: block;
+  background: none;
+  width: 100%;
+}
+</style><script>
   class User {
     bookStart; bookEnd; fullName; email; roomId; addons;
-    constructor({dateS,dateE,fullname,email,roomId,...addons}){
-      this.bookStart = new Date(dateS);
-      this.bookEnd = new Date(dateE);
+    constructor({dateS,dateE,fullname,email,roomId,addons}){
+      this.bookStart = dateS;
+      this.bookEnd = dateE;
+      this.bookLength = (new Date(this.bookEnd) - new Date(this.bookStart))/1000/60/60/24; // in days
       this.fullName = fullname;
       this.email = email;
       this.roomId = roomId;
       this.addons = [0,0,0];
-      if([...addons].includes('skating')) this.addons[0] = 1;
-      if([...addons].includes('sauna')) this.addons[1] = 1;
-      if([...addons].includes('idek')) this.addons[2] = 1;
+      if(addons.includes('skating')) this.addons[0] = 1;
+      if(addons.includes('sauna')) this.addons[1] = 1;
+      if(addons.includes('idek')) this.addons[2] = 1;
     }
-    info(){return `${this.fullName}, booked room #${this.roomId} for the duration of ${this.bookStart} - ${this.bookEnd}`}
+    info(){return `${this.fullName}, booked room #${this.roomId} for ${this.bookLength} days (${this.bookStart}-${this.bookEnd})`}
   }
   class Users {
     list = [];
     add(u){this.list.push(u)}
-    pop(fn){this.list.splice(this.list.indexOf(this.list.find(o=>o[fullName]===fn)),1)}
-    list(){
-      return this.list.map(u=>u.info()).join(', \n');
+    pop(fn){this.list.splice(this.list.indexOf(this.list.find(o=>o["fullName"]===fn)),1)}
+    all(){
+      return this.list.map(u=>u.info()).join('<br>');
+    }
+    filter(n){
+      return this.list.filter(u=>u["fullName"].toLowerCase().includes(n)).map(u=>u.info()).join('<br>');
     }
   }
   const bookedUsers = new Users();
   bookedUsers.add(new User({
-    
-  }))
+    dateS: '12/29/2023',
+    dateE: '01/03/2024',
+    fullname: 'Marge Simpson',
+    email: 'marge@aol.com',
+    roomId: 84,
+    addons: ['sauna','idek'],
+  }));
+  bookedUsers.add(new User({
+    dateS: '12/22/2023',
+    dateE: '12/29/2023',
+    fullname: 'Ajax & Poly',
+    email: 'ajax@placeholder.com',
+    roomId: 76,
+    addons: ['skating'],
+  }));
+  console.log(bookedUsers.filter('marge'));
+  document.getElementById('field').innerHTML = (bookedUsers.all());
 </script>
