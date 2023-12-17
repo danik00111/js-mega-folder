@@ -87,6 +87,7 @@ const check=()=>{
   if(!document.querySelector('#fullname').value.match(/^[a-zA-Z]+\s[a-zA-Z]+$/)){alert('name no match');return}
   if(!document.querySelector('#email').value.match(/^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)){alert('email no match');return}
   if(!!document.querySelector('notice.shown')){alert('room be wrong');return}
+  if(((new Date(document.getElementById('datestart').value))-Date.now())<=0){alert('date past');return}
   if(!Date.parse(document.getElementById('datestart').value)){alert('date no good');return}
   if(document.querySelector('#duration').value<1||['',' ','null'].includes(document.querySelector('#duration').value)){alert('duraton what');return}
   window.location.replace('../booked');
