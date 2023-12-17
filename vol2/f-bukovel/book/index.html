@@ -1,11 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
-</html>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bookovel - Book a snowy adventure!</title></head><body>
+
+<main>
+  <h1>Book a room at Bukovel</h1>
+  <input type="text" disabled id="fullname" name="fullname" placeholder="Name">
+  <input type="text" disabled id="email" name="email" placeholder="Email">
+</main>
+
+</body></html><style>
+
+*{
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-family: monospace;
+  user-select: none;
+  text-align: center;
+}body{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background: bisque;
+}main{
+  width: 80%;
+  height: 80%;
+  border-radius: 32px;
+  box-shadow: tan 0 0 60px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px;
+}input{
+  display: block;
+  background: none;
+  width: 100%;
+}
+
+</style><script>
+
+let name = sessionStorage.getItem('fullname');
+let email = sessionStorage.getItem('email');
+document.getElementById('fullname').value = name;
+document.getElementById('email').value = email;
+
+</script>

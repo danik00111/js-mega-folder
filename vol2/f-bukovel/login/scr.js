@@ -1,7 +1,10 @@
 let valid = null;
 $('#login').click(()=>{
   clearNotice();
-  if(adminCheck())window.location.replace('../admin');
+  if(adminCheck()){
+    sessionStorage.setItem('admin-email',$('#email-field').val());
+    window.location.replace('../admin');
+  };
 });
 $('#register').click(()=>{
   valid = true;
@@ -10,7 +13,11 @@ $('#register').click(()=>{
   nameCheck();
   emailCheck();
   passCheck();
-  if(valid)window.location.replace('../book');
+  if(valid){
+    sessionStorage.setItem('fullname',$('#name-field').val());
+    sessionStorage.setItem('email',$('#email-field').val());
+    window.location.replace(`../book`);
+  };
 });
 const clearNotice=()=>{
   $('.notice.shown').each((_,e)=>{
@@ -62,10 +69,11 @@ const passCheck=()=>{
   if($('#pass-field').val().length < 8){
     $('.pass-short').addClass('shown'); valid = false; return;
   }
-  if(!$('#pass-field').val().match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)){
+  if(isWeak($('#pass-field').val())){
     $('.pass-weak').addClass('shown'); valid = false;
   }
 }
+const isWeak=p=>!(/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/.test(p));
 let user;
 const dummyhash=p=>'fdlskj'+String(p).split('').reverse().join('')+'djklfs';
 const adminCheck=()=>{
