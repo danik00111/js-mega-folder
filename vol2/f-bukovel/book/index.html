@@ -84,11 +84,26 @@ const roomcheck=()=>{
   if([84,76,69].map(String).includes(roomInp.value)){document.querySelector('notice.taken').classList.add('shown');return}
 }
 const check=()=>{
-  if(!document.querySelector('#fullname').value.match(/^[a-zA-Z]+\s[a-zA-Z]+$/))return
-  if(!document.querySelector('#email').value.match(/^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,4}$/))return
-  if(!!document.querySelector('notice.shown'))return
-  if(document.querySelector('#duration').value<1||['',' ','null'].includes(document.querySelector('#duration').value))return
-  if(!Date.parse(document.getElementById('datestart')))return
+  if(!document.querySelector('#fullname').value.match(/^[a-zA-Z]+\s[a-zA-Z]+$/)){
+    alert('name no match')
+    return
+  }
+  if(!document.querySelector('#email').value.match(/^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)){
+    alert('email no match')
+    return
+  }
+  if(!!document.querySelector('notice.shown')){
+    alert('room be wrong')
+    return
+  }
+  if(document.querySelector('#duration').value<1||['',' ','null'].includes(document.querySelector('#duration').value)){
+    alert('duraton what')
+    return
+  }
+  if(!Date.parse(document.getElementById('datestart').value)){
+    alert('date no good')
+    return
+  }
   window.location.replace('../booked');
 }
 </script>
