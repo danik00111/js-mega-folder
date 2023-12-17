@@ -5,6 +5,13 @@
   <h1>Book a room at Bukovel</h1>
   <input type="text" disabled id="fullname" name="fullname" placeholder="Name">
   <input type="text" disabled id="email" name="email" placeholder="Email">
+  <input type="number" name="roomnum" id="roomnum" placeholder="Room Number" oninput="roomcheck()">
+  <notice class="null shown">null</notice>
+  <notice class="taken">room taken</notice>
+  <notice class="notfound">404 room not found</notice>
+  <input type="date" name="datestart" id="datestart">
+  <input type="number" name="duration" id="duration" placeholder="Booking Length">
+  <button onclick="check()">Book</button>
 </main>
 
 </body></html><style>
@@ -42,13 +49,46 @@
   display: block;
   background: none;
   width: 100%;
+}button{
+  background: none;
+  color: blue;
+}button:hover{
+  text-decoration: underline;
+}notice{
+  display: none;
+  color: red;
+  font-size: 12px;
+}notice::before{
+  content: '* ';
+}notice.shown{
+  display: block;
 }
+input[type="date"]::-webkit-inner-spin-button,input[type="date"]::-webkit-calendar-picker-indicator,
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
+  display:none;appearance:none;-webkit-appearance:none;margin:0;}
+input[type="number"],input[type="date"]{appearance:textfield;-moz-appearance:textfield}
 
 </style><script>
 
-let name = sessionStorage.getItem('fullname');
-let email = sessionStorage.getItem('email');
-document.getElementById('fullname').value = name;
-document.getElementById('email').value = email;
-
+document.getElementById('fullname').value = sessionStorage.getItem('fullname');
+document.getElementById('email').value = sessionStorage.getItem('email');
+if(['','null'].includes(document.getElementById('fullname').value))document.getElementById('fullname').disabled=false;
+if(['','null'].includes(document.getElementById('email').value))document.getElementById('email').disabled=false;
+let roomInp = document.getElementById('roomnum');
+const roomcheck=()=>{
+  [...document.querySelectorAll('notice.shown')].forEach((e)=>{
+    e.classList.remove('shown');
+  })
+  if(roomInp.value==''||roomInp.value<0){document.querySelector('notice.null').classList.add('shown');return}
+  if(roomInp.value>99){document.querySelector('notice.notfound').classList.add('shown');return}
+  if([84,76,69].map(String).includes(roomInp.value)){document.querySelector('notice.taken').classList.add('shown');return}
+}
+const check=()=>{
+  if(!document.querySelector('#fullname').match(/^[a-zA-Z]+\s[a-zA-Z]+$/))return
+  if(!document.querySelector('#email').match(/^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,4}$/))return
+  if(!!document.querySelector('notice.shown'))return
+  if(document.querySelector('#duration').value<1||['',' ','null'].includes(document.querySelector('#duration').value))return
+  if(!Date.parse(document.getElementById('datestart')))return
+  window.location.replace('../booked');
+}
 </script>
