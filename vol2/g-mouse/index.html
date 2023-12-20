@@ -4,14 +4,15 @@
   <body>
     <div id="e"><div id="h"></div></div>
     <h1>Speed Limit</h1>
-    <p>Move your mouse slow enough that it stays in the circle.</p>
+    <p id="desc">Move your mouse cursor slow enough that it stays in the circle.</p>
+    <p id="warn">EPILEPSY WARNING: the screen will flash darkred and beige, if you move the mouse cursor too fast.</p>
   </body>
 </html>
 <style>
   *{margin:0;padding:0;border:0;outline:0;box-sizing:border-box;text-align:center;user-select:none;
     overflow:hidden;scroll-behavior:none;overscroll-behavior:none;font-family:monospace}
   body{width:100vw;height:100vh;background-color:beige;}
-  h1{font-size:72px;}p{font-size:32px;}
+  h1{font-size:72px;}p#desc{font-size:32px;}p#warn{font-size:12px;}
   #e{width:100px;height:100px;background-color:darksalmon;opacity:0.5;
     display:flex;align-items:center;justify-content:center;
     border-radius:50%;position:absolute;z-index:3;}
@@ -24,7 +25,7 @@
   let y;
   let gameOn = true;
   elem.style.transform = `translate(${x}px,${y}px)`;
-  elem.addEventListener('mouseenter',()=>{if(!gameOn)document.body.style.background='red';});
+  elem.addEventListener('mouseenter',()=>{document.body.style.background='beige'});
   elem.addEventListener('mouseleave',()=>{
     document.body.style.background='darkred';
     gameOn=false;
