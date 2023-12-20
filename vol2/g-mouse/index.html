@@ -5,7 +5,7 @@
     <div id="e"><div id="h"></div></div>
     <h1>Speed Limit</h1>
     <p id="desc">Move your mouse cursor slow enough that it stays in the circle.</p>
-    <p id="warn">EPILEPSY WARNING: the screen will flash darkred and beige, if you move the mouse cursor too fast.</p>
+    <p id="warn">EPILEPSY WARNING: the screen will flash black and beige if you move the mouse cursor too fast.</p>
   </body>
 </html>
 <style>
@@ -25,9 +25,10 @@
   let y;
   let gameOn = true;
   elem.style.transform = `translate(${x}px,${y}px)`;
-  elem.addEventListener('mouseenter',()=>{document.body.style.background='beige'});
+  elem.addEventListener('mouseenter',()=>{document.body.style.background='beige';document.body.style.color='black'});
   elem.addEventListener('mouseleave',()=>{
-    document.body.style.background='darkred';
+    document.body.style.background='black';
+    document.body.style.color='beige';
     gameOn=false;
     document.querySelector('p').innerHTML='Game Over!'
   });
