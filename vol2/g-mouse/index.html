@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>h</title></head>
+  <body>
+    <div id="e"><div id="h"></div></div>
+    <h1>Speed Limit</h1>
+    <p>Move your mouse slow enough that it stays in the circle.</p>
+  </body>
+</html>
+<style>
+  *{margin:0;padding:0;border:0;outline:0;box-sizing:border-box;text-align:center;user-select:none;
+    overflow:hidden;scroll-behavior:none;overscroll-behavior:none;font-family:monospace}
+  body{width:100vw;height:100vh;background-color:beige;}
+  h1{font-size:72px;}p{font-size:32px;}
+  #e{width:100px;height:100px;background-color:darksalmon;opacity:0.5;
+    display:flex;align-items:center;justify-content:center;
+    border-radius:50%;position:absolute;z-index:3;}
+  #h{width:5px;height:5px;border-radius:50%;background:green};
+</style>
+<script>
+  let elem = document.getElementById('e');
+  let w = 50; // hardcoded half of element width/height
+  let x;
+  let y;
+  let gameOn = true;
+  elem.style.transform = `translate(${x}px,${y}px)`;
+  elem.addEventListener('mouseenter',()=>{if(!gameOn)document.body.style.background='red';});
+  elem.addEventListener('mouseleave',()=>{
+    document.body.style.background='darkred';
+    gameOn=false;
+    document.querySelector('p').innerHTML='Game Over!'
+  });
+  document.addEventListener('mousemove',e=>{
+    x = e.clientX - w;
+    y = e.clientY - w;
+    elem.style.transform = `translate(${x}px,${y}px)`;
+  });
+</script>
