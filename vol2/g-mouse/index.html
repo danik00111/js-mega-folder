@@ -2,7 +2,7 @@
 <html lang="en">
   <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>h</title></head>
   <body>
-    <div id="e"><div id="h"></div></div>
+    <div id="e" style="display:none"></div>
     <h1>Speed Limit</h1>
     <p id="desc">Move your mouse cursor slow enough that it stays in the circle.</p>
     <p id="warn">EPILEPSY WARNING: the screen will flash black and beige if you move the mouse cursor too fast.</p>
@@ -13,10 +13,7 @@
     overflow:hidden;scroll-behavior:none;overscroll-behavior:none;font-family:monospace}
   body{width:100vw;height:100vh;background-color:beige;}
   h1{font-size:72px;}p#desc{font-size:32px;}p#warn{font-size:12px;}
-  #e{width:100px;height:100px;background-color:darksalmon;opacity:0.5;
-    display:flex;align-items:center;justify-content:center;
-    border-radius:50%;position:absolute;z-index:3;}
-  #h{width:5px;height:5px;border-radius:50%;background:green};
+  #e{position:absolute;width:100px;height:100px;background-color:darksalmon;opacity:0.5;border-radius:50%;}
 </style>
 <script>
   let circel = document.getElementById('e');
@@ -27,5 +24,7 @@
   circel.addEventListener('mouseleave',()=>{document.body.style.background='black';document.body.style.color='beige';
     gameOn = false; // this code is a proof of concept and isnt connected to anything
     document.querySelector('p').innerHTML='Game Over!'});
-  document.addEventListener('mousemove',e=>{circel.style.transform = `translate(${e.clientX-w}px,${e.clientY-w}px)`;});
+  document.addEventListener('mousemove',e=>{
+    circel.style.display = 'block';
+    circel.style.transform = `translate(${e.clientX-w}px,${e.clientY-w}px)`});
 </script>
