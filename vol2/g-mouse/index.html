@@ -19,21 +19,13 @@
   #h{width:5px;height:5px;border-radius:50%;background:green};
 </style>
 <script>
-  let elem = document.getElementById('e');
+  let circel = document.getElementById('e');
   let w = 50; // hardcoded half of element width/height
-  let x; let y;
   let gameOn = true;
-  elem.style.transform = `translate(${x}px,${y}px)`;
-  elem.addEventListener('mouseenter',()=>{document.body.style.background='beige';document.body.style.color='black'});
-  elem.addEventListener('mouseleave',()=>{
-    document.body.style.background='black';
-    document.body.style.color='beige';
-    gameOn=false;
-    document.querySelector('p').innerHTML='Game Over!'
-  });
-  document.addEventListener('mousemove',e=>{
-    x = e.clientX - w;
-    y = e.clientY - w;
-    elem.style.transform = `translate(${x}px,${y}px)`;
-  });
+  circel.style.transform = `translate(${e.clientX-w}px,${e.clientY-w}px)`;
+  circel.addEventListener('mouseenter',()=>{document.body.style.background='beige';document.body.style.color='black'});
+  circel.addEventListener('mouseleave',()=>{document.body.style.background='black';document.body.style.color='beige';
+    gameOn = false; // this code is a proof of concept and isnt connected to anything
+    document.querySelector('p').innerHTML='Game Over!'});
+  document.addEventListener('mousemove',e=>{circel.style.transform = `translate(${e.clientX-w}px,${e.clientY-w}px)`;});
 </script>
