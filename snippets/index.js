@@ -30,14 +30,7 @@ export const maxOfArray = (array) => {
 }
 // from d-max-array
 
-export const randInt = (min, max) => {
-  min = Math.ceil(min); // we only focus on integers,
-  max = Math.floor(max); // so round to integers, lower bound up, and upper bound down
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-  //----------------^^^^^^^^^^^^^ random number from 0 to 0.999999999999999999999999...
-  //------------------------------^^^^^^^^^^^^^^^^^^ multiply by the range between max and min, increasing the range of the randomness
-  //-------------------------------------------------^^^^^ raise the lower and upper bound by the same amount to match the min and max
-}
+export const randInt=(n,x)=>Math.floor(Math.random()*(Math.ceil(x)-Math.ceil(n)+1))+Math.ceil(n);
 // from 9-dz
 
 export const forJoin = (r) => {
@@ -229,3 +222,5 @@ export const t = {
     s: "\x1b[100m", //gray
   },
 } // https://stackoverflow.com/a/41407246
+
+export const isPythag = (a,b,c) => (a*a)+(b*b)+(c*c)===2*Math.pow(Math.max(a,b,c),2)
