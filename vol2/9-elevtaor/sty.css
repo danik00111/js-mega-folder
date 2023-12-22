@@ -1,6 +1,6 @@
 *:not(button,input){margin:0;padding:0;border:0;outline:0;box-sizing:border-box;}
 /* all websites */ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-input[type=number] { -moz-appearance: textfield; } /* firfox */
+input[type=number] { appearance: textfield; -moz-appearance: textfield; } /* firfox */
 
 .elev {
   position: absolute;

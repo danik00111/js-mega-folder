@@ -4,24 +4,103 @@
   <body>
     <div id="zone" style="display:none"></div>
     <button id="rondom" onmousedown="plus()" onkeydown="return false">0</button>
-    <h1>celeeste ch2 be like</h1>
+    <h1>celeste ch2 be like</h1>
     <p id="desc">Click the button, while avoiding the circle,<br>that follows you with 500ms delay.</p>
-    <input value="500" disabled oninput="delaychange()" type="number" name="delay" id="delay" placeholder="Delay"
-    >|<input value="5" disabled oninput="decaychange()" type="number" name="decay" id="decay" placeholder="Decay">
+    <p id="warn">(epilepsy warning)</p>
+    <input value="500" style="width:5em" disabled oninput="delaychange()" type="number" name="delay" id="delay" placeholder="Delay"
+    >|<input value="5" style="width:5em" disabled oninput="decaychange()" type="number" name="decay" id="decay" placeholder="Decay">
   </body>
-  <script src="scr.js"></script>
 </html>
 <style>
   *{margin:0;padding:0;border:0;outline:0;box-sizing:border-box;text-align:center;user-select:none;
     overflow:hidden;scroll-behavior:none;overscroll-behavior:none;font-family:monospace}
   body{width:100vw;height:100vh;background-color:beige;position:relative;z-index:-3;}
-  h1{font-size:72px;}p#desc{font-size:32px;}p#warn{font-size:12px;}
-  h1,p#desc,p#warn,input{position:relative;z-index:-2}
-  #zone{position:absolute;z-index:0;width:25px;height:25px;background-color:red;opacity:0.5;border-radius:50%;}
+  h1{font-size:72px;}p#desc{font-size:32px;}p#settings,p#warn{font-size:12px;}
+  h1,p{position:relative;z-index:-2}input{background:none}
+  #delay{text-align:right;}#decay{text-align:left;}
+  #zone{position:absolute;z-index:0;width:50px;height:50px;background-color:red;opacity:0.5;border-radius:50%;}
   #rondom{display:flex;position:absolute;cursor:pointer;font-size:12px;
     width:50px;height:50px;border-radius:50%;justify-content:center;
     background:black;color:palegreen;align-items:center;z-index:-1}
   #rondom:disabled{opacity:0.5;cursor:default}
   #rondom:hover:not(:disabled){background:palegreen;color:black}
   #rondom:active:not(:disabled){opacity:0.75}
+  input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}/*all websites*/
+  input[type=number] {appearance:textfield;-moz-appearance:textfield;}/*firfox*/
 </style>
+<script>
+  let zone = document.getElementById('zone');
+  let hw = parseInt(getComputedStyle(zone).width)/2;
+  let hh = parseInt(getComputedStyle(zone).height)/2;
+  let vw = parseInt(getComputedStyle(document.body).width);
+  let vh = parseInt(getComputedStyle(document.body).height);
+  let gameOn = true;
+  let score = -1;
+  const initDelay = 500;
+  const initDecay = 5;
+  let decay = initDecay;
+  let delay = initDelay + initDecay;
+  const buttob = document.getElementById('rondom');
+  const buttobW = parseInt(getComputedStyle(buttob).width);
+  const buttobH = parseInt(getComputedStyle(buttob).height);
+  zone.addEventListener('mouseleave',()=>{
+    document.body.style.background=gameOn?'beige':'tan';
+    document.body.style.color='black'
+  });
+  document.body.addEventListener('mouseenter',()=>{
+    document.body.style.background=gameOn?'beige':'tan';
+    document.body.style.color='black'
+  });
+  document.body.addEventListener('mouseleave',()=>{
+    document.body.style.background='black';
+    document.body.style.color=gameOn?'beige':'tan';
+    gameOn = false;
+    document.querySelector('p').innerHTML='your mouse left the window';
+    document.getElementById('delay').disabled = false;
+    document.getElementById('decay').disabled = false;
+    buttob.innerHTML=score+'<br>Retry?';
+  });
+  zone.addEventListener('mouseenter',()=>{
+    document.body.style.background='black';
+    document.body.style.color=gameOn?'beige':'tan';
+    gameOn = false;
+    document.querySelector('p').innerHTML='Game Over!';
+    document.getElementById('delay').disabled = false;
+    document.getElementById('decay').disabled = false;
+    buttob.innerHTML=score+'<br>Retry?';
+  });
+  document.addEventListener('mousemove',e=>{
+    setTimeout(()=>{
+      zone.style.display = 'block';
+      zone.style.top = `${e.clientY-hh}px`;
+      zone.style.left = `${e.clientX-hw}px`;
+      zone.style.opacity = gameOn ? 0.5 : 0.1;
+      zone.style.zIndex = gameOn ? 0 : -5;
+    },delay);
+  });
+  const randInt=(n,x)=>Math.floor(Math.random()*(Math.ceil(x)-Math.ceil(n)+1))+Math.ceil(n);
+  const plus = () => {
+    if(gameOn){
+      score++;
+      delay-=decay;
+      buttob.style.top = randInt(0,vh-buttobH)+'px';
+      buttob.style.left = randInt(0,vw-buttobW)+'px';
+      buttob.innerHTML = score;
+      document.querySelector('p').innerHTML = `Click the button, while avoiding the circle,<br>that follows you with ${delay}ms delay.`;
+    } else {
+      delay = document.getElementById('delay').value;
+      decay = document.getElementById('decay').value;
+      score = 0;
+      document.getElementById('delay').disabled = true;
+      document.getElementById('decay').disabled = true;
+      gameOn = true;
+      buttob.style.top = randInt(0,vh-buttobH)+'px';
+      buttob.style.left = randInt(0,vw-buttobW)+'px';
+      buttob.innerHTML = score;
+      document.body.style.background='beige';
+      document.body.style.color='black'
+      document.querySelector('p').innerHTML = `Click the button, while avoiding the circle,<br>that follows you with ${delay}ms delay.`;
+    }
+  };
+  plus();
+</script>
