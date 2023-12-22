@@ -48,9 +48,8 @@ input{background:none}
   align-items: center;
   z-index: -1
 }
-#rondom:disabled{opacity:0.5;cursor:default}
-#rondom:hover:not(:disabled){background:palegreen;color:black}
-#rondom:active:not(:disabled){opacity:0.75}
+#rondom.disabled{opacity:0.5;cursor:default}
+#rondom:hover:not(.disabled){background:palegreen;color:black}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button{/*all websites*/
   -webkit-appearance: none;margin: 0;
