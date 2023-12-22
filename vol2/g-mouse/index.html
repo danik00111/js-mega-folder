@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>h</title></head>
-  <body>
+  <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>h</title>
+  <link rel="stylesheet" href="./sty.css"></head><body>
     <div id="zone" style="display:none"></div>
     <button id="rondom" onmousedown="plus()" onkeydown="return false">0</button>
     <h1>celeste ch2 be like</h1>
@@ -11,23 +11,6 @@
     >|<input value="5" style="width:5em" disabled oninput="decaychange()" type="number" name="decay" id="decay" placeholder="Decay">
   </body>
 </html>
-<style>
-  *{margin:0;padding:0;border:0;outline:0;box-sizing:border-box;text-align:center;user-select:none;
-    overflow:hidden;scroll-behavior:none;overscroll-behavior:none;font-family:monospace}
-  body{width:100vw;height:100vh;background-color:beige;position:relative;z-index:-3;}
-  h1{font-size:72px;}p#desc{font-size:32px;}p#settings,p#warn{font-size:12px;}
-  h1,p{position:relative;z-index:-2}input{background:none}
-  #delay{text-align:right;}#decay{text-align:left;}
-  #zone{position:absolute;z-index:0;width:50px;height:50px;background-color:red;opacity:0.5;border-radius:50%;}
-  #rondom{display:flex;position:absolute;cursor:pointer;font-size:12px;
-    width:50px;height:50px;border-radius:50%;justify-content:center;
-    background:black;color:palegreen;align-items:center;z-index:-1}
-  #rondom:disabled{opacity:0.5;cursor:default}
-  #rondom:hover:not(:disabled){background:palegreen;color:black}
-  #rondom:active:not(:disabled){opacity:0.75}
-  input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}/*all websites*/
-  input[type=number] {appearance:textfield;-moz-appearance:textfield;}/*firfox*/
-</style>
 <script>
   let zone = document.getElementById('zone');
   let hw = parseInt(getComputedStyle(zone).width)/2;
