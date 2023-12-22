@@ -3,91 +3,25 @@
   <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>h</title></head>
   <body>
     <div id="zone" style="display:none"></div>
-    <button id="rondom" onclick="plus()">0</button>
+    <button id="rondom" onmousedown="plus()" onkeydown="return false">0</button>
     <h1>celeeste ch2 be like</h1>
     <p id="desc">Click the button, while avoiding the circle,<br>that follows you with 500ms delay.</p>
-    <p id="warn">EPILEPSY WARNING: the screen may flash black and tan.</p>
+    <input value="500" disabled oninput="delaychange()" type="number" name="delay" id="delay" placeholder="Delay"
+    >|<input value="5" disabled oninput="decaychange()" type="number" name="decay" id="decay" placeholder="Decay">
   </body>
+  <script src="scr.js"></script>
 </html>
 <style>
   *{margin:0;padding:0;border:0;outline:0;box-sizing:border-box;text-align:center;user-select:none;
     overflow:hidden;scroll-behavior:none;overscroll-behavior:none;font-family:monospace}
   body{width:100vw;height:100vh;background-color:beige;position:relative;z-index:-3;}
   h1{font-size:72px;}p#desc{font-size:32px;}p#warn{font-size:12px;}
-  h1,p#desc,p#warn{position:relative;z-index:-2}
+  h1,p#desc,p#warn,input{position:relative;z-index:-2}
   #zone{position:absolute;z-index:0;width:25px;height:25px;background-color:red;opacity:0.5;border-radius:50%;}
-  #rondom{display:flex;position:absolute;cursor:pointer;
+  #rondom{display:flex;position:absolute;cursor:pointer;font-size:12px;
     width:50px;height:50px;border-radius:50%;justify-content:center;
     background:black;color:palegreen;align-items:center;z-index:-1}
   #rondom:disabled{opacity:0.5;cursor:default}
   #rondom:hover:not(:disabled){background:palegreen;color:black}
   #rondom:active:not(:disabled){opacity:0.75}
 </style>
-<script>
-  let circel = document.getElementById('zone');
-  let hw = parseInt(getComputedStyle(circel).width)/2;
-  let hh = parseInt(getComputedStyle(circel).height)/2;
-  let vw = parseInt(getComputedStyle(document.body).width);
-  let vh = parseInt(getComputedStyle(document.body).height);
-  let gameOn = true;
-  let score = -1;
-  const initDelay = 500;
-  const initDelayStep = 5;
-  let delayStep = initDelayStep;
-  let delay = initDelay + initDelayStep;
-  const buttob = document.getElementById('rondom');
-  const buttobW = parseInt(getComputedStyle(buttob).width);
-  const buttobH = parseInt(getComputedStyle(buttob).height);
-  circel.addEventListener('mouseleave',()=>{
-    document.body.style.background=gameOn?'beige':'tan';
-    document.body.style.color='black'
-  });
-  document.body.addEventListener('mouseenter',()=>{
-    document.body.style.background=gameOn?'beige':'tan';
-    document.body.style.color='black'
-  });
-  document.body.addEventListener('mouseleave',()=>{
-    document.body.style.background='black';
-    document.body.style.color=gameOn?'beige':'tan';
-    gameOn = false;
-    document.querySelector('p').innerHTML='your mouse left the window';
-    buttob.innerHTML='Retry?';
-  });
-  circel.addEventListener('mouseenter',()=>{
-    document.body.style.background='black';
-    document.body.style.color=gameOn?'beige':'tan';
-    gameOn = false;
-    document.querySelector('p').innerHTML='Game Over!';
-    buttob.innerHTML='Retry?';
-  });
-  document.addEventListener('mousemove',e=>{
-    circel.style.display = 'block';
-    setTimeout(()=>{
-      circel.style.top = `${e.clientY-hh}px`;
-      circel.style.left = `${e.clientX-hw}px`;
-    },delay);
-  });
-  const randInt=(n,x)=>Math.floor(Math.random()*(Math.ceil(x)-Math.ceil(n)+1))+Math.ceil(n);
-  const plus = () => {
-    if(gameOn){
-      score++;
-      delay-=delayStep;
-      buttob.style.top = randInt(0,vh-buttobH)+'px';
-      buttob.style.left = randInt(0,vw-buttobW)+'px';
-      buttob.innerHTML = score;
-      document.querySelector('p').innerHTML = `Click the button, while avoiding the circle,<br>that follows you with ${delay}ms delay.`;
-    } else {
-      delayStep = initDelayStep;
-      delay = initDelay;
-      score = 0;
-      gameOn = true;
-      buttob.style.top = randInt(0,vh-buttobH)+'px';
-      buttob.style.left = randInt(0,vw-buttobW)+'px';
-      buttob.innerHTML = score;
-      document.body.style.background='beige';
-      document.body.style.color='black'
-      document.querySelector('p').innerHTML = `Click the button, while avoiding the circle,<br>that follows you with ${delay}ms delay.`;
-    }
-  };
-  plus();
-</script>
