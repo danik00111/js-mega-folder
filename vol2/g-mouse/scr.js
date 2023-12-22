@@ -45,6 +45,7 @@ zone.addEventListener('mouseenter',()=>{
   gameOn = false;
   document.querySelector('p').innerHTML='Game Over!';
   document.getElementById('decay').style.opacity = 1;
+  document.getElementById('delay').style.opacity = 1;
   document.getElementById('delay').disabled = false;
   document.getElementById('decay').disabled = false;
   buttob.innerHTML=score+'<br>Retry?';
