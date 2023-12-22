@@ -224,3 +224,6 @@ export const t = {
 } // https://stackoverflow.com/a/41407246
 
 export const isPythag = (a,b,c) => (a*a)+(b*b)+(c*c)===2*Math.pow(Math.max(a,b,c),2)
+
+export const randHex = () => '#'+((randInt(0,256**3).toString(16)).padStart(6,'0'));
+//! ^ requires randInt()
