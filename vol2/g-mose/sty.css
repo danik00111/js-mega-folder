@@ -22,7 +22,9 @@ h1{font-size:72px}
 p#desc{font-size:32px}
 p#settings,p#warn{font-size:12px}
 h1,p{position:relative;z-index:-2}
-input{background:none}
+input,span#strictoggle{background:#ffffff80;border-radius:2px}
+span#strictoggle{cursor:pointer}
+input[type=checkbox]{border-radius:25%}
 #delay{text-align:right}
 #decay{text-align:left}
 #zone{
