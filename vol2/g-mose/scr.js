@@ -1,23 +1,27 @@
 let zone = document.getElementById('zone');
-let hw = parseInt(getComputedStyle(zone).width)/2;
-let hh = parseInt(getComputedStyle(zone).height)/2;
+const buttob = document.getElementById('rondom');
 let vw = parseInt(getComputedStyle(document.body).width);
 let vh = parseInt(getComputedStyle(document.body).height);
+const zw = parseInt(getComputedStyle(zone).width);
+const zh = parseInt(getComputedStyle(zone).height);
+const bw = parseInt(getComputedStyle(buttob).width);
+const bh = parseInt(getComputedStyle(buttob).height);
 let gameOn = true;
 let score = -1;
 const initDelay = 500;
 const initDecay = 5;
 let decay = initDecay;
 let delay = initDelay + initDecay;
-const buttob = document.getElementById('rondom');
-const buttobW = parseInt(getComputedStyle(buttob).width);
-const buttobH = parseInt(getComputedStyle(buttob).height);
 zone.addEventListener('mouseleave',()=>{
   document.body.style.background=gameOn?'beige':'tan';
   document.body.style.color='black';
   document.getElementById('delay').style.color='black';
   document.getElementById('decay').style.color='black';
 });
+window.addEventListener('resize',_=>{
+  vw = parseInt(getComputedStyle(document.body).width);
+  vh = parseInt(getComputedStyle(document.body).height);
+},true);
 document.body.addEventListener('mouseenter',()=>{
   document.body.style.background=gameOn?'beige':'tan';
   document.body.style.color='black';
@@ -53,22 +57,24 @@ zone.addEventListener('mouseenter',()=>{
 document.addEventListener('mousemove',e=>{
   setTimeout(()=>{
     zone.style.display = 'block';
-    zone.style.top = `${e.clientY-hh}px`;
-    zone.style.left = `${e.clientX-hw}px`;
+    zone.style.top = `${e.clientY-(zh/2)}px`;
+    zone.style.left = `${e.clientX-(zw/2)}px`;
     zone.style.opacity = gameOn ? 0.5 : 0.1;
     zone.style.zIndex = gameOn ? 0 : -5;
   },delay);
 });
 const randInt=(n,x)=>Math.floor(Math.random()*(Math.ceil(x)-Math.ceil(n)+1))+Math.ceil(n);
-const plus = () => {
+const e = () => {
   if(gameOn){
-    score++;
-    delay-=decay;
-    buttob.style.top = `calc(${randInt(0,100)}vh - ${buttobH}px)`;
-    buttob.style.left = `calc(${randInt(0,100)}vw - ${buttobW}px)`;
+    delay -= decay;
+    buttob.style.top = `${randInt(0,vh-bh)}px`;
+    buttob.style.left = `${randInt(0,vw-bw)}px`;
     buttob.innerHTML = score;
     document.querySelector('p').innerHTML = `Click the button, while avoiding the circle,<br>that follows you with ${delay}ms delay.`;
-  } else {
+  }
+}
+const plus = () => {
+  if(gameOn){ score++; } else {
     delay = document.getElementById('delay').value;
     decay = document.getElementById('decay').value;
     score = 0;
@@ -77,8 +83,8 @@ const plus = () => {
     document.getElementById('decay').style.opacity = 0.5;
     document.getElementById('decay').disabled = true;
     gameOn = true;
-    buttob.style.top = `calc(${randInt(0,100)}vh - ${buttobH}px)`;
-    buttob.style.left = `calc(${randInt(0,100)}vw - ${buttobW}px)`;
+    buttob.style.top = `${randInt(0,vh-bh)}px`;
+    buttob.style.left = `${randInt(0,vw-bw)}px`;
     buttob.innerHTML = score;
     document.body.style.background='beige';
     document.body.style.color='black'
