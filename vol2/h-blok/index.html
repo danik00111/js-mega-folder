@@ -12,7 +12,7 @@
 </html>
 <script>
   let you = document.getElementById('you');
-  let _left = 0;
+  let pos = 0;
   let isJump = false;
   let pressedkeys = {};
   window.addEventListener('keyup',e=>{pressedkeys[e.key]=false});
@@ -20,12 +20,12 @@
   setInterval(()=>{
 
     if(pressedkeys['ArrowLeft'] && !pressedkeys['ArrowRight']) {
-      _left-=(_left>0)*10; you.style.left=_left+'px';
+      pos-=(pos>0)*10; you.style.left=pos+'px';
     }
     if(pressedkeys['ArrowRight'] && !pressedkeys['ArrowLeft']) {
-      isntwall = _left<parseInt(getComputedStyle(document.body).width)-parseInt(getComputedStyle(you).width);
-      _left+=isntwall*10;
-      you.style.left=_left+'px';
+      isntwall = pos<parseInt(getComputedStyle(document.body).width)-parseInt(getComputedStyle(you).width);
+      pos+=isntwall*10;
+      you.style.left=pos+'px';
     }
     if(pressedkeys['ArrowUp'] && !isJump) jump();
 
