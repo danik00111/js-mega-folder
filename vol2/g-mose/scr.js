@@ -1,17 +1,20 @@
 const zone = document.getElementById('zone');
 const buttob = document.getElementById('rondom');
 const stricc = document.getElementById('strictoggle');
-let strict = false;
+const randInt=(n,x)=>Math.floor(Math.random()*(Math.ceil(x)-Math.ceil(n)+1))+Math.ceil(n);
 let vw = parseInt(getComputedStyle(document.body).width);
 let vh = parseInt(getComputedStyle(document.body).height);
 const zw = parseInt(getComputedStyle(zone).width);
 const zh = parseInt(getComputedStyle(zone).height);
 const bw = parseInt(getComputedStyle(buttob).width);
 const bh = parseInt(getComputedStyle(buttob).height);
+buttob.style.top = `${randInt(0,vh-bh)}px`;
+buttob.style.left = `${randInt(0,vw-bw)}px`;
+let strict = false;
 let gameOn = true;
 let score = 0;
-const initDelay = 500;
-const initDecay = 5;
+const initDelay = 1500;
+const initDecay = 15;
 let decay = initDecay;
 let delay = initDelay + initDecay;
 zone.addEventListener('mouseleave',()=>{
@@ -70,7 +73,6 @@ document.addEventListener('mousemove',e=>{
     zone.style.zIndex = gameOn ? 0 : -5;
   },delay);
 });
-const randInt=(n,x)=>Math.floor(Math.random()*(Math.ceil(x)-Math.ceil(n)+1))+Math.ceil(n);
 const e = () => { if(strict) {
   if(gameOn===true){
     delay -= decay;
