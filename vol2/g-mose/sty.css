@@ -48,7 +48,8 @@ input[type=checkbox]{border-radius:25%}
   background: black;
   color: palegreen;
   align-items: center;
-  z-index: -1
+  z-index: -1;
+  box-shadow: #00000080 0 0 80px 40px
 }
 #rondom.disabled{opacity:0.5;cursor:default}
 #rondom:hover:not(.disabled){background:palegreen;color:black}
