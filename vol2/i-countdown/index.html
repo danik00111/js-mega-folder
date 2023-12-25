@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Countdown to New Year</title>
+</head>
+<body style="scroll-behavior:none;overscroll-behavior:none;user-select:none;height:100vh;display:flex;flex-direction:column;justify-content:center;font-family:monospace;text-align:center;font-size:3vw">
+  <h1 style="display:flex;align-items:center; justify-content: center;">new yere is&nbsp;<span id="days">ddd</span>&nbsp;days away&nbsp;<img style="width:5vw" src="https://media1.tenor.com/m/w2AcweD741MAAAAd/christmas-troom-troom.gif"></h1>
+  <p id="countdown">
+    and the next midnight (london time) is in<br>
+    <span id="hours">hh</span><the blink b1>:</the><span id="minutes">mm</span><the blink b2>:</the><span id="seconds">ss</span>
+  </p>
+  <p style="opacity:0.25;font-size:0.5vw;">± 1 second</p>
+</body>
+</html>
+<style>span{color:indigo}*{margin:0;padding:0}the[blink].blonk{opacity:0}</style>
+<script>
+  const toUTC=h=>new Date(h.getUTCFullYear(),h.getUTCMonth(),h.getUTCDate(),h.getUTCHours(),h.getUTCMinutes(),h.getUTCSeconds());
+  const allat = () => {
+    document.getElementById('days').innerHTML = Math.floor((toUTC(new Date(`1/1/${new Date().getFullYear()+3}`)).getTime() - toUTC(new Date()).getTime())/86400000)%365;
+    if(document.getElementById('days').innerHTML=='0') document.querySelector('h1').innerHTML = 'new yere is <span>TODAY!!!!!!!!</span>'
+    document.getElementById('hours').innerHTML = ('0' + Math.floor((
+      toUTC(new Date(`1/1/${new Date().getFullYear()+1}`)).getTime() - toUTC(new Date()).getTime()
+    )/86400000)).slice(-2); // there are 86400000ms in a day, thats why this number is reocurring
+    document.getElementById('minutes').innerHTML = ( '0' + Math.floor((
+      toUTC(new Date(`1/1/${new Date().getFullYear()+1}`)).getTime() - toUTC(new Date()).getTime()
+    )/60000%60)).slice(-2);
+    document.getElementById('seconds').innerHTML = ('0' + (
+      toUTC(new Date(`1/1/${new Date().getFullYear()+1}`)).getTime() - toUTC(new Date()).getTime()
+    )/1000%60).slice(-2);
+    document.querySelector('the[b1]').classList.toggle('blonk');
+    document.querySelector('the[b2]').classList.toggle('blonk');
+  }; allat();
+  setInterval(allat,1000);
+</script>
