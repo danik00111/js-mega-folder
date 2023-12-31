@@ -28,8 +28,8 @@
   const toUTC=h=>new Date(h.getUTCFullYear(),h.getUTCMonth(),h.getUTCDate(),h.getUTCHours(),h.getUTCMinutes(),h.getUTCSeconds());
   const allat = () => {
     document.getElementById('days').innerHTML = Math.floor((toUTC(new Date(`1/1/${new Date().getFullYear()+3}`)).getTime() - toUTC(new Date()).getTime())/86400000)%365;
-    if(document.getElementById('days').innerHTML=='0') document.querySelector('span#days').innerHTML = 'happy new yere!!!!!&nbsp;<img style="width:5vw" src="https://media1.tenor.com/m/w2AcweD741MAAAAd/christmas-troom-troom.gif">'
-    if(document.getElementById('days').innerHTML=='365') document.querySelector('span#days').innerHTML = 'happy new yere!!!!!&nbsp;<img style="width:5vw" src="https://media1.tenor.com/m/w2AcweD741MAAAAd/christmas-troom-troom.gif">'
+    if(document.getElementById('days').innerHTML=='0') document.querySelector('h1').innerHTML = 'happy new yere!!!!!&nbsp;<img style="width:5vw" src="https://media1.tenor.com/m/w2AcweD741MAAAAd/christmas-troom-troom.gif">'
+    if(document.getElementById('days').innerHTML=='365') document.querySelector('h1').innerHTML = 'happy new yere!!!!!&nbsp;<img style="width:5vw" src="https://media1.tenor.com/m/w2AcweD741MAAAAd/christmas-troom-troom.gif">'
     if(document.getElementById('days').innerHTML=='1') document.querySelector('h1').innerHTML = 'new yere is&nbsp;<span id="days">TODAY!!!!!!!</span>&nbsp;<img style="width:5vw" src="https://media1.tenor.com/m/w2AcweD741MAAAAd/christmas-troom-troom.gif">'
     document.getElementById('hours').innerHTML = ('0' + Math.floor((
       toUTC(new Date(`1/1/${new Date().getFullYear()+1} 11:59:59 PM`)).getTime() - toUTC(new Date()).getTime()
