@@ -21,8 +21,8 @@ body{
 h1{font-size:72px}
 p#desc{font-size:32px}p#warn{font-size:12px}p#settings{font-size:18px;}
 h1,p{position:relative;z-index:-2}
-input,span#strictoggle{background:#ffffff80;border-radius:2px;font-size:18px;}
-span#strictoggle{cursor:pointer}
+input,#strictoggle{background:#ffffff80;border-radius:2px;font-size:18px;}
+#strictoggle{cursor:pointer}
 input[type=checkbox]{border-radius:25%}
 #delay{text-align:right}
 #decay{text-align:left}

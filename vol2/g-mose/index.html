@@ -5,7 +5,7 @@
     <div id="zone" style="display:none"></div>
     <div id="rondom" onmousedown="plus()" onkeydown="return false">0</div>
     <h1>celeste ch2 be like</h1>
-    <p id="desc">Click the button, while avoiding the circle,<br>that follows you with 500ms delay.</p>
+    <p id="desc">Click the button, while avoiding the circle,<br>that follows you with 1500ms delay.</p>
     <p id="warn">(epilepsy warning)</p>
     <p id="settings">adjust these settings below to match your skill<br>hover for info:
       <input value="1500" style="width:4ch;color:black;opacity:0.5" disabled
@@ -20,9 +20,9 @@
         if(document.getElementById('decay').style.width=='0ch')document
         .getElementById('decay').style.width='5ch';" type="number"
         name="decay" id="decay" placeholder="Decay" title="The delay will decrease by this number on every click (in ms)."
-      >&<span id="strictoggle" class="strict" title="If strict, missing a click will move the button and decrease by the decay value, without giving you a point.
+      >&<button id="strictoggle" class="strict" title="If strict, missing a click will move the button and decrease by the decay value, without giving you a point.
 If tolerant, missing a click does nothing."
-      style="opacity:0.5;cursor:default" onclick="togge()">tolerant</span><br><span style="opacity:0.25">(the dev uses 500|5&strict)</span>
+      style="opacity:0.5;cursor:default" onclick="togge()">tolerant</button><br><span style="opacity:0.25">(the dev uses 500|5&strict)</span>
     </p>
   </body>
   <script src="./scr.js"></script>
