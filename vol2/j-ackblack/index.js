@@ -80,9 +80,9 @@ const scores = {
   "It's a tie!": 0,
 }
 const scorelog = x => {console.log(`\
-${x=='You won!'?'\x1b[32m':''}${scores["You won!"]} win${scores["You won!"]==1?'':'s'}${x=='You won!'?'\x1b[0m':''} | \
-${x=='It\'s a tie!'?'\x1b[33m':''}${scores["It's a tie!"]} tie${scores["It's a tie!"]==1?'':'s'}${x=='It\'s a tie!'?'\x1b[0m':''} | \
-${x=='Dealer won!'?'\x1b[31m':''}${scores["Dealer won!"]} loss${scores["Dealer won!"]==1?'':'es'}${x=='Dealer won!'?'\x1b[0m':''}`)
+${x == 'You won!' ? '\x1b[32m':''}${scores[ "You won!" ] } win${ scores[ "You won!" ] == 1?'':'s'}${x=='You won!'?'\x1b[0m':''} | \
+${x=='It\'s a tie!'?'\x1b[33m':''}${scores["It's a tie!"]} tie${ scores["It's a tie!"] ==1?'':'s'}${x=='It\'s a tie!'?'\x1b[0m':''} | \
+${x =='Dealer won!'?'\x1b[31m':''}${scores["Dealer won!"]} loss${scores["Dealer won!"]==1?'':'es'}${x=='Dealer won!'?'\x1b[0m':''}`)
 }
 console.log(game.state());
 process.stdin.on('data',h=>{
@@ -98,7 +98,7 @@ process.stdin.on('data',h=>{
   if(['hit','draw','more','h','w'].includes(input)&&retryscreen!='fresh')game.move(true);
   else if(['stand','stop','s','q'].includes(input))game.move(false);
   else if(['scores','score','c'].includes(input))scorelog();
-  else if(['help'].includes(input)) console.log('[hit, draw, more, h, w] to hit,\n[stand, stop, s, q] to stand,\n[exit, e] to exit, [scores, score, c] to see the score');
+  else if(['help'].includes(input)) console.log('[hit, draw, more, h, w] to hit,\n[stand, stop, s, q] to stand,\n[exit, e] to exit,\n[scores, score, c] to see the score');
   else if(retryscreen != 'fresh') return;
   console.log(game.state());
   retryscreen = false;
