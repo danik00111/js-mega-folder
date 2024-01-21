@@ -89,7 +89,7 @@ process.stdin.on('data',h=>{
   let input = String(h).toLowerCase();
   if(input.endsWith('\n')) input = input.substring(0,input.length-1);
   if(retryscreen) {
-    if(['y','h','w'].includes(input)) {
+    if(['y','h','w','yes'].includes(input)) {
       game = new BlackJackGame;
       retryscreen = 'fresh';
     } else {process.exit()};
@@ -108,36 +108,4 @@ process.stdin.on('data',h=>{
     console.log(game.gamestate, 'Want another one? [y, h, w], [n, e, q]');
     retryscreen = true;
   };
-})
-
-const t = {
-  r: "\x1b[0m", // reset
-  x: {
-    b: "\x1b[1m", // bright
-    d: "\x1b[2m", // dim
-    u: "\x1b[4m", // underscore
-    l: "\x1b[5m", // blink
-    i: "\x1b[7m", // invert bg and fg
-    h: "\x1b[8m", // hidden
-  }, f: {
-    k: "\x1b[30m", // black
-    r: "\x1b[31m", // red
-    g: "\x1b[32m", // green
-    y: "\x1b[33m", // yellow
-    b: "\x1b[34m", // blue
-    m: "\x1b[35m", // magenta
-    c: "\x1b[36m", // cyan
-    w: "\x1b[37m", // white
-    s: "\x1b[90m", // gray
-  }, b: {
-    k: "\x1b[40m", // black
-    r: "\x1b[41m", // red
-    g: "\x1b[42m", // green
-    y: "\x1b[43m", // yellow
-    b: "\x1b[44m", // blue
-    m: "\x1b[45m", // magenta
-    c: "\x1b[46m", // cyan
-    w: "\x1b[47m", // white
-    s: "\x1b[100m", //gray
-  },
-} // https://stackoverflow.com/a/41407246
+});

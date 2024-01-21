@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>four</title>
+  <style>
+    *{font-family:monospace;text-align:center;box-sizing:border-box}
+    board{margin:0 auto;display:flex;align-items:stretch;justify-content:space-evenly;background:blue;border-radius:25px;width:550px;height:475px}
+    column{display:flex;flex-direction:column;align-items:stretch;justify-content:space-evenly}
+    cell{width:50px;height:50px;border-radius:50%;background:white}
+    cell.red{background:red}
+    cell.yellow{background:yellow}
+  </style>
+</head>
+<body>
+  <h1 style="font-size: 48px;">four.</h1>
+  <p>you probably know this game, don't you</p>
+  <board>
+    <column pos="1" onclick="move(1)"> <cell pos="1"></cell><cell pos="2"></cell><cell pos="3"></cell><cell pos="4"></cell><cell pos="5"></cell><cell pos="6"></cell> </column>
+    <column pos="2" onclick="move(2)"> <cell pos="1"></cell><cell pos="2"></cell><cell pos="3"></cell><cell pos="4"></cell><cell pos="5"></cell><cell pos="6"></cell> </column>
+    <column pos="3" onclick="move(3)"> <cell pos="1"></cell><cell pos="2"></cell><cell pos="3"></cell><cell pos="4"></cell><cell pos="5"></cell><cell pos="6"></cell> </column>
+    <column pos="4" onclick="move(4)"> <cell pos="1"></cell><cell pos="2"></cell><cell pos="3"></cell><cell pos="4"></cell><cell pos="5"></cell><cell pos="6"></cell> </column>
+    <column pos="5" onclick="move(5)"> <cell pos="1"></cell><cell pos="2"></cell><cell pos="3"></cell><cell pos="4"></cell><cell pos="5"></cell><cell pos="6"></cell> </column>
+    <column pos="6" onclick="move(6)"> <cell pos="1"></cell><cell pos="2"></cell><cell pos="3"></cell><cell pos="4"></cell><cell pos="5"></cell><cell pos="6"></cell> </column>
+    <column pos="7" onclick="move(7)"> <cell pos="1"></cell><cell pos="2"></cell><cell pos="3"></cell><cell pos="4"></cell><cell pos="5"></cell><cell pos="6"></cell> </column>
+  </board>
+  <script>
+    const board = Array(6).fill(null).map(x=>[...Array(7)].fill(null)); // idk why but it works
+  </script>
+</body>
+</html>
