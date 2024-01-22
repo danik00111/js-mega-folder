@@ -1,32 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>four</title>
   <style>
+    body{margin:0;padding:0;background:black;color:white}
     *{font-family:monospace;text-align:center;box-sizing:border-box}
-    board{margin:0 auto;display:flex;align-items:stretch;justify-content:space-evenly;background:blue;border-radius:25px;width:550px;height:475px}
-    column{display:flex;flex-direction:column;align-items:stretch;justify-content:space-evenly}
+    board{margin:24px auto 0;display:flex;align-items:stretch;justify-content:space-evenly;background:blue;border-radius:25px;width:550px;height:475px}
+    board.red cell:not(.red,.yellow){background:#200000}
+    board.yellow cell:not(.red,.yellow){background:#202000}
+    column{display:flex;flex-direction:column;align-items:stretch;justify-content:space-evenly;}
+    board:not(:has(cell.w)) column{cursor:pointer}
     cell{width:50px;height:50px;border-radius:50%;background:white}
     cell.red{background:red}
     cell.yellow{background:yellow}
+    cell.w{transform:rotate(45deg);border-radius:0}
   </style>
-</head>
-<body>
+</head><body>
   <h1 style="font-size: 48px;">four.</h1>
   <p>you probably know this game, don't you</p>
-  <board>
-    <column pos="1" onclick="move(1)"> <cell pos="1"></cell><cell pos="2"></cell><cell pos="3"></cell><cell pos="4"></cell><cell pos="5"></cell><cell pos="6"></cell> </column>
-    <column pos="2" onclick="move(2)"> <cell pos="1"></cell><cell pos="2"></cell><cell pos="3"></cell><cell pos="4"></cell><cell pos="5"></cell><cell pos="6"></cell> </column>
-    <column pos="3" onclick="move(3)"> <cell pos="1"></cell><cell pos="2"></cell><cell pos="3"></cell><cell pos="4"></cell><cell pos="5"></cell><cell pos="6"></cell> </column>
-    <column pos="4" onclick="move(4)"> <cell pos="1"></cell><cell pos="2"></cell><cell pos="3"></cell><cell pos="4"></cell><cell pos="5"></cell><cell pos="6"></cell> </column>
-    <column pos="5" onclick="move(5)"> <cell pos="1"></cell><cell pos="2"></cell><cell pos="3"></cell><cell pos="4"></cell><cell pos="5"></cell><cell pos="6"></cell> </column>
-    <column pos="6" onclick="move(6)"> <cell pos="1"></cell><cell pos="2"></cell><cell pos="3"></cell><cell pos="4"></cell><cell pos="5"></cell><cell pos="6"></cell> </column>
-    <column pos="7" onclick="move(7)"> <cell pos="1"></cell><cell pos="2"></cell><cell pos="3"></cell><cell pos="4"></cell><cell pos="5"></cell><cell pos="6"></cell> </column>
+  <button onclick="reset()">reset</button>
+  <board class="red">
+    <column pos="0" onclick="move(0)"><cell pos="0"></cell><cell pos="1"></cell><cell pos="2"></cell><cell pos="3"></cell><cell pos="4"></cell><cell pos="5"></cell></column>
+    <column pos="1" onclick="move(1)"><cell pos="0"></cell><cell pos="1"></cell><cell pos="2"></cell><cell pos="3"></cell><cell pos="4"></cell><cell pos="5"></cell></column>
+    <column pos="2" onclick="move(2)"><cell pos="0"></cell><cell pos="1"></cell><cell pos="2"></cell><cell pos="3"></cell><cell pos="4"></cell><cell pos="5"></cell></column>
+    <column pos="3" onclick="move(3)"><cell pos="0"></cell><cell pos="1"></cell><cell pos="2"></cell><cell pos="3"></cell><cell pos="4"></cell><cell pos="5"></cell></column>
+    <column pos="4" onclick="move(4)"><cell pos="0"></cell><cell pos="1"></cell><cell pos="2"></cell><cell pos="3"></cell><cell pos="4"></cell><cell pos="5"></cell></column>
+    <column pos="5" onclick="move(5)"><cell pos="0"></cell><cell pos="1"></cell><cell pos="2"></cell><cell pos="3"></cell><cell pos="4"></cell><cell pos="5"></cell></column>
+    <column pos="6" onclick="move(6)"><cell pos="0"></cell><cell pos="1"></cell><cell pos="2"></cell><cell pos="3"></cell><cell pos="4"></cell><cell pos="5"></cell></column>
   </board>
   <script>
-    const board = Array(6).fill(null).map(x=>[...Array(7)].fill(null)); // idk why but it works
+    const board = Array(6).fill(null).map(x=>[...Array(7)].fill(null));
+    let turn=true; // true = red, false = yellow
+    let gameOn = true;
+    const move=x=>{
+      if(!gameOn) return;
+      for(let i=board.length-1;i>=0;i--){
+        if(board[i][x]===null){
+          board[i][x]=turn?'red':'yellow';
+          document.querySelector(`column[pos="${x}"] cell[pos="${i}"]`).classList.add(turn?'red':'yellow');
+          turn = !turn;
+          document.querySelector('board').classList.toggle('red');
+          document.querySelector('board').classList.toggle('yellow');
+          let idke = wincheck();
+          if(idke!==undefined) { gameOn=false; document.querySelectorAll('column').forEach(e=>e.style.cursor='default') };
+          break;
+        }
+      }
+    }
+    const wincheck=()=>{
+      if(board.every((x)=>x.every((y)=>y!==null))){console.log('tie!');return null}
+      const streak={len:0,color:null};
+      // h check
+      for(let j=0;j<board.length;j++){
+        streak.len=0;
+        streak.color=null;
+        for(let i=0;i<board[0].length;i++){
+          switch(board[j][i]){
+            case 'red':
+              if(streak.color!=='red')streak.len=0;
+              streak.color='red';streak.len++;
+            break;case 'yellow':
+              if(streak.color!=='yellow')streak.len=0;
+              streak.color='yellow';streak.len++;
+            break;default:streak.len=0;streak.color=null;break;
+          }
+          if(streak.len===4){console.log(`${streak.color} wins (h)!`);return streak.color==='red';}
+        }
+      }
+      // v check
+      for(let i=0;i<board[0].length;i++){
+        streak.len=0;
+        streak.color=null;
+        for(let j=0;j<board.length;j++){
+          switch(board[j][i]){
+            case 'red':
+              if(streak.color!=='red')streak.len=0;
+              streak.color='red';streak.len++;
+            break;case 'yellow':
+              if(streak.color!=='yellow')streak.len=0;
+              streak.color='yellow'; streak.len++;
+            break;default:streak.len=0;streak.color=null;break;
+          }
+          if(streak.len===4){console.log(`${streak.color} wins (v)!`);return streak.color==='red'}
+        }
+      }
+      // d check (tl to br)
+      for(let i=0;i<board.length-3;i++){
+        for(let j=0;j<board[0].length-3;j++){
+          streak.len=0;
+          streak.color=null;
+          for(let k=0;k<4;k++){
+            switch(board[i+k][j+k]){
+              case 'red':
+                if(streak.color!=='red')streak.len=0;
+                streak.color='red';streak.len++;
+              break;case 'yellow':
+                if(streak.color!=='yellow')streak.len=0;
+                streak.color='yellow';streak.len++;
+              break;default:streak.len=0;streak.color=null;break;
+            }
+            if(streak.len===4){
+              console.log(`${streak.color} wins (d (tl-br))!`);
+              return streak.color==='red';
+            }
+          }
+        }
+      }
+      // d check (tr to bl)
+      for(let i=0;i<board.length-3;i++){
+        for(let j=3;j<board[0].length;j++){
+          streak.len=0;
+          streak.color=null;
+          for(let k=0;k<4;k++){
+            switch(board[i+k][j-k]){
+              case 'red':
+                if(streak.color!=='red')streak.len=0;
+                streak.color='red';streak.len++;
+              break;case 'yellow':
+                if(streak.color!=='yellow')streak.len=0;
+                streak.color='yellow';streak.len++;
+              break;default:streak.len=0;streak.color=null;break;
+            }
+            if(streak.len===4){
+              console.log(`${streak.color} wins (d (tr-bl))!`);
+              return streak.color==='red';
+            }
+          }
+        }
+      }
+      console.log('game still going');
+    };
+    const reset=()=>{
+      for(let i=0;i<board.length;i++){board[i]=[...Array(6)].fill(null)};
+      turn=true;
+      [...document.querySelectorAll('cell')].forEach(x=>{x.classList.remove('red');x.classList.remove('yellow')});
+      document.querySelector('board').classList.add('red');
+      document.querySelector('board').classList.remove('yellow');
+      document.querySelectorAll('column').forEach(e=>e.style.cursor='pointer');
+      gameOn = true;
+    }
   </script>
-</body>
-</html>
+</body></html>
