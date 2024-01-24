@@ -45,14 +45,41 @@
           document.querySelector('board').classList.toggle('red');
           document.querySelector('board').classList.toggle('yellow');
           let idke = wincheck(board,true);
-          if(idke!==undefined) { gameOn=false; document.querySelectorAll('column').forEach(e=>e.style.cursor='default') };
+          if(idke!==undefined){ gameOn=false; document.querySelectorAll('column').forEach(e=>e.style.cursor='default') };
           break;
         }
         if(i===0){if(m)move((x+1)%7,m);return}
       }
       if(vsBot&&!m) move(botEval(board),'bot');
     }
-    const botEval=b=>Math.floor(Math.random()*7); // currently a dummybot, that moves completely randomly
+    const botEval=boird=>{let b=boird;
+      // check if the opponent has a winning move, and block it
+      for(let i=0;i<b[0].length;i++){
+        for(let j=b.length-1;j>=0;j--){
+          if(b[j][i]===null){
+            b[j][i]='red';
+            if(wincheck(b,false)===true){b[j][i]=null;return i}
+            b[j][i]=null;
+          }
+        }
+      }
+      // check if the bot has a winning move, and play it
+      for(let i=0;i<b[0].length;i++){
+        for(let j=b.length-1;j>=0;j--){
+          if(b[j][i]===null){
+            b[j][i]='yellow';
+            if(wincheck(b,false)===false){b[j][i]=null;return i}
+            b[j][i]=null;
+            break;
+          }
+        }
+      }
+      // no trivial moves found, resort to random unga-bunga
+      const unfilledCols = [];
+      for(let i=0;i<board[0].length;i++)if(board[0][i]===null)unfilledCols.push(i)
+      if(unfilledCols.length>0) return unfilledCols[Math.floor(Math.random()*unfilledCols.length)];
+      return -1; // all cols filled
+    };
     const wincheck=(b,d)=>{
       if(b.every((x)=>x.every((y)=>y===null))){console.log('tie!');return null}
       const streak={len:0,color:null,cells:[]};
@@ -72,8 +99,8 @@
             break;default:streak.len=0;streak.color=null;break;
           }
           const cell={x:j,y:i};
-          streak.cells.push(cell);
-          if(streak.len===4){{if(d)console.log(`${streak.color} wins (h)!`);winlight(streak.cells)};return streak.color==='red'}
+          if(b[j][i]==streak.color){streak.cells.push(cell)}else{streak.cells=[cell]};
+          if(streak.len===4){if(d){console.log(`${streak.color} wins (h)!`);winlight(streak.cells)};return streak.color==='red'}
         }
       }
       // v check
@@ -92,8 +119,8 @@
               break;default:streak.len=0;streak.color=null;break;
             }
           const cell={x:j,y:i};
-          streak.cells.push(cell);
-          if(streak.len===4){{if(d)console.log(`${streak.color} wins (v)!`);winlight(streak.cells)};return streak.color==='red'}
+          if(b[j][i]==streak.color){streak.cells.push(cell)}else{streak.cells=[cell]};
+          if(streak.len===4){if(d){console.log(`${streak.color} wins (v)!`);winlight(streak.cells)};return streak.color==='red'}
         }
       }
       // d check (tl-br)
@@ -108,12 +135,12 @@
               case 'red':
                 if(streak.color!=='red'){streak.len=0;streak.cells=[{x:j-k,y:i+k}]}
                 streak.color='red';streak.len++;
-                break;case 'yellow':
+              break;case 'yellow':
                 if(streak.color!=='yellow'){streak.len=0;streak.cells=[{x:j-k,y:i+k}]}
                 streak.color='yellow';streak.len++;
-                break;default:streak.len=0;streak.color=null;streak.cells=[];break;
-              }
-            streak.cells.push(cell);
+              break;default:streak.len=0;streak.color=null;streak.cells=[];break;
+            }
+            if(b[i+k][j+k]==streak.color){streak.cells.push(cell)}else{streak.cells=[cell]};
             if(streak.len===4){{if(d)console.log(`${streak.color} wins (d, tl-br)!`);winlight(streak.cells)};return streak.color==='red'}
           }
         }
@@ -136,7 +163,8 @@
                 streak.color='yellow';streak.len++;
               break;default:streak.len=0;streak.color=null;streak.cells=[];break;
             }
-            if(streak.len===4){{if(d)console.log(`${streak.color} wins (d, tr-bl)!`);winlight(streak.cells)};return streak.color==='red'}
+            if(b[i+k][j-k]==streak.color){streak.cells.push(cell)}else{streak.cells=[cell]};
+            if(streak.len===4){if(d){console.log(`${streak.color} wins (d, tr-bl)!`);winlight(streak.cells)};return streak.color==='red'}
           }
         }
       }
