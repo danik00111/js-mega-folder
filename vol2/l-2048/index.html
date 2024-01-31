@@ -13,7 +13,8 @@
     .cell:not(:is([value="2"],[value="4"]))::after{color:#eee}
     .cell:is([value="2"],[value="4"],[value="8"])::after{font-size:40px}
     .cell:is([value="16"],[value="32"],[value="64"])::after{font-size:32px}
-    .cell:is([value="128"],[value="256"],[value="512"])::after{font-size:28px}
+    .cell:is([value="128"],[value="256"],[value="512"],[value="16384"],
+    [value="32768"],[value="65536"],[value="262144"])::after{font-size:28px}
     .cell[value="2"]{background-color:#eee4da}
     .cell[value="4"]{background-color:#ece0c8}
     .cell[value="8"]{background-color:#f2b179}
@@ -29,9 +30,9 @@
     .cell[value="8192"]{background-color:#cea612}
     .cell[value="16384"]{background-color:#b28f10}.cell[value="16384"]::after{content:'16K'}
     .cell[value="32768"]{background-color:#96780d}.cell[value="32768"]::after{content:'32K'}
-    .cell[value="65536"]{background-color:#7a620b}.cell[value="65536"]::after{content:'64K'}
+    .cell[value="65536"]{background-color:#7a620b}.cell[value="65536"]::after{content:'65K'}
     .cell[value="131072"]{background-color:#5d4b09}.cell[value="131072"]::after{content:'131K'}
-    .cell[value="262144"]{background-color:#000000}.cell[value="262144"]::after{content:/*'262K'*/'HOW?'}
+    .cell[value="262144"]{background-color:#000000}.cell[value="262144"]::after{content:/*'262K'*/'how'}
     /* .cell[value="524288"]{background-color:#251e03}.cell[value="524288"]::after{content:'524K'} */
     /* .cell[value="1048576"]{background-color:#090701}.cell[value="1048576"]::after{content:'1M'} */
   </style>
