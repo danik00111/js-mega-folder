@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{margin:0;padding:0;font-family:monospace;text-align:center;background:dimgrey}
+    .grid{margin:0 auto;width:320px;height:320px;display:flex;flex-direction:column;background-color:cornflowerblue;border-radius:16px;}
+    .row{display:flex}
+    .cell{width:64px;height:64px;border-radius:25%;margin:8px;position:relative}
+    .cell[value]::after{color:black;text-align:center;content:attr(value);font-weight:bold;font-size:24px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+    .cell:not(:is([value="2"],[value="4"]))::after{color:#eee}
+    .cell:is([value="2"],[value="4"],[value="8"])::after{font-size:40px}
+    .cell:is([value="16"],[value="32"],[value="64"])::after{font-size:32px}
+    .cell:is([value="128"],[value="256"],[value="512"])::after{font-size:28px}
+    .cell[value="2"]{background-color:#eee4da}
+    .cell[value="4"]{background-color:#ece0c8}
+    .cell[value="8"]{background-color:#f2b179}
+    .cell[value="16"]{background-color:#f19564}
+    .cell[value="32"]{background-color:#ed7b60}
+    .cell[value="64"]{background-color:#eb5d39}
+    .cell[value="128"]{background-color:#eecf73}
+    .cell[value="256"]{background-color:#edcc61}
+    .cell[value="512"]{background-color:#edc94f}
+    .cell[value="1024"]{background-color:#eec640}
+    .cell[value="2048"]{background-color:#edc32f}
+    .cell[value="4096"]{background-color:#ebbc14}
+    .cell[value="8192"]{background-color:#cea612}
+    .cell[value="16384"]{background-color:#b28f10}.cell[value="16384"]::after{content:'16K'}
+    .cell[value="32768"]{background-color:#96780d}.cell[value="32768"]::after{content:'32K'}
+    .cell[value="65536"]{background-color:#7a620b}.cell[value="65536"]::after{content:'64K'}
+    .cell[value="131072"]{background-color:#5d4b09}.cell[value="131072"]::after{content:'131K'}
+    .cell[value="262144"]{background-color:#000000}.cell[value="262144"]::after{content:/*'262K'*/'HOW?'}
+    /* .cell[value="524288"]{background-color:#251e03}.cell[value="524288"]::after{content:'524K'} */
+    /* .cell[value="1048576"]{background-color:#090701}.cell[value="1048576"]::after{content:'1M'} */
+  </style>
+</head>
+<body>
+  <h1 style="font-size:5vw">suika game ripoff</h1>
+  <p style="font-size:2vw">score: <span>0</span></p>
+  <div class="grid">
+    <div class="row">
+      <div class="cell" value="2"></div>
+      <div class="cell" value="4"></div>
+      <div class="cell" value="8"></div>
+      <div class="cell" value="16"></div>
+    </div>
+    <div class="row">
+      <div class="cell" value="32"></div>
+      <div class="cell" value="64"></div>
+      <div class="cell" value="128"></div>
+      <div class="cell" value="256"></div>
+    </div>
+    <div class="row">
+      <div class="cell" value="512"></div>
+      <div class="cell" value="1024"></div>
+      <div class="cell" value="2048"></div>
+      <div class="cell" value="4096"></div>
+    </div>
+    <div class="row">
+      <div class="cell" value="8192"></div>
+      <div class="cell" value="16384"></div>
+      <div class="cell" value="32768"></div>
+      <div class="cell" value="65536"></div>
+    </div>
+    <div class="row">
+      <div class="cell" value="131072"></div>
+      <div class="cell" value="262144"></div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('keydown',e=>{
+      if(e.repeat) return;
+      switch(e.key) {
+        case 'w': case  'ArrowUp': move(0); break;
+        case 'a': case'ArrowLeft': move(1); break;
+        case 's': case'ArrowDown': move(2); break;
+        case 'd':case'ArrowRight': move(3); break;
+        default: console.log(e.key); break;
+      }
+    });
+    const move = () => {}
+  </script>
+</body>
+</html>
