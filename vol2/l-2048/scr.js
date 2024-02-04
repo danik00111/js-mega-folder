@@ -57,14 +57,14 @@ const move=(d,{score,board})=>{ // 0 = left, 1 = down, 2 = right, 3 = up, bigger
   for(let dir=d%4;dir>0;dir--){n++;bjoarb=rotat_e([...bjoarb])}; // rotate so that the move direction is always left
   
   bjoarb = [...bjoarb].map(r=>r.sort((_,b)=>b!=undefined));
-  let newboard = mergeFunc2D({board:bjoarb});
-  newboard.score += score;
+  let returne = mergeFunc2D({board:bjoarb});
+  returne.score += score;
   
-  for(;n>0;n--)newboard.board=e_tator([...newboard.board]); // unrotate
+  for(;n>0;n--)returne.board=e_tator([...returne.board]); // unrotate
 
-  return (maepe(bjoarb)===compareBoard)
-    ? ( (bjoarb.some(x=>x.some(y=>y===undefined))) ? newboard : {score:newboard.score,board:null} )
-    : {score:newboard.score,board:addRand(newboard.board)};
+  return (maepe(returne.board)===compareBoard)
+    ? ( (returne.board.some(x=>x.some(y=>y===undefined))) ? returne : {score:returne.score,board:null} )
+    : {score:returne.score,board:addRand(returne.board)};
 };
 
 const mergeFunc2D = ({score, board}) => {
