@@ -60,13 +60,10 @@ const move=(d,{score,board})=>{ // 0 = left, 1 = down, 2 = right, 3 = up, bigger
   let compareBoard = maepe(board); // i have to do it here, as for whetever reason "b" somehow gets modified throughout the code
   let bjoarb = [...board]; let n=0;
   for(let dir=d%4;dir>0;dir--){n++;bjoarb=rotat_e([...bjoarb])}; // rotate so that the move direction is always left
-  
   bjoarb = [...bjoarb].map(r=>r.sort((_,b)=>b!=undefined));
   let returne = mergeFunc2D({board:bjoarb});
   returne.score += score;
-  
   for(;n>0;n--)returne.board=e_tator([...returne.board]); // unrotate
-
   return (maepe(returne.board)===compareBoard) ? returne : {score:returne.score,board:addRand(returne.board)};
 };
 const mergeFunc2D = ({score, board}) => {
