@@ -7,7 +7,6 @@
   <style>
     body{margin:0;padding:0;font-family:monospace;text-align:center;background:dimgrey}
     .grid{margin:0 auto;width:320px;height:320px;display:flex;flex-direction:column;background-color:cornflowerblue;border-radius:16px}
-    .grid.gameover{background-color:lightcoral}
     .row{display:flex}
     .cell{width:64px;height:64px;border-radius:25%;margin:8px;position:relative}
     .cell[value]::after{color:black;text-align:center;content:attr(value);font-weight:bold;font-size:24px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
@@ -15,8 +14,8 @@
     .cell:is([value="16"],[value="32"],[value="64"],[value="8192"])::after{font-size:32px}
     .cell:is([value="128"],[value="256"],[value="512"],[value="16384"],[value="32768"],[value="65536"],[value="262144"])::after{font-size:28px}
     .cell[value]{background-color:dimgrey}
-    .cell[value="2"]{background-color:hsl(30,37%,89%)}
-    .cell[value="4"]{background-color:hsl(40,49%,85%)}
+    .cell[value="2"]{background-color:hsl(0,0%,100%)}
+    .cell[value="4"]{background-color:hsl(40,49%,80%)}
     .cell[value="8"]{background-color:hsl(28,82%,71%)}
     .cell[value="16"]{background-color:hsl(21,83%,67%)}
     .cell[value="32"]{background-color:hsl(11,80%,65%)}
