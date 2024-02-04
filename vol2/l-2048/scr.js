@@ -17,7 +17,7 @@ let geaeme = {
   board: addRand(Array(4).fill(undefined).map(_=>Array(4).fill(undefined)))
 };
 const moeve = x => {
-  geaeme = move(x,geaeme);
+  if(!isNaN(x)) geaeme = move(x,geaeme);
   console.log(geaeme)
   document.querySelector('p span').innerHTML = geaeme.score;
   let currentcell;
@@ -28,7 +28,8 @@ const moeve = x => {
     currentcell.setAttribute("value",geaeme.board[i][j]);
     if(currentcell.getAttribute("value")=="undefined") currentcell.setAttribute("value","");
   }
-}
+};
+moeve();
 document.addEventListener('keydown',e=>{
   if(e.repeat) return;
   switch(e.key) {
@@ -53,12 +54,32 @@ const move=(d,{score,board})=>{ // 0 = left, 1 = down, 2 = right, 3 = up, bigger
   if(!Array.isArray(board))return {score,board:null};
   let compareBoard = maepe(board); // i have to do it here, as for whetever reason "b" somehow gets modified throughout the code
   let bjoarb = [...board]; let n=0;
-  for(let dir=d%4;dir>0;dir--){n++;bjoarb=rotat_e([...bjoarb])};
+  for(let dir=d%4;dir>0;dir--){n++;bjoarb=rotat_e([...bjoarb])}; // rotate so that the move direction is always left
+  
   bjoarb = [...bjoarb].map(r=>r.sort((_,b)=>b!=undefined));
-  let scor = score + 1;
-  // TODO: Add logic to also merge identical cells and add score
-  for(;n>0;n--)bjoarb=e_tator([...bjoarb]);
+  let newboard = mergeFunc2D({board:bjoarb});
+  newboard.score += score;
+  
+  for(;n>0;n--)newboard.board=e_tator([...newboard.board]); // unrotate
+
   return (maepe(bjoarb)===compareBoard)
-    ? ( (bjoarb.some(x=>x.some(y=>y===undefined))) ? {score:scor,board:bjoarb} : {score:scor,board:null} )
-    : {score:scor,board:addRand(bjoarb)};
+    ? ( (bjoarb.some(x=>x.some(y=>y===undefined))) ? newboard : {score:newboard.score,board:null} )
+    : {score:newboard.score,board:addRand(newboard.board)};
 };
+
+const mergeFunc2D = ({score, board}) => {
+  let returnObject = {
+    score: score || 0,
+    board: board.map(x=>x.filter(y=>y!==undefined))
+  };
+  for(let j=0; j<returnObject.board.length; j++) { // for each array:
+    for(let i=0; i<returnObject.board[j].length-1; i++) // parsing through the array left to right,
+      if(returnObject.board[j][i] === returnObject.board[j][i+1]){ // if an element is the same as the element to it's right,
+        returnObject.score += returnObject.board[j][i]*2; // add the value of the new tile to the score,
+        returnObject.board[j].splice(i,2,returnObject.board[j][i]*2) // and merge the two tiles.
+      }
+      // optionally, cut to specific width and pad with undefs
+      returnObject.board[j] = returnObject.board[j].concat([undefined,undefined,undefined,undefined]).splice(0,4);
+  }
+  return returnObject;
+}
