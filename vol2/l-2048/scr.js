@@ -18,12 +18,9 @@ let geaeme = {
 };
 const moeve = x => {
   if(!isNaN(x)) geaeme = move(x,geaeme);
-  console.log(geaeme)
   document.querySelector('p span').innerHTML = geaeme.score;
   let currentcell;
-  if(geaeme.board===null)
-    document.querySelector('.grid').classList.add('gameover');
-  else for(let i=0;i<4;i++) for(let j=0;j<4;j++){
+  for(let i=0;i<4;i++) for(let j=0;j<4;j++){
     currentcell = document.querySelector(`.row[pos="${i}"] .cell[pos="${j}"]`);
     currentcell.setAttribute("value",geaeme.board[i][j]);
     if(currentcell.getAttribute("value")=="undefined") currentcell.setAttribute("value","");
@@ -62,9 +59,7 @@ const move=(d,{score,board})=>{ // 0 = left, 1 = down, 2 = right, 3 = up, bigger
   
   for(;n>0;n--)returne.board=e_tator([...returne.board]); // unrotate
 
-  return (maepe(returne.board)===compareBoard)
-    ? ( (returne.board.some(x=>x.some(y=>y===undefined))) ? returne : {score:returne.score,board:null} )
-    : {score:returne.score,board:addRand(returne.board)};
+  return (maepe(returne.board)===compareBoard) ? returne : {score:returne.score,board:addRand(returne.board)};
 };
 
 const mergeFunc2D = ({score, board}) => {
