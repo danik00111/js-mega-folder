@@ -16,8 +16,8 @@ let geaeme = {
   score: 0,
   board: addRand(Array(4).fill(undefined).map(_=>Array(4).fill(undefined)))
 };
-const moeve = x => {
-  if(!isNaN(x)) geaeme = move(x,geaeme);
+const moeve=x=>{geaeme=move(x,geaeme);updateHTML()};
+const updateHTML = () => {
   document.querySelector('p span').innerHTML = geaeme.score;
   let currentcell;
   for(let i=0;i<4;i++) for(let j=0;j<4;j++){
@@ -25,8 +25,8 @@ const moeve = x => {
     currentcell.setAttribute("value",geaeme.board[i][j]);
     if(currentcell.getAttribute("value")=="undefined") currentcell.setAttribute("value","");
   }
-};
-moeve();
+}
+updateHTML();
 document.addEventListener('keydown',e=>{
   if(e.repeat) return;
   switch(e.key) {
@@ -47,6 +47,14 @@ const e_tator=m=>m[0].map((_,i)=>m.map(r=>r[r.length-1-i]));
  */
 const rotat_e=m=>m[0].map((_,i)=>m.map(r=>r[i]).reverse());
 const maepe=j=>j.map(x=>x.map(y=>y===undefined?-1:y)).toString();
+/**
+ * 
+ * @param {Number} d The direction to swipe (0 = left, 1 = down, 2 = right, and 3 = up).
+ * @param {Object} game The game object, consisting of the board and the score.
+ * @param {Array} game.board The array taht is the game board, consisting of numbers and undefs.
+ * @param {Number} game.score The current score.
+ * @returns The new object, with the numbers moved, a new one added (if the move is valid), and scores modified.
+ */
 const move=(d,{score,board})=>{ // 0 = left, 1 = down, 2 = right, 3 = up, bigger = mod4
   if(!Array.isArray(board))return {score,board:null};
   let compareBoard = maepe(board); // i have to do it here, as for whetever reason "b" somehow gets modified throughout the code
@@ -61,7 +69,6 @@ const move=(d,{score,board})=>{ // 0 = left, 1 = down, 2 = right, 3 = up, bigger
 
   return (maepe(returne.board)===compareBoard) ? returne : {score:returne.score,board:addRand(returne.board)};
 };
-
 const mergeFunc2D = ({score, board}) => {
   let returnObject = {
     score: score || 0,
