@@ -1,9 +1,4 @@
-/**
- * @param {Array[]} ary The 2D array.
- * @returns The array, with a 2 or a 4 added in an empty space randomly.
- */
 const addRand = ary => {
-  if(!Array.isArray(ary))return[];
   let r = [...ary]; // make a copy of the array
   // assume that our 2d array is a 4x4
   let lotterypool = [];
@@ -40,24 +35,9 @@ document.addEventListener('keydown',e=>{
     case'd':case'ArrowRight':moeve(2);break;
   }
 });
-/**
- * Rotates the array 90 degrees counterclockwise (e.g. [[1,2,3],[4,5,6],[7,8,9]] => [[3,6,9],[2,5,8],[1,4,7]]).
- * @param {Array} r The array to rotate.
- */
 const e_tator=m=>m[0].map((_,i)=>m.map(r=>r[r.length-1-i]));
-/**
- * Rotates the array 90 degrees clockwise (e.g. [[1,2,3],[4,5,6],[7,8,9]] => [[7,4,1],[8,5,2],[9,6,3]]).
- * @param {Array} r The array to rotate.
- */
 const rotat_e=m=>m[0].map((_,i)=>m.map(r=>r[i]).reverse());
 const maepe=j=>j.map(x=>x.map(y=>y===undefined?-1:y)).toString();
-/**
- * @param {Number} d The direction to swipe (0 = left, 1 = down, 2 = right, and 3 = up).
- * @param {Object} game The game object, that has the score, and the game board, consisting of numbers and undefs.
- * @param {Number} game.score The current score.
- * @param {Array} game.board The array that is the game board, consisting of numbers and undefs.
- * @returns The new object, with the numbers moved, a new one added (if the move is valid), and scores modified.
- */
 const move=(d,{score,board})=>{
   if(!Array.isArray(board))return {score:Number(score),board:[]};
   let compareBoard = maepe(board); // i have to do it here, as for whetever reason "b" somehow gets modified throughout the code
@@ -68,7 +48,7 @@ const move=(d,{score,board})=>{
   returne.score += score;
   for(;n>0;n--)returne.board=e_tator([...returne.board]); // unrotate
   return (maepe(returne.board)===compareBoard)
-    ? {score:Number(returne.score),board:Array(returne.board)}
+    ? {score:Number(returne.score),board:returne.board}
     : {score:Number(returne.score),board:addRand(returne.board)};
 };
 const mergeFunc2D = ({score, board}) => {
@@ -86,4 +66,4 @@ const mergeFunc2D = ({score, board}) => {
       returnObject.board[j] = returnObject.board[j].concat([undefined,undefined,undefined,undefined]).splice(0,4);
   }
   return returnObject;
-}
+};
