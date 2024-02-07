@@ -1,5 +1,9 @@
+/**
+ * @param {Array[]} ary The 2D array.
+ * @returns The array, with a 2 or a 4 added in an empty space randomly.
+ */
 const addRand = ary => {
-  if(!Array.isArray(ary))return null;
+  if(!Array.isArray(ary))return[];
   let r = [...ary]; // make a copy of the array
   // assume that our 2d array is a 4x4
   let lotterypool = [];
@@ -10,7 +14,7 @@ const addRand = ary => {
       r[currCell.i][currCell.j] = (Math.random()*10<9)?2:4; // 1/10 chance that it's filled with a 4 instead
       return r;
     }
-  } return null; // all cells are filled
+  } return ary; // all cells are filled
 }
 let geaeme = {
   score: 0,
@@ -48,15 +52,14 @@ const e_tator=m=>m[0].map((_,i)=>m.map(r=>r[r.length-1-i]));
 const rotat_e=m=>m[0].map((_,i)=>m.map(r=>r[i]).reverse());
 const maepe=j=>j.map(x=>x.map(y=>y===undefined?-1:y)).toString();
 /**
- * 
  * @param {Number} d The direction to swipe (0 = left, 1 = down, 2 = right, and 3 = up).
- * @param {Object} game The game object, consisting of the board and the score.
- * @param {Array} game.board The array taht is the game board, consisting of numbers and undefs.
+ * @param {Object} game The game object, that has the score, and the game board, consisting of numbers and undefs.
  * @param {Number} game.score The current score.
+ * @param {Array} game.board The array that is the game board, consisting of numbers and undefs.
  * @returns The new object, with the numbers moved, a new one added (if the move is valid), and scores modified.
  */
-const move=(d,{score,board})=>{ // 0 = left, 1 = down, 2 = right, 3 = up, bigger = mod4
-  if(!Array.isArray(board))return {score,board:null};
+const move=(d,{score,board})=>{
+  if(!Array.isArray(board))return {score:Number(score),board:[]};
   let compareBoard = maepe(board); // i have to do it here, as for whetever reason "b" somehow gets modified throughout the code
   let bjoarb = [...board]; let n=0;
   for(let dir=d%4;dir>0;dir--){n++;bjoarb=rotat_e([...bjoarb])}; // rotate so that the move direction is always left
@@ -64,7 +67,9 @@ const move=(d,{score,board})=>{ // 0 = left, 1 = down, 2 = right, 3 = up, bigger
   let returne = mergeFunc2D({board:bjoarb});
   returne.score += score;
   for(;n>0;n--)returne.board=e_tator([...returne.board]); // unrotate
-  return (maepe(returne.board)===compareBoard) ? returne : {score:returne.score,board:addRand(returne.board)};
+  return (maepe(returne.board)===compareBoard)
+    ? {score:Number(returne.score),board:Array(returne.board)}
+    : {score:Number(returne.score),board:addRand(returne.board)};
 };
 const mergeFunc2D = ({score, board}) => {
   let returnObject = {
