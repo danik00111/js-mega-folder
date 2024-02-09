@@ -15,8 +15,18 @@ let geaeme = {
   score: 0,
   board: addRand(Array(4).fill(undefined).map(_=>Array(4).fill(undefined)))
 };
+
 const moeve=x=>{geaeme=move(x,geaeme);updateHTML()};
 let timeoutStore;
+/**
+ * Checks whether progess can be made on a board of 2048.
+ * @param {any[][]} board
+ * @returns {boolean}
+ */
+const isAlive = board =>
+  board.some(x=>x.some(y=>y===undefined||y===0)) // empty space left
+||board.some(x=>{for(let i=1;i<x.length;i++)if(x[i-1]===x[i])return true;return false}) // horizontal move possible
+||rotat_e(board).some(x=>{for(let i=1;i<x.length;i++)if(x[i-1]===x[i])return true;return false}); // vertical move possible
 const updateHTML = () => {
   if(timeoutStore != 0) {clearTimeout(timeoutStore);timeoutStore=0};
   document.querySelector('#helptext').classList.remove("shown")
@@ -27,6 +37,7 @@ const updateHTML = () => {
     currentcell.setAttribute("value",geaeme.board[i][j]);
     if(currentcell.getAttribute("value")=="undefined") currentcell.setAttribute("value","");
   }
+  if(!isAlive(geaeme.board))document.querySelector('#reset').classList.add("shown");
 }
 updateHTML();
 timeoutStore = setTimeout(()=>{document.querySelector('#helptext').classList.add("shown")},10e3)
@@ -71,7 +82,6 @@ const mergeFunc2D = ({score, board}) => {
   }
   return returnObject;
 };
-
 //! the code below is blatantly copied from the first google search result :3
 //! the code below is blatantly copied from the first google search result :3
 //! the code below is blatantly copied from the first google search result :3

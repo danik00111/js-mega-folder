@@ -36,6 +36,7 @@
       <div class="cell" value pos=3></div>
     </div>
   </div>
+  <div id="reset" onclick="geaeme={score:0,board:addRand(Array(4).fill(undefined).map(_=>Array(4).fill(undefined)))};updateHTML();document.getElementById('reset').classList.remove('shown')">try again?</div>
   <div id="helptext">to play, use arrow keys/wasd on pc, or swipes on mobile</div>
   <script src="./scr.js"></script>
   <!-- <script>let e=8;[...document.querySelectorAll('.cell')].forEach(x=>{x.setAttribute("value",e);e*=2})</script> -->
