@@ -16,7 +16,10 @@ let geaeme = {
   board: addRand(Array(4).fill(undefined).map(_=>Array(4).fill(undefined)))
 };
 const moeve=x=>{geaeme=move(x,geaeme);updateHTML()};
+let timeoutStore;
 const updateHTML = () => {
+  if(timeoutStore != 0) {clearTimeout(timeoutStore);timeoutStore=0};
+  document.querySelector('#helptext').classList.remove("shown")
   document.querySelector('p span').innerHTML = geaeme.score;
   let currentcell;
   for(let i=0;i<4;i++) for(let j=0;j<4;j++){
@@ -26,6 +29,7 @@ const updateHTML = () => {
   }
 }
 updateHTML();
+timeoutStore = setTimeout(()=>{document.querySelector('#helptext').classList.add("shown")},10e3)
 document.addEventListener('keydown',e=>{
   if(e.repeat) return;
   switch(e.key) {
@@ -131,7 +135,7 @@ document.body.addEventListener(events[deviceType].down,e=>{
 
 //Mousemove / touchmove
 document.body.addEventListener(events[deviceType].move,e=>{
-  if(!isTouchDevice)e.preventDefault();
+  // if(!isTouchDevice)e.preventDefault();
   if(!isSwiped)return;
   getXY(e);
   let diffX=mouseX-initialX;
