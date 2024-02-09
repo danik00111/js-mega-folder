@@ -67,3 +67,83 @@ const mergeFunc2D = ({score, board}) => {
   }
   return returnObject;
 };
+
+//! the code below is blatantly copied from the first google search result :3
+//! the code below is blatantly copied from the first google search result :3
+//! the code below is blatantly copied from the first google search result :3
+//! the code below is blatantly copied from the first google search result :3
+//! the code below is blatantly copied from the first google search result :3
+
+//Initial mouse X and Y positions are 0
+
+let mouseX = 0;
+let mouseY = 0;
+let initialX = 0;
+let initialY = 0;
+let isSwiped;
+
+//Events for touch and mouse
+let events = {
+  mouse: {
+    down: "mousedown",
+    move: "mousemove",
+    up: "mouseup",
+  },
+  touch: {
+    down: "touchstart",
+    move: "touchmove",
+    up: "touchend",
+  },
+};
+
+let deviceType;
+let isTouchDevice;
+//Detect touch device
+try {
+  //We try to create TouchEvent (it would fail for desktops and throw error)
+  document.createEvent("TouchEvent");
+  deviceType="touch";
+  isTouchDevice=true;
+} catch (e) {
+  deviceType="mouse";
+  isTouchDevice=false;
+}
+
+//Get left and top of touchArea
+let rectLeft=document.body.getBoundingClientRect().left;
+let rectTop=document.body.getBoundingClientRect().top;
+
+//Get Exact X and Y position of mouse/touch
+const getXY=e=>{
+  mouseX=(!isTouchDevice?e.pageX:e.touches[0].pageX)-rectLeft;
+  mouseY=(!isTouchDevice?e.pageY:e.touches[0].pageY)-rectTop;
+};
+
+
+//Start Swipe
+document.body.addEventListener(events[deviceType].down,e=>{
+  isSwiped=true;
+  //Get X and Y Position
+  getXY(e);
+  initialX=mouseX;
+  initialY=mouseY;
+});
+
+//Mousemove / touchmove
+document.body.addEventListener(events[deviceType].move,e=>{
+  if(!isTouchDevice)e.preventDefault();
+  if(!isSwiped)return;
+  getXY(e);
+  let diffX=mouseX-initialX;
+  let diffY=mouseY-initialY;
+  if(Math.abs(diffY)>Math.abs(diffX))moeve(diffY>0?1:3);
+  else moeve(diffX>0?2:0);
+  isSwiped=false;
+});
+
+//Stop Drawing
+let stopdraw=()=>{isSwiped=false};
+document.body.addEventListener(events[deviceType].up,stopdraw);
+window.onmouseup=stopdraw;
+document.body.addEventListener("mouseleave",stopdraw);
+window.onload=stopdraw;
