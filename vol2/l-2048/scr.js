@@ -1,3 +1,4 @@
+const tileShowOff = () => {let e=8; [...document.querySelectorAll('.cell')].forEach(x => {x.setAttribute("value",e); e*=2})}
 const addRand = ary => {
   let r = [...ary]; // make a copy of the array
   // assume that our 2d array is a 4x4
