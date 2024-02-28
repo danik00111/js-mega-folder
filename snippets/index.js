@@ -30,9 +30,6 @@ export const maxOfArray = (array) => {
 }
 // from d-max-array
 
-export const randInt=(n,x)=>Math.floor(Math.random()*(Math.ceil(x)-Math.ceil(n)+1))+Math.ceil(n);
-// from 9-dz
-
 export const forJoin = (r) => {
   if (!Array.isArray(r)) return;
   let string = r[0];
@@ -105,7 +102,7 @@ export const decimalToRoman = (num) => {
 
 export const decToRomV2 = (num) => {
   if(num >= 4000) return '>=4K!';
-  if(num <= 0) return '#NEG!';
+  if(num <= 0) return '#NEG!'
   const lookup = [
     ['','I','II','III','IV','V','VI','VII','VIII','IX'],
     ['','X','XX','XXX','XL','L','LX','LXX','LXXX','XC'],
@@ -115,7 +112,8 @@ export const decToRomV2 = (num) => {
   const ones = Math.floor(num % 10);
   const tens = Math.floor((num % 100 - ones) / 10);
   const huns = Math.floor((num % 1000 - tens) / 100);
-  return lookup[3][Math.floor((num - huns) / 1000)] + lookup[2][huns] + lookup[1][tens] + lookup[0][ones];
+  return lookup[3][Math.floor( (num-huns)/1000 )]
+    + lookup[2][huns] + lookup[1][tens] + lookup[0][ones];
 };
 
 export const romanToDecimal = (r) => {
@@ -225,5 +223,8 @@ export const t = {
 
 export const isPythag = (a,b,c) => (a*a)+(b*b)+(c*c)===2*Math.pow(Math.max(a,b,c),2)
 
+
+export const randInt=(n,x)=>Math.floor(Math.random()*(Math.ceil(x)-Math.ceil(n)+1))+Math.ceil(n);
+// from 9-dz
 export const randHex = () => '#'+((randInt(0,256**3).toString(16)).padStart(6,'0'));
-//! ^ requires randInt()
+//! ^ requires randInt
