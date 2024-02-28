@@ -5,6 +5,7 @@ console.log(`
 `)
 process.stdin.on("data", h => {
   let num = +h;
+  let biggest = num;
   if(isNaN(num)) { console.log('NaN!'); process.exit(1); }
   while(num>1) {
     if(num !== Math.floor(num)) {
@@ -12,11 +13,9 @@ process.stdin.on("data", h => {
       process.exit(1);
     }
     if(num%2) num = (3*num)+1; else num /= 2;
+    biggest = Math.max(num,biggest);
     console.log(num);
   }
-  console.log(4);
-  console.log(2);
-  console.log(1);
-  console.log("I wonder if there's a number that never falls down to 1. We'll never know.");
+  console.log(`The sequence peaked at ${biggest}... and inevitabely fell down to 1.`);
   process.exit(0);
 });
