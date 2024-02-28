@@ -28,9 +28,10 @@ body {
 .color:hover {
   position: relative;
   z-index: 99;
-  border-radius: 50%;
-  transform: scale(2);
+  border-radius: 20%;
 }
+.color:hover:nth-child(2n){transform:scale(2)rotate(90deg)}
+.color:hover:nth-child(2n+1){transform:scale(2)rotate(-90deg)}
 .output {
   width: fit-content;
   border-radius: 20px;
