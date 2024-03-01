@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=JetBrains+Mono:100,200,300,regular,500,600,700,800,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic" rel="stylesheet" />
+  <style> body { height: 50000vh; font-family: "JetBrains Mono"; text-align: center; font-size: 5vw; } #fixed { position: fixed; width: 100%; } </style>
+</head>
+<body>
+  <div id="fixed">
+    normal:           <span id="normal"     >0</span><br>
+    throttle (250ms): <span id="throttle250">0</span><br>
+    throttle (500ms): <span id="throttle500">0</span><br>
+    debounce (250ms): <span id="debounce250">0</span><br>
+    debounce (500ms): <span id="debounce500">0</span><br>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    let counter = { normal: 0, debounce250: 0, debounce500: 0, throttle250: 0, throttle500: 0 };
+    document.addEventListener('scroll',()=>{document.getElementById('normal').innerHTML=counter.normal++});
+    document.addEventListener('scroll',_.throttle(()=>{document.getElementById('throttle250').innerHTML=counter.throttle250++},250));
+    document.addEventListener('scroll',_.throttle(()=>{document.getElementById('throttle500').innerHTML=counter.throttle500++},500));
+    document.addEventListener('scroll',_.debounce(()=>{document.getElementById('debounce250').innerHTML=counter.debounce250++},250));
+    document.addEventListener('scroll',_.debounce(()=>{document.getElementById('debounce500').innerHTML=counter.debounce500++},500));
+  </script>
+</body>
+</html>
