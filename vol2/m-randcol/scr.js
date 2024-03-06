@@ -43,7 +43,10 @@ for(let b=0;b<256;b+=51) {
   elem.style.border = `${rgbBrightness(elem.style.backgroundColor)<0.5?'white':'black'} 1px solid`;
   elem.setAttribute("color",color);
   elem.onmouseenter = () => {
-    document.getElementById('hex').innerHTML = elem.getAttribute("color");
+    document.getElementById('hex').innerHTML =
+      (hex => '#' + hex.substring(1,2) + hex.substring(3,4) + hex.substring(5,6))
+      // '#ff0066' => '#f06'
+      (elem.getAttribute("color"));
     document.getElementById('rgb').innerHTML = rgbFormat(elem.style.backgroundColor);
     document.getElementById('hex').style.color = elem.getAttribute("color");
     document.getElementById('rgb').style.color = elem.getAttribute("color");
