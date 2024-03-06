@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="--size: 40px">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +7,29 @@
   <link rel="stylesheet" href="./sty.css">
 </head>
 <body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <div id="hex" class="output" style="color:white">Real.</div>
   <div id="rgb" class="output" style="color:white">fr</div>
-  <div id="palette"></div>
+  <div style="text-align:center;width:100vw">
+    <label for="size">box width:</label
+    ><input type="number" id="size" value="40" placeholder="..."
+    style="background:hsl(0,0%,75%);border-radius:4px;width:2ch"
+    >px
+    <!-- yes, </label[newline]><input>. there's two whitespaces otherwise. -->
+  </div>
+  <div id="websafepalette">
+    <div class="wrap" id="darker">
+      <div class="inwrap" id="reds0"></div>
+      <div class="inwrap" id="reds1"></div>
+      <div class="inwrap" id="reds2"></div>
+    </div>
+    <div class="wrap" id="redder">
+      <div class="inwrap" id="reds3"></div>
+      <div class="inwrap" id="reds4"></div>
+      <div class="inwrap" id="reds5"></div>
+    </div>
+  </div>
+  <div id="palette" style=margin-top:32px></div>
   <script src="./scr.js"></script>
 </body>
 </html>

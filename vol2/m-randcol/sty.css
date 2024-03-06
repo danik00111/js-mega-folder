@@ -1,18 +1,40 @@
 @import url(https://fonts.googleapis.com/css?family=JetBrains+Mono:100,200,300,regular,500,600,700,800,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic);
 *{margin:4px;padding:0;border:0;outline:0;box-sizing:border-box}
-body {
-  background: gray;
-}
+body { background: gray }
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}/*all other bworsers*/
+input[type=number]{appearance:textfield}/*firfox*/
+* { font-family: "JetBrains Mono" }
 #palette {
   width: 100%;
+  margin: 0 auto;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#websafepalette {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inwrap {
+  width: calc(var(--size) * 6 + 64px);
+  display: flex;
+  align-items: center;
   justify-content: center;
   flex-wrap: wrap;
 }
 .color {
-  width: 50px;
-  height: 50px;
-  border-radius: 5px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 20%;
   cursor: pointer;
 }
 .color, .color:hover {
@@ -20,15 +42,16 @@ body {
      -moz-transition: 0.25s ease-out;
        -o-transition: 0.25s ease-out;
           transition: 0.25s ease-out;
-  -webkit-transition-property: width, height, border-radius, transform;
-     -moz-transition-property: width, height, border-radius, transform;
-       -o-transition-property: width, height, border-radius, transform;
-          transition-property: width, height, border-radius, transform;
+  -webkit-transition-property: width, height, border-radius, border-width, transform;
+     -moz-transition-property: width, height, border-radius, border-width, transform;
+       -o-transition-property: width, height, border-radius, border-width, transform;
+          transition-property: width, height, border-radius, border-width, transform;
 }
 .color:hover {
   position: relative;
   z-index: 99;
-  border-radius: 20%;
+  border-radius: 30%;
+  border-width: 2px;
 }
 .color:hover:nth-child(2n){transform:scale(2)rotate(90deg)}
 .color:hover:nth-child(2n+1){transform:scale(2)rotate(-90deg)}
@@ -38,5 +61,4 @@ body {
   margin: 4px auto;
   font-size: 64px;
   text-align: center;
-  font-family: "JetBrains Mono";
 }
