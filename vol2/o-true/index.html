@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html, body {
+      min-height: 100vh;
+      height: 100vh;
+      max-height: 100vh;
+      overflow: hidden;
+      font-size: 32px;
+    }
+    body { background-image: linear-gradient(blue,orange 49.5%,black 49.5%,black 50.5%,blue 50.5%,orange) }
+    #box {
+      border: 16px solid white;
+      box-sizing: border-box;
+      width: 512px; height: 512px;
+      transition-property: width, height;
+      transition: 0.5s ease-in-out;
+      background: linear-gradient(to bottom right, green, yellow);
+    }
+  </style>
+</head>
+<body>
+  <input type="range" name="bg" id="bg" min="-180" value="0" max="180">
+  <span id="bgvalue">0</span>deg
+  <input type="range" name="size" id="size" min="256" value="512" max="1024">
+  <span id="szvalue">512</span>px
+  <div id=box></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    document.getElementById('bg').addEventListener('input',()=>{
+      // not that much of a chatty function so a debce is prob overdo here
+      document.getElementById('bgvalue').innerHTML = document.getElementById('bg').value;
+    })
+    document.getElementById('size').addEventListener('input',()=>{
+      // not that much of a chatty function so a debce is prob overdo here
+      document.getElementById('szvalue').innerHTML = document.getElementById('size').value;
+    })
+    document.getElementById('bg').addEventListener('input',_.debounce(()=>{
+      document.body.style.backgroundImage
+      = `linear-gradient(${document.getElementById('bg').value
+      }deg,blue,orange 49.5%,black 49.5%,black 50.5%,blue 50.5%,orange)`
+    },100))
+    document.getElementById('size').addEventListener('input',_.debounce(()=>{
+      document.getElementById('box').style.width = document.getElementById('size').value+'px'
+      document.getElementById('box').style.height = document.getElementById('size').value+'px'
+    },100))
+  </script>
+</body>
+</html>
