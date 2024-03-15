@@ -5,11 +5,11 @@ const rootSet = (x, y) => { document.querySelector(':root').style.setProperty('-
  * @param {int} min
  * @param {int} max
  * @returns {int}
- */
+**/
 function randInt(min,max){return Math.floor((Math.random()*(max-min+1))+min)};
 /**
  * @returns {string} A random color, in the hex form (e.g. '#3f71a8').
- */
+**/
 function randHex(){return '#'+((randInt(0,256**3).toString(16)).padStart(6,'0'))};
 
 const rgbToHex = rgb => '#'+(rgb.match(/\d+/g)).map(x=>parseInt(x).toString(16).padStart(2,'0')).join('');

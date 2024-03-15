@@ -1,0 +1,54 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    padding-top: 5000px;
+}
+
+.fruits-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 1000px;
+}
+    
+.fruits-list li {
+    flex-basis: calc(33.33% - 10px);
+    margin-bottom: 20px;
+    position: relative;
+}
+    
+.fruits-list img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.fruits-list img.inactive {
+    display: none;
+}
+
+.fruits-list img.active {
+    display: block;
+}
+    
+.fruits-list h3 {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #333;
+    font-size: 20px;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}

@@ -23,7 +23,7 @@ let timeoutStore;
  * Checks whether progess can be made on a board of 2048.
  * @param {any[][]} board
  * @returns {boolean}
- */
+**/
 const isAlive = board =>
   board.some(x=>x.some(y=>y===undefined||y===0)) // empty space left
 ||board.some(x=>{for(let i=1;i<x.length;i++)if(x[i-1]===x[i])return true;return false}) // horizontal move possible
