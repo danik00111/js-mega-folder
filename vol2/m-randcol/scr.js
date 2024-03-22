@@ -17,42 +17,67 @@ const rgbBrightness = rgb => (rgb.match(/\d+/g)).map(x=>parseInt(x)).reduce((a,v
 const rgbFormat = rgb => 'rgb('+(rgb.match(/\d+/g)).map(x=>x.padStart(3,'0'))+')';
 
 for(let i=0;i<96;i++) {
-  let elem = document.createElement("div");
+  let elem = document.createElement("button");
   elem.classList.add('color');
   let color = randHex();
   elem.style.backgroundColor = color;
   elem.style.border = `${rgbBrightness(elem.style.backgroundColor)<0.5?'white':'black'} 1px solid`;
   elem.setAttribute("color",color);
-  elem.onmouseenter = () => {
+/*   elem.onclick = event => {
+    if(event.target.nodeName != 'BUTTON') return;
     document.getElementById('hex').innerHTML = elem.getAttribute("color");
     document.getElementById('rgb').innerHTML = rgbFormat(elem.style.backgroundColor);
     document.getElementById('hex').style.color = elem.getAttribute("color");
     document.getElementById('rgb').style.color = elem.getAttribute("color");
     document.getElementById('hex').style.backgroundColor = (rgbBrightness(elem.style.backgroundColor)<0.5)?'white':'black';
     document.getElementById('rgb').style.backgroundColor = (rgbBrightness(elem.style.backgroundColor)<0.5)?'white':'black';
-  };
+  }; */
   document.getElementById('palette').appendChild(elem);
 }
+document.getElementById('websafepalette').onclick =event=> {
+  if(event.target.nodeName != 'BUTTON') return;
+  elem = event.target;
+  document.getElementById('hex').innerHTML =
+  (hex => '#' + hex.substring(1,2) + hex.substring(3,4) + hex.substring(5,6))
+  // '#ff0066' => '#f06' function
+  (elem.getAttribute("color"));
+  document.getElementById('rgb').innerHTML = rgbFormat(elem.style.backgroundColor);
+  document.getElementById('hex').style.color = elem.getAttribute("color");
+  document.getElementById('rgb').style.color = elem.getAttribute("color");
+  document.getElementById('hex').style.backgroundColor = (rgbBrightness(elem.style.backgroundColor)<0.5)?'white':'black';
+  document.getElementById('rgb').style.backgroundColor = (rgbBrightness(elem.style.backgroundColor)<0.5)?'white':'black';
+};
+document.getElementById('palette').onclick =event=> {
+  if(event.target.nodeName != 'BUTTON') return;
+  elem = event.target;
+  document.getElementById('hex').innerHTML = elem.getAttribute("color");
+  document.getElementById('rgb').innerHTML = rgbFormat(elem.style.backgroundColor);
+  document.getElementById('hex').style.color = elem.getAttribute("color");
+  document.getElementById('rgb').style.color = elem.getAttribute("color");
+  document.getElementById('hex').style.backgroundColor = (rgbBrightness(elem.style.backgroundColor)<0.5)?'white':'black';
+  document.getElementById('rgb').style.backgroundColor = (rgbBrightness(elem.style.backgroundColor)<0.5)?'white':'black';
+};
 for(let r=0;r<256;r+=51)
 for(let g=0;g<256;g+=51)
 for(let b=0;b<256;b+=51) {
-  let elem = document.createElement("div");
+  let elem = document.createElement("button");
   elem.classList.add('color');
   let color = rgbToHex(`rgb(${r},${g},${b})`);
   elem.style.backgroundColor = color;
   elem.style.border = `${rgbBrightness(elem.style.backgroundColor)<0.5?'white':'black'} 1px solid`;
   elem.setAttribute("color",color);
-  elem.onmouseenter = () => {
+/*   elem.onclick = event => {
+    alert(event.target.nodeName)
     document.getElementById('hex').innerHTML =
       (hex => '#' + hex.substring(1,2) + hex.substring(3,4) + hex.substring(5,6))
-      // '#ff0066' => '#f06'
+      // '#ff0066' => '#f06' function
       (elem.getAttribute("color"));
     document.getElementById('rgb').innerHTML = rgbFormat(elem.style.backgroundColor);
     document.getElementById('hex').style.color = elem.getAttribute("color");
     document.getElementById('rgb').style.color = elem.getAttribute("color");
     document.getElementById('hex').style.backgroundColor = (rgbBrightness(elem.style.backgroundColor)<0.5)?'white':'black';
     document.getElementById('rgb').style.backgroundColor = (rgbBrightness(elem.style.backgroundColor)<0.5)?'white':'black';
-  };
+  }; */
   document.getElementById(`reds${r/51}`).appendChild(elem);
 }
 document.getElementById('size').oninput = () => {
