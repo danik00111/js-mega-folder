@@ -16,17 +16,15 @@ export const FahrenheitToCelcuis = (f, b) => {
 
 export const isOdd = (x) => x % 2;
 
-export const maxOfArray = (array) => {
-  if (!Array.isArray(array)) return; // check for it being an array in the first place, return undef if not
-    let biggest = -Infinity; // initiating the former biggest value as something that can't beat anything
-    for (let i = 0; i < array.length; i++) { // loop through all elements in the array
-      if (array[i] > biggest) { /* check for the current element being the former biggest element,
+export const maxOfArray = r => {
+  if (!Array.isArray(r)) return NaN; // check for it being an array in the first place, return na if not
+    let biggest = -Infinity; // initiating the current biggest value as something that can't beat anything
+    for (let i = 0; i < r.length; i++) // loop through all elements in the array
+      if (r[i] > biggest) /* check for the current element being the former biggest element,
       at the same time checking if its a number in the first place */
-        biggest = array[i]; // set the former biggest to the current if it is
-      }
-    }
-    return typeof (biggest) >= 'number' ? biggest : NaN;
-    /* return the biggest after iterating through all elements, or NaN if no good result */
+        biggest = r[i]; // set the former biggest to the current if it is
+    // return the biggest after iterating through all elements, or NaN if no good result
+    return typeof biggest === 'number' ? biggest : NaN;
 }
 // from d-max-array
 
