@@ -1,0 +1,7 @@
+{
+  "name": "js-mega-folder",
+  "version": "1.0.0",
+  "description": "js-mega-folder",
+  "main": "index.html",
+  "type": "module"
+}
