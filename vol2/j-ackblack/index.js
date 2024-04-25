@@ -2,7 +2,7 @@
   ! To play this game, you need to:
   ! 1) install node.js on your computer,
   ! 2) download this code as a .js file,
-  ! and 3) enter `node [path to file]` in your terminal.
+  ! and 3) enter `node [path to this file]` in your terminal.
 
   ! (tip: you can drag-and-drop the file into the terminal,
   ! to quickly paste the path to it.)

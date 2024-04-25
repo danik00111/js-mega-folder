@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=JetBrains+Mono:100,200,300,regular,500,600,700,800,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic" rel="stylesheet" />
+  <style>
+    body{user-select:none;overscroll-behavior:none}
+    *{font-family:"JetBrains Mono"}
+    #scores-counter{font-size:4rem;margin-top:-0.5rem}
+    #count-w{color:hsl(120,100%,30%)}
+    #count-t{color:hsl(60,100%,30%)}
+    #count-l{color:hsl(00,100%,30%)}
+    #choices,h1{text-align:center}
+    #choices button{font-size:2rem;border-radius:8px}
+    #choices button:last-child{margin-top:8px}
+    #reset-wrap{margin-top:4rem;text-align:center}
+  </style>
+</head>
+<body>
+  <h1 id="scores-counter">score: <span class="count" id="count-w">0</span>|<span class="count" id="count-t">0</span>|<span class="count" id="count-l">0</span></h1>
+  <div id="choices">
+    <button onclick="move(0)">rcok</button>
+    <button onclick="move(1)">ppare</button>
+    <button onclick="move(2)">sirsos</button>
+    <br>
+    <button onclick="move(Math.floor(Math.random()*3))">random</button>
+  </div>
+  <h1>you: <span id="you">...</span></h1>
+  <h1>oppo: <span id="opponent">...</span></h1>
+  <div id="reset-wrap">
+    <button id="reset" onclick="reset()" onmouseleave="resettometer=0;RR.innerHTML='reset scores'">reset scores</button>
+  </div>
+  <script>
+    const counts = JSON.parse(localStorage.getItem("rps-counts-real")) ?? {"-1":0,"0":0,"1":0};
+    const WW = document.getElementById("count-w");
+    const TT = document.getElementById("count-t");
+    const LL = document.getElementById("count-l");
+    const RR = document.getElementById("reset");
+    WW.innerHTML = counts[+1];
+    TT.innerHTML = counts[+0];
+    LL.innerHTML = counts[-1];
+    const move = yourmove => {
+      const oppomove = Math.floor(Math.random()*3);
+      document.getElementById("you").innerHTML = ["rcok","ppare","sirsos"][yourmove];
+      document.getElementById("opponent").innerHTML = ["rcok","ppare","sirsos"][oppomove];
+      let result = 0;
+      switch(yourmove - oppomove) {
+        case 2: case -1: result--; break;
+        case -2: case 1: result++; break;
+      };
+      [LL,TT,WW][result+1].innerHTML = parseInt([LL,TT,WW][result+1].innerHTML)+1;
+      counts[result]++;
+      localStorage.setItem("rps-counts-real",JSON.stringify(counts))
+    };
+    let resettometer = 0;
+    const reset = () => {
+      switch(resettometer++){
+        case 2: // here after 3 clicks (dont ask why, but `switch(var++)` works like that apparently)
+          localStorage.setItem("rps-counts-real",JSON.stringify({"-1":0,"0":0,"1":0}));
+          WW.innerHTML=0; counts[-1]=0;
+          TT.innerHTML=0; counts[+0]=0;
+          LL.innerHTML=0; counts[+1]=0;
+          resettometer = 0;
+          RR.innerHTML = "reset scores"
+        break; case 1: // here after 2 clicks
+          RR.innerHTML = "are you sure?"
+        break;
+      }
+    }
+  </script>
+</body>
+</html>
