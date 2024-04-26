@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=JetBrains+Mono:100,200,300,regular,500,600,700,800,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic" rel="stylesheet" />
+  <style>
+    li:has(input:checked){text-decoration-line:line-through}
+  </style>
+</head>
+<body>
+  <h1>TODO</h1>
+  <input type="text" name="add" id="add" placeholder="..."> <button onclick='add(document.querySelector("input").value)'>Add task</button>
+  <ul style="list-style:none;margin:0;padding:8px 0">
+  </ul>
+  <button id="reset" onclick="reset()" onmouseleave='resettometer=0;document.getElementById("reset").innerHTML="reset todolist"'>reset todolist</button>
+  <script>
+    const add = (task,clic) => {
+      if(!task) return;
+      document.querySelector("input").value = "";
+      const thing = document.createElement("li");
+      const input = document.createElement("input"); input.setAttribute("type","checkbox");
+      const span = document.createElement("span"); span.setAttribute("class","task");
+      input.addEventListener("change",()=>{
+        todolistreal[task] = +!todolistreal[task];
+        localStorage.setItem("todolist-real",JSON.stringify(todolistreal));
+      })
+      thing.appendChild(input);
+      thing.appendChild(span);
+      span.textContent = task;
+      document.querySelector("ul").appendChild(thing);
+      todolistreal[task] = 0;
+      if(clic) input.click();
+      localStorage.setItem("todolist-real",JSON.stringify(todolistreal));
+    }
+    const todolistreal = JSON.parse(localStorage.getItem("todolist-real")) ?? {};
+    if(JSON.parse(localStorage.getItem("todolist-real")))
+      Object.entries(todolistreal).forEach(h => { add(...h) });
+    let resettometer = 0;
+    const reset = () => {
+      switch(resettometer++){
+        case 2: // here after 3 clicks (dont ask why, but `switch(var++)` works like that apparently)
+          document.querySelector("ul").innerHTML = "";
+          localStorage.removeItem("todolist-real");
+          todolistreal.clear;
+          resettometer = 0;
+          document.getElementById("reset").innerHTML = "reset todolist"
+        break; case 1: // here after 2 clicks
+          document.getElementById("reset").innerHTML = "are you REALLY sure?"
+        break; case 0: // here after 1 click
+          document.getElementById("reset").innerHTML = "are you sure?"
+        break;
+      }
+    }
+  </script>
+</body>
+</html>
