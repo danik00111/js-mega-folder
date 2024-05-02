@@ -12,10 +12,10 @@
 <body>
   <h1>TODO</h1>
   <input type="text" name="add" id="add" placeholder="..."> <button onclick='add(document.querySelector("input").value)'>Add task</button>
-  <ul style="list-style:none;margin:0;padding:8px 0">
-  </ul>
+  <ul style="list-style:none;margin:0;padding:8px 0"></ul>
   <button id="reset" onclick="reset()" onmouseleave='resettometer=0;document.getElementById("reset").innerHTML="reset todolist"'>reset todolist</button>
   <script>
+    const todolistreal = JSON.parse(localStorage.getItem("todolist-real")) ?? {};
     const add = (task,clic) => {
       if(!task) return;
       document.querySelector("input").value = "";
@@ -34,7 +34,6 @@
       if(clic) input.click();
       localStorage.setItem("todolist-real",JSON.stringify(todolistreal));
     }
-    const todolistreal = JSON.parse(localStorage.getItem("todolist-real")) ?? {};
     if(JSON.parse(localStorage.getItem("todolist-real")))
       Object.entries(todolistreal).forEach(h => { add(...h) });
     let resettometer = 0;

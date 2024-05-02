@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    .alert {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    margin: 0;
+    background-color: #fff;
+    color: #2a2a2a;
+    border: 1px solid #2a2a2a;
+    border-radius: 3px;
+    padding: 24px;
+    user-select: none;
+    transform: translateX(calc(100% + 20px));
+    visibility: hidden;
+    opacity: 0;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .alert.success {
+    border: 1px solid #388e3c;
+    background-color: #4caf50;
+    color: #fff;
+    }
+    .alert.is-visible {
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+    }
+    .alert button {
+    cursor: pointer;
+    }
+  </style>
+  <p class="alert success js-alert"><span>ю?</span> <button id="yes">ю</button> <button id="no">ц</button></p>
+  <script> setTimeout(() => {
+    const show = () => document.querySelector("p").classList.add("is-visible");
+    show();
+    let bre;
+    let showw = 3;
+    const the = x => {
+      clearTimeout(bre);
+      document.querySelector("p").classList.remove("is-visible");
+      if(showw>0) bre = setTimeout(show,3e3); else if(!x) document.querySelector("p span").innerHTML = "😭";
+      setTimeout(()=>{
+        switch(showw) {
+          case 2: document.querySelector("p span").innerHTML="може, ю?"; break;
+          case 1: document.querySelector("p span").innerHTML="ну може, все-таки, ю?"; break;
+        }
+      },2e3);
+    }
+    document.querySelector("p #yes").onclick = () => {
+      showw = 0; the(true);
+    };
+    document.querySelector("p #no").onclick = () => {
+      showw--; the(false);
+    };
+  }, 1e3); </script>
+</body>
+</html>
