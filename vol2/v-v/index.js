@@ -3,7 +3,7 @@ const printNumbers = (from = 0, to = 5) => {
   const printNumbers_i = setInterval(() => {
     console.log(printNumbers_count);
     printNumbers_count++;
-    if(printNumbers_count > 5) {
+    if(printNumbers_count > to) {
       clearInterval(printNumbers_i);
       return;
     }
