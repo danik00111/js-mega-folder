@@ -1,16 +1,3 @@
-/* let count = 0;
-let a = setInterval(()=>{
-  console.log('real...', count)
-  if(count++ > 5) clearInterval(a);
-},2e3); // 2 secs, can be changed to 5 but too long */
-
-/* import * as readline from 'node:readline/promises'; 
-const rl = readline.createInterface({
-  input: process.stdin, output: process.stdout
-});
-const timer = parseInt(await rl.question('seconds: '));
-setTimeout(()=>{console.log('the q')},timer*1e3);
-rl.close(); */
 const delays = 0.5e3;
 const b = document.getElementById('blokk');
 const anim = ()=>{
