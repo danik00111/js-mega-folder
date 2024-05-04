@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=JetBrains+Mono:100,200,300,regular,500,600,700,800,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic" rel="stylesheet" />
+</head>
+<body style="text-align:center;font-family:'JetBrains Mono';font-size:64px;font-weight:bold;user-select:none">
+  1s: <span id="s1">0</span><br>
+  5s: <span id="s5">0</span><br>
+  10s: <span id="s10">0</span><br>
+  30s: <span id="s30">0</span><br>
+  60s: <span id="s60">0</span><br>
+  <script>
+    const scores = {
+      1: 0, 5: 0,
+      10: 0, 30: 0,
+      60: 0 };
+    document.onclick = () => {
+      Object.keys(scores).forEach(i=>{
+        scores[i]++;
+        document.getElementById(`s${i}`).innerHTML = scores[i];
+        setTimeout(()=>{
+          scores[i]--;
+          document.getElementById(`s${i}`).innerHTML = scores[i];
+        },i*1e3);
+      });
+    }
+  </script>
+</body>
+</html>
