@@ -27,6 +27,7 @@
       const hh = document.getElementById("hh");
       const mm = document.getElementById("mm");
       const ss = document.getElementById("ss");
+      [hh,mm,ss].forEach(x=>{x.disabled=true});
       const upd =()=> {
         timer--;
         hour = Math.floor(timer / 60 / 60);
