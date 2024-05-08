@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* todo: add import when i get internet connection */
+    * { font-family: "JetBrains Mono"; text-align: center }
+    input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}/*all websites*/
+    input[type=number]{appearance:textfield;-moz-appearance:textfield}/*firfox*/
+  </style>
+</head>
+<body>
+  <h1><span id="hh">hh</span><span id="hm-colon">:</span><span id="mm">mm</span>:<span id="ss">ss</span></h1>
+  <input type="number" name="hh" id="hours" min="0" max="99"> :
+  <input type="number" name="mm" id="minutes" min="0" max="59"> :
+  <input type="number" name="ss" id="seconds" min="0" max="59"> <br><br>
+  <button onclick="start()">start</button>
+  <script>
+    const start = () => {
+      let hours = Number(document.getElementById("hours").value) || 0;
+      let minutes = Number(document.getElementById("minutes").value) || 0;
+      let seconds = Number(document.getElementById("seconds").value) || 0;
+      let timer = Math.floor(hours*60*60 + minutes*60 + seconds);
+      if(timer<=0) { alert(`and that comes out to... ${timer} seconds. please enter a positive time.`); return }
+      const hh = document.getElementById("hh");
+      const mm = document.getElementById("mm");
+      const ss = document.getElementById("ss");
+      const upd =()=> {
+        timer--;
+        hour = Math.floor(timer / 60 / 60);
+        mins = Math.floor((timer % (60*60)) / 60);
+        secs = timer % 60;
+        if(timer<60) document.getElementById("hm-colon").innerHTML = " ";
+        if(timer<=0) {
+          clearInterval(real);
+          alert("Timer's up!");
+          hh.innerHTML = "00";
+          mm.innerHTML = "00";
+          ss.innerHTML = "00";
+          document.getElementById("hm-colon").innerHTML = ":";
+        }
+        hh.innerHTML = (hour<100) ? ((hour===0) ? "  " : ("00"+hour).slice(-2)) : hour;
+        mm.innerHTML = (timer<60) ? "  " : ("00"+mins).slice(-2);
+        ss.innerHTML = ("00"+secs).slice(-2);
+      }; timer++; upd();
+      const real = setInterval(upd,1e3);
+    }
+  </script>
+</body>
+</html>
