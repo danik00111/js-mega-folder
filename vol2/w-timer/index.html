@@ -32,7 +32,7 @@
       const ss = document.getElementById("ss");
       [hh,mm,ss].forEach(x=>{x.disabled=true});
       d = Date.now() + timer*1e3;
-      const left =()=> (d - Date.now());
+      const left =()=> d - Date.now();
       const upd =()=> {
         hour = Math.floor(Math.floor(left()/1e3) / 60 / 60);
         mins = Math.floor((Math.floor(left()/1e3) % (60*60)) / 60);
