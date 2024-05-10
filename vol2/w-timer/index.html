@@ -9,16 +9,19 @@
     * { font-family: "JetBrains Mono"; text-align: center; user-select: none }
     input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}/*all websites*/
     input[type=number]{appearance:textfield;-moz-appearance:textfield}/*firfox*/
+    #dot, #ms { font-size: 0.5em }
   </style>
 </head>
 <body>
-  <h1><span id="hh">hh</span><span id="hm-colon">:</span><span id="mm">mm</span>:<span id="ss">ss</span></h1>
+  <h1><span id="hh">hh</span><span id="hm-colon">:</span><span id="mm">mm</span>:<span id="ss">ss</span><span id="dot">.</span><span id="ms">ms</span></h1>
   <input type="number" placeholder="hh" name="hh" style="width:2ch" id="hours"   min="0" max="99"
   >:<input type="number" placeholder="mm" name="mm" style="width:2ch" id="minutes" min="0" max="59"
   >:<input type="number" placeholder="ss" name="ss" style="width:2ch" id="seconds" min="0" max="59"><br><br>
   <button onclick="start()">start</button>
   <script>
     const start = () => {
+      document.getElementById("dot").innerHTML = ".";
+      document.getElementById("hm-colon").innerHTML = ":";
       let hours = Number(document.getElementById("hours").value) || 0;
       let minutes = Number(document.getElementById("minutes").value) || 0;
       let seconds = Number(document.getElementById("seconds").value) || 0;
@@ -28,25 +31,29 @@
       const mm = document.getElementById("mm");
       const ss = document.getElementById("ss");
       [hh,mm,ss].forEach(x=>{x.disabled=true});
+      d = Date.now() + timer*1e3;
+      const left =()=> (d - Date.now());
       const upd =()=> {
-        timer--;
-        hour = Math.floor(timer / 60 / 60);
-        mins = Math.floor((timer % (60*60)) / 60);
-        secs = timer % 60;
-        if(timer<60) document.getElementById("hm-colon").innerHTML = " ";
-        hh.innerHTML = (hour<100) ? ((hour===0) ? "  " : ("00"+hour).slice(-2)) : hour;
-        mm.innerHTML = (timer<60) ? "  " : ("00"+mins).slice(-2);
+        hour = Math.floor(Math.floor(left()/1e3) / 60 / 60);
+        mins = Math.floor((Math.floor(left()/1e3) % (60*60)) / 60);
+        secs = Math.floor(left()/1e3) % 60;
+        if(left()<60e3) document.getElementById("hm-colon").innerHTML = "";
+        document.getElementById("ms").innerHTML = (((left()/1000)%1)+'000').slice(2,5);
+        hh.innerHTML = (hour<100) ? ((hour===0) ? "" : ("00"+hour).slice(-2)) : hour;
+        mm.innerHTML = (left()/1e3<60) ? "" : ("00"+mins).slice(-2);
         ss.innerHTML = ("00"+secs).slice(-2);
-        if(timer<=0) {
+        if(left()/1e3<=0) {
           clearInterval(real);
           hh.innerHTML = "00";
           mm.innerHTML = "00";
           ss.innerHTML = "00";
+          document.getElementById("dot").innerHTML = "";
+          document.getElementById("ms").innerHTML = "";
           document.getElementById("hm-colon").innerHTML = ":";
           alert("Timer's up!");
         }
-      }; timer++; upd();
-      const real = setInterval(upd,1e3);
+      };
+      const real = setInterval(upd);
     }
   </script>
 </body>
