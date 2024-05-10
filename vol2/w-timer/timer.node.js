@@ -1,5 +1,9 @@
 class Timeer {
-  #timer; #start; #when; #in; #func;
+  /** The variable that stores the `setTimeout`. */ #timer;
+  /** When the timer was last started or resumed. */ #start;
+  /** When unpaused, the Unix timestamp at which the timer should go off. */ #when;
+  /** When paused, the amount of time left on the clock. */ #in;
+  /** The variable that stores the function fed into the constructor. */ #func;
   /** Can either be "going", "paused", "used", or "destroyed". */
   state = "uninitiated";
   /**
