@@ -21,7 +21,8 @@
   <script>
     [...document.querySelectorAll('input[type="number"]')].forEach(i=>{
       i.addEventListener("input",()=>{
-        i.style.width = (i.value.length===0)?2:i.value.length+'ch';
+        const w = i.value.length;
+        i.style.width = ((w===0)?2:w)+'ch';
       })
     })
     let real = 0;
