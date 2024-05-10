@@ -14,12 +14,19 @@
 </head>
 <body>
   <h1><span id="hh">hh</span><span id="hm-colon">:</span><span id="mm">mm</span>:<span id="ss">ss</span><span id="dot">.</span><span id="ms">ms</span></h1>
-  <input type="number" placeholder="hh" name="hh" style="width:2ch" id="hours"   min="0" max="99"
+  <input  type="number"  placeholder="hh" name="hh" style="width:2ch"  id="hours"  min="0" max="99"
   >:<input type="number" placeholder="mm" name="mm" style="width:2ch" id="minutes" min="0" max="59"
   >:<input type="number" placeholder="ss" name="ss" style="width:2ch" id="seconds" min="0" max="59"><br><br>
   <button onclick="start()">start</button>
   <script>
+    [...document.querySelectorAll('input[type="number"]')].forEach(i=>{
+      i.addEventListener("input",()=>{
+        i.style.width = (i.value.length===0)?2:i.value.length+'ch';
+      })
+    })
+    let real = 0;
     const start = () => {
+      clearInterval(real);
       document.getElementById("dot").innerHTML = ".";
       document.getElementById("hm-colon").innerHTML = ":";
       let hours = Number(document.getElementById("hours").value) || 0;
@@ -53,7 +60,7 @@
           alert("Timer's up!");
         }
       };
-      const real = setInterval(upd);
+      real = setInterval(upd);
     }
   </script>
 </body>
