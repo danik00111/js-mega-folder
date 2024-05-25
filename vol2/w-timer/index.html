@@ -14,17 +14,26 @@
 </head>
 <body>
   <h1><span id="hh">hh</span><span id="hm-colon">:</span><span id="mm">mm</span>:<span id="ss">ss</span><span id="dot">.</span><span id="ms">ms</span></h1>
-  <input  type="number"  placeholder="hh" name="hh" style="width:2ch"  id="hours"  min="0" max="99"
-  >:<input type="number" placeholder="mm" name="mm" style="width:2ch" id="minutes" min="0" max="59"
-  >:<input type="number" placeholder="ss" name="ss" style="width:2ch" id="seconds" min="0" max="59"><br><br>
+  <input
+    type="number" placeholder="hh" name="hh"
+    style="width:2ch"  id="hours"  
+    oninput="document.getElementById('hours').style.width
+    =Math.max(2,document.getElementById('hours').value.length)+'ch';"
+    min="0" max="99"
+  >:<input
+    type="number" placeholder="mm" name="mm"
+    style="width:2ch" id="minutes" 
+    oninput="document.getElementById('minutes').style.width
+    =Math.max(2,document.getElementById('minutes').value.length)+'ch';"
+    min="0" max="59"
+  >:<input
+    type="number" placeholder="ss" name="ss"
+    style="width:2ch" id="seconds" 
+    oninput="document.getElementById('seconds').style.width
+    =Math.max(2,document.getElementById('seconds').value.length)+'ch';"
+    min="0" max="59"><br><br>
   <button onclick="start()">start</button>
   <script>
-    [...document.querySelectorAll('input[type="number"]')].forEach(i=>{
-      i.addEventListener("input",()=>{
-        const w = i.value.length;
-        i.style.width = ((w===0)?2:w)+'ch';
-      })
-    })
     let real = 0;
     const start = () => {
       clearInterval(real);
