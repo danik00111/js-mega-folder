@@ -55,7 +55,7 @@ const isFOAK = () => {
 const isYath = () => {
   let the = [...diceCup];
   let r = true;
-  the.forEach((die,i) => { if(die != the[0]) { r = false; } });
+  the.forEach((die,_) => { if(die != the[0]) { r = false; } });
   return r;
 }
 const isFH = () => {
