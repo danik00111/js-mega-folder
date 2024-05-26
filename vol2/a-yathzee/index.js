@@ -59,6 +59,7 @@ const isYath = () => {
   return r;
 }
 const isFH = () => {
+  if(isYath) return true;
   let counts = {};
   for (const die of [...diceCup]) counts[die] = (counts[die] || 0) + 1;
   const uniqueCounts = new Set(Object.values(counts));
