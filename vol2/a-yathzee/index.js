@@ -213,7 +213,7 @@ const gameEnd = () => {
   theScores();
   process.exit();
 };
-const theScores = () => { console.log(`< 1s-6s: ${[...scores].splice(0,6).join(', ')},\n< 3oak: ${scores[6]}, 4oak: ${scores[7]}, fullhouse: ${scores[8]},\n< straights: ${scores[9]}, ${scores[10]}, yath: ${scores[11]}, chance: ${scores[12]},\n< totals: ${totalT()} + ${totalB()} ${(totalT() >= 63) ? '(+35 bonus) ' : ''}${(bonusYaths === 0) ? '' : `(+${bonusYaths * 100} 🅱️onus) `}= ${total()}`); }
+const theScores = () => { console.log(`< 1s-6s: ${[...scores].splice(0,6).join(', ')},\n< 3oak: ${scores[6]}, 4oak: ${scores[7]}, fullhouse: ${scores[8]},\n< straights: ${scores[9]}, ${scores[10]}, yath: ${scores[11]}, chance: ${scores[12]},\n< totals: ${totalT()} ${(totalT() >= 63) ? '(+35 bonus) ' : ''}+ ${totalB()} ${(bonusYaths === 0) ? '' : `(+${bonusYaths * 100} 🅱️onus) `}= ${total()}`); }
 process.stdin.on("data", r => {
   let input = String(r).toLowerCase();
   switch(true) {
@@ -226,7 +226,7 @@ process.stdin.on("data", r => {
     case (input === 'help\n'):
       console.log('< [help] - you are here!\n< [exit] - exit the node.js\n< [advhelp {cmd}] - help on a specific command\n< [score {cell}] - score your dice\n< [rr {5 bits}] - reroll your dice up to twice\n< [scores] - view the scores');
     break;
-    case (input.startsWith('advhelp {')): console.log('< without the curly brackets,,,,,,,,,,,\n');
+    case (input.startsWith('advhelp {')): console.log('< without the curly braces,,,,,,,,,,,\n');
     case (input.startsWith('advhelp ')):
       switch(input.slice(8)) {
         case 'help\n': case 'exit\n': case 'scores\n': console.log('< actually dumb person detected 💀💀'); break;
