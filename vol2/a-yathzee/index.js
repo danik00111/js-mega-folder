@@ -26,7 +26,7 @@ const rerolle = (h) => {
   if(rerolls < 1) { console.log('< nuh uh'); return; }
   let str = h;
   if(parseInt(str) != str) { console.log('< uhmhmh watthrt'); return; }
-  diceCup.forEach((die, i) => {
+  diceCup.forEach((_, i) => {
     if(str.charAt(i) === '1') {
       diceCup[i] = dice();
     }
