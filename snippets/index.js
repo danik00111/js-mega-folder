@@ -228,6 +228,6 @@ export const randHex = () => '#'+((randInt(0,256**3).toString(16)).padStart(6,'0
 //! ^ requires randInt
 
 export const shuffle =(arr)=> arr
-  .map(value => ({ value, sort: Math.random() }))
-  .sort((a, b) => a.sort - b.sort)
-  .map(({ value }) => value);
+  .map(x=>({x,n:Math.random()}))
+  .sort((a,b)=>a.n-b.n)
+  .map(({x})=>x);
