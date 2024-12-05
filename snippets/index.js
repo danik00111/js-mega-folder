@@ -231,3 +231,8 @@ export const shuffle =(arr)=> arr
   .map(x=>({x,n:Math.random()}))
   .sort((a,b)=>a.n-b.n)
   .map(({x})=>x);
+
+export const sleep =x=> {
+  const waitTill = new Date(new Date().getTime() + x);
+  while(waitTill > new Date()){}
+}
