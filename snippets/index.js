@@ -215,7 +215,7 @@ export const t = {
     m: "\x1b[45m", // magenta
     c: "\x1b[46m", // cyan
     w: "\x1b[47m", // white
-    s: "\x1b[100m", //gray
+    s: "\x1b[100m",// gray
   },
 } // https://stackoverflow.com/a/41407246
 
@@ -234,5 +234,9 @@ export const shuffle =(arr)=> arr
 
 export const sleep =x=> {
   const waitTill = new Date(new Date().getTime() + x);
-  while(waitTill > new Date()){}
+  while(waitTill > new Date());
 }
+
+export const actualmod = (x,mod) => (
+  x+Math.ceil(-x/mod)*Math.trunc(-Math.sign(x)+0.5)*mod
+) % mod;
